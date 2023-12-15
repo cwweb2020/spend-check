@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Numans&display=swap");
+
+//// cards container
+@import "variables";
+
+.total-card-container {
+  width: 100%;
+
+  .card-card-container {
+    width: 91%;
+    margin: auto;
+    h3 {
+      font-size: 29px;
+      margin: 0 0 32px 0;
+    }
+
+    .wrapper-card-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      // width: 91%;
+      margin: auto;
+      grid-column-gap: 12px;
+      // card {
+
+      // }
+    }
+  }
+}
+
+.total-card {
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: $shadow;
+  cursor: pointer;
+  .card-wrapper {
+    min-height: 110px;
+    padding: 20px 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    .saldo {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      h4 {
+        color: rgba(0, 0, 0, 0.54);
+      }
+      h5 {
+        font-size: 22px;
+        margin: 0;
+        font-family: "Numans", sans-serif;
+      }
+    }
+
+    .icono {
+      display: flex;
+      align-items: center;
+      img {
+        width: 52px;
+        height: 52px;
+      }
+    }
+  }
+}

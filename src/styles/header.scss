@@ -1,0 +1,30 @@
+.total-header {
+  padding: 15px 0;
+
+  .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+
+    .home {
+      width: 50px;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      img {
+      }
+
+      h3 {
+        margin-left: 20px;
+      }
+    }
+  }
+}

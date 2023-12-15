@@ -1,0 +1,155 @@
+@import "variables.scss";
+
+.total-gastos-ingresos {
+  width: 91%;
+  margin: 0 auto;
+  margin-top: 81px;
+
+  .gastos-ingresos-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+
+    .gastos-gastos {
+      // min-height: 51vh;
+
+      .gastos-ingresos-titulo {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      .contenedor-gastos {
+        background: white;
+        border-radius: 31px;
+        box-shadow: $shadow;
+        display: flex;
+        flex-direction: column;
+
+        //  height: 300px; // provisoria
+        min-height: 320px;
+
+        .topcontainer {
+          flex: 1;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+
+          .left-box {
+          }
+          .right-box {
+            h2 {
+              font-family: $font;
+              margin-bottom: 18px;
+            }
+            ul {
+              list-style: none;
+
+              li {
+                font-family: $font;
+                display: flex;
+                align-items: center;
+                margin-bottom: 8px;
+
+                span {
+                  width: 15px;
+                  height: 15px;
+                  display: inline-block;
+                  background: red;
+                  border-radius: 50%;
+                  margin-right: 8px;
+                }
+              }
+            }
+          }
+        }
+        .bottomcointainer {
+          height: 64px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-top: 1px solid lightgray;
+
+          a {
+            text-decoration: none;
+            color: #6515dd;
+            font-weight: 600;
+            //  letter-spacing: 1px;
+            font-size: 17px;
+            font-family: $font;
+          }
+        }
+      }
+    }
+
+    .ingresos-ingresos {
+      min-height: 63vh;
+
+      .gastos-ingresos-titulo {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      .contenedor-ingresos {
+        background: white;
+        border-radius: 31px;
+        box-shadow: $shadow;
+        display: flex;
+        flex-direction: column;
+
+        //   height: 300px; // provisoria
+        min-height: 320px;
+
+        .topcontainer {
+          flex: 1;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+
+          .left-box {
+          }
+          .right-box {
+            h2 {
+              font-family: $font;
+              margin-bottom: 18px;
+            }
+            ul {
+              list-style: none;
+
+              li {
+                font-family: $font;
+                display: flex;
+                align-items: center;
+                margin-bottom: 8px;
+
+                span {
+                  width: 15px;
+                  height: 15px;
+                  display: inline-block;
+                  background: red;
+                  border-radius: 50%;
+                  margin-right: 8px;
+                }
+              }
+            }
+          }
+        }
+        .bottomcointainer {
+          height: 64px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-top: 1px solid lightgray;
+
+          a {
+            text-decoration: none;
+            color: #6515dd;
+            font-weight: 600;
+            //  letter-spacing: 1px;
+            font-size: 17px;
+            font-family: $font;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,15 @@
 import React from "react";
-import "./base.scss";
-import Home from "./views/Home";
+import "./styles/base.scss";
+import Routes from "./routes";
+import MedioCirculo from "./components/MedioCirculo";
 
 const App = () => {
+  const porcentajes = [40, 10, 50];
+  const colores = ["red", "#36A2EB", "green", "#0099cc"];
   return (
     <>
-      <Home />
+      <Routes />
+      {/* <MedioCirculo porcentajes={porcentajes} colores={colores} /> */}
     </>
   );
 };

@@ -1,0 +1,41 @@
+@import "variables";
+
+.landing-total {
+  width: 100%;
+  min-height: 100vh;
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+
+    h1 {
+      margin: 0 0 35px 0;
+    }
+
+    button {
+      padding: 16px 20px;
+      border: none;
+      border-radius: 5px;
+      background: white;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      box-shadow: $shadow;
+
+      img {
+        width: 15px;
+        margin-right: 10px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.005);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+}
