@@ -2,6 +2,7 @@ import React from "react";
 import CardsContainer from "../components/CardsContainer";
 import GastosIngresos from "../components/GastosIngresos";
 import Header from "../components/Header";
+import Table from "../components/Table";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
           <Header />
           <CardsContainer />
           <GastosIngresos />
+          <Table />
         </div>
       </section>
     </>

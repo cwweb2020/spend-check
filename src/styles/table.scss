@@ -1,0 +1,46 @@
+.total-table {
+  //
+  .table-wrapper {
+    h2 {
+      margin-bottom: 30px;
+    }
+    width: 75%;
+    margin: auto;
+
+    .table-container {
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+      table {
+        width: 100%;
+
+        thead {
+          background: white;
+          height: 48px;
+        }
+
+        tbody {
+          tr {
+            height: 50px;
+            font-size: 13px;
+
+            td {
+              padding: 5px 0 5px 20px;
+              font-family: $font;
+            }
+            .edit-delete {
+              button {
+                background: transparent;
+                border: none;
+                img {
+                  width: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
