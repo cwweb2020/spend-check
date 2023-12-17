@@ -10,7 +10,7 @@
     width: 91%;
     margin: auto;
     h3 {
-      font-size: 29px;
+      font-size: 1.812em;
       margin: 0 0 32px 0;
     }
 
@@ -34,7 +34,7 @@
   box-shadow: $shadow;
   cursor: pointer;
   .card-wrapper {
-    min-height: 110px;
+    min-height: 6.875em;
     padding: 20px 18px 24px;
     display: flex;
     justify-content: space-between;
@@ -44,9 +44,10 @@
       justify-content: space-between;
       h4 {
         color: rgba(0, 0, 0, 0.54);
+        font-size: 1em;
       }
       h5 {
-        font-size: 22px;
+        font-size: 1.25em;
         margin: 0;
         font-family: "Numans", sans-serif;
       }
@@ -56,8 +57,10 @@
       display: flex;
       align-items: center;
       img {
-        width: 52px;
-        height: 52px;
+        width: 3.25em;
+        height: 3.25em;
+        // width: 52px;
+        // height: 52px;
       }
     }
   }

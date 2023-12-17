@@ -4,7 +4,7 @@ import GastosIngresos from "../components/GastosIngresos";
 import Header from "../components/Header";
 import Table from "../components/Table";
 
-const Home = () => {
+const Dashboard = () => {
   return (
     <>
       <section className="total-home">
@@ -19,4 +19,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Dashboard;

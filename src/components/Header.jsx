@@ -1,12 +1,19 @@
 import React from "react";
 import home from "../assets/icons/home.svg";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const redirectToHome = () => {
+    navigate("/Dashboard");
+  };
+
   return (
     <>
       <section className="total-header">
         <div className="header-wrapper">
-          <div className="home">
+          <div onClick={redirectToHome} className="home">
             <img src={home} alt="" />
           </div>
           <div className="person">

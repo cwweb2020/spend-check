@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { datos } from "../utils/fakeData";
-import edit from "../assets/icons/edit.svg";
-import bin from "../assets/icons/bin.svg";
+import TrTableComponent from "./TrTableComponent";
 
 const Table = () => {
+  /////
+
+  const [data, setData] = useState(datos);
+
+  ////
+  const handleDelete = (id) => () => {
+    const newData = data.filter((dato) => dato.id !== id);
+    setData(newData);
+  };
+
+  ///
+
   return (
     <>
       <section className="total-table">
@@ -22,32 +33,14 @@ const Table = () => {
               </thead>
               <tbody>
                 {/* <!-- Filas --> */}
-                {datos.map((dato, index) => {
+                {data.map((dato, index) => {
                   return (
-                    <tr
-                      style={{
-                        backgroundColor:
-                          index % 2 === 0 ? "#f6f8ec5c" : "white",
-                      }}
+                    <TrTableComponent
                       key={dato.id}
-                    >
-                      <td>{dato.fecha}</td>
-                      <td>{dato.descripcion}</td>
-                      <td>{dato.categoria}</td>
-                      <td>{dato.valor}</td>
-                      <td className="edit-delete">
-                        <button>
-                          <img
-                            style={{ marginRight: "18px" }}
-                            src={edit}
-                            alt=""
-                          />
-                        </button>
-                        <button>
-                          <img src={bin} alt="" />
-                        </button>
-                      </td>
-                    </tr>
+                      dato={dato}
+                      index={index}
+                      handleDelete={handleDelete}
+                    />
                   );
                 })}
               </tbody>

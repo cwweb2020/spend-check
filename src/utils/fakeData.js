@@ -20,4 +20,25 @@ export const datos = [
     categoria: "Transporte",
     valor: "$30.00",
   },
+  {
+    id: 4,
+    fecha: "2023-04-25",
+    descripcion: "Pago de factura de servicios",
+    categoria: "Servicios",
+    valor: "$80.00",
+  },
+  {
+    id: 5,
+    fecha: "2023-05-30",
+    descripcion: "Pago de factura de servicios",
+    categoria: "Servicios",
+    valor: "$80.00",
+  },
+  {
+    id: 6,
+    fecha: "2023-06-15",
+    descripcion: "Pago de factura de servicios",
+    categoria: "Servicios",
+    valor: "$80.00",
+  },
 ];

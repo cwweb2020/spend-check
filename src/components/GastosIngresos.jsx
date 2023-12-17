@@ -5,6 +5,8 @@ const GastosIngresos = () => {
   const porcentajes = [40, 10, 50];
   const colores = ["red", "#36A2EB", "green", "#0099cc"];
 
+  //
+
   return (
     <>
       <section className="total-gastos-ingresos">
@@ -20,16 +22,16 @@ const GastosIngresos = () => {
                   <h2>$ 950</h2>
                   <ul>
                     <li>
-                      <span></span> red
+                      <span style={{ backgroundColor: "red" }}></span> red
                     </li>
                     <li>
-                      <span></span> blue
+                      <span style={{ backgroundColor: "blue" }}></span> blue
                     </li>
                     <li>
-                      <span></span> green
+                      <span style={{ backgroundColor: "green" }}></span> green
                     </li>
                     <li>
-                      <span></span> yellow
+                      <span style={{ backgroundColor: "yellow" }}></span> yellow
                     </li>
                   </ul>
                 </div>
@@ -50,16 +52,16 @@ const GastosIngresos = () => {
                   <h2>$ 950</h2>
                   <ul>
                     <li>
-                      <span></span> red
+                      <span style={{ backgroundColor: "red" }}></span> red
                     </li>
                     <li>
-                      <span></span> blue
+                      <span style={{ backgroundColor: "blue" }}></span> blue
                     </li>
                     <li>
-                      <span></span> green
+                      <span style={{ backgroundColor: "green" }}></span> green
                     </li>
                     <li>
-                      <span></span> yellow
+                      <span style={{ backgroundColor: "yellow" }}></span> yellow
                     </li>
                   </ul>
                 </div>

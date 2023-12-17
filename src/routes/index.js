@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "../views/Home";
+import Dashboard from "../views/Dashboard";
 import Layout from "./layout/Layout";
 import LandingPage from "../views/LandingPage";
 import DataUserProvider from "../context/provider/DataUserProvider";
@@ -16,8 +16,8 @@ const MainRoutes = () => {
             <Route index element={<LandingPage />} />
             {/* <Route index element={<Home />} /> */}
             <Route
-              path="home"
-              element={<PrivateRoute redirect="/" component={<Home />} />}
+              path="dashboard"
+              element={<PrivateRoute redirect="/" component={<Dashboard />} />}
             />
           </Routes>
         </DataUserProvider>

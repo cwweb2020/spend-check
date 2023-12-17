@@ -9,7 +9,7 @@ const DataUserProvider = ({ children }) => {
 
   const handleLoged = () => {
     setIsLoged(true);
-    navigate("/home");
+    navigate("/dashboard");
   };
 
   return (
