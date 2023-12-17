@@ -8,20 +8,14 @@
   font-family: "Raleway", sans-serif;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 @import "variables";
 
-// $background: #edf3fb;
-// $saldo: rgb(33, 150, 243);
-// $ingresos: rgb(76, 175, 80);
-// $gastos: rgb(244, 67, 54);
-// $tarjeta: rgb(0, 121, 107);
-// $botones-links: #35128c;
-
-// $shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-//   0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-// $tamaño-card: 1 1 calc(25% - 36px);
-// $radius: 25px;
-// $icono-person: url("https://portalvhdshl0fsz1rywfcp.blob.core.windows.net/fotoperfilmobills/avatar.png");
+//
 
 body {
   background-color: $background;

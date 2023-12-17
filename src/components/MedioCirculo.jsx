@@ -11,7 +11,7 @@ const MedioCirculo = ({ porcentajes, colores }) => {
     <PieChart
       data={data}
       lineWidth={30}
-      style={{ height: "180px", width: "fit-content" }} // Ajusta la altura según tus necesidades
+      style={{ width: "fit-content" }} // Ajusta la altura según tus necesidades
       startAngle={-90}
       totalValue={100}
     />

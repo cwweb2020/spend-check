@@ -4,11 +4,15 @@
   width: 91%;
   margin: 0 auto;
   margin-top: 81px;
+  margin-bottom: 90px;
 
   .gastos-ingresos-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 40px;
+    // reduzco un poco el ancho
+    width: 90%;
+    margin: auto;
 
     .gastos-gastos {
       // min-height: 51vh;
@@ -35,6 +39,9 @@
           align-items: center;
 
           .left-box {
+            svg {
+              height: 12em;
+            }
           }
           .right-box {
             h2 {
@@ -75,7 +82,7 @@
             color: #6515dd;
             font-weight: 600;
             //  letter-spacing: 1px;
-            font-size: 17px;
+            font-size: 1em;
             font-family: $font;
           }
         }
@@ -83,7 +90,7 @@
     }
 
     .ingresos-ingresos {
-      min-height: 63vh;
+      // min-height: 63vh;
 
       .gastos-ingresos-titulo {
         color: rgba(0, 0, 0, 0.54);
@@ -107,6 +114,9 @@
           align-items: center;
 
           .left-box {
+            svg {
+              height: 11.25em;
+            }
           }
           .right-box {
             h2 {
@@ -147,7 +157,7 @@
             color: #6515dd;
             font-weight: 600;
             //  letter-spacing: 1px;
-            font-size: 17px;
+            font-size: 1em;
             font-family: $font;
           }
         }
