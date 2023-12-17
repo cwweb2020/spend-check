@@ -25,7 +25,7 @@ const GastosIngresos = () => {
                       <span style={{ backgroundColor: "red" }}></span> red
                     </li>
                     <li>
-                      <span style={{ backgroundColor: "blue" }}></span> blue
+                      <span style={{ backgroundColor: "#36a2eb" }}></span> blue
                     </li>
                     <li>
                       <span style={{ backgroundColor: "green" }}></span> green
@@ -37,7 +37,7 @@ const GastosIngresos = () => {
                 </div>
               </div>
               <div className="bottomcointainer">
-                <a href="">Ver mas</a>
+                <a href="#">Ver mas</a>
               </div>
             </div>
           </div>
@@ -55,7 +55,7 @@ const GastosIngresos = () => {
                       <span style={{ backgroundColor: "red" }}></span> red
                     </li>
                     <li>
-                      <span style={{ backgroundColor: "blue" }}></span> blue
+                      <span style={{ backgroundColor: "#36a2eb" }}></span> blue
                     </li>
                     <li>
                       <span style={{ backgroundColor: "green" }}></span> green
@@ -67,7 +67,7 @@ const GastosIngresos = () => {
                 </div>
               </div>
               <div className="bottomcointainer">
-                <a href="">Ver mas</a>
+                <a href="#">Ver mas</a>
               </div>
             </div>
           </div>
