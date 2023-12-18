@@ -7,7 +7,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const redirectToHome = () => {
-    navigate("/Dashboard");
+    navigate("/dashboard");
   };
 
   return (
@@ -23,11 +23,6 @@ const Header = () => {
               src={person}
               alt=""
             />
-            {/* <img
-              style={{ width: "40px", height: "40px" }}
-              src="https://portalvhdshl0fsz1rywfcp.blob.core.windows.net/fotoperfilmobills/avatar.png"
-              alt=""
-            /> */}
             <h3>claudio</h3>
           </div>
         </div>

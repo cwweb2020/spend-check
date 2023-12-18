@@ -17,6 +17,7 @@ const CardsContainer = () => {
                 key={cardIcon.id}
                 icon={cardIcon.icon}
                 title={cardIcon.title}
+                total={cardIcon.total}
               />
             ))}
           </div>

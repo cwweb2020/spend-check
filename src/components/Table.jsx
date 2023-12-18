@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { datos } from "../utils/fakeData";
 import TrTableComponent from "./TrTableComponent";
+import Card from "./Card";
+import { DataContext } from "../context/provider/DataUserProvider";
+import iconChancho from "../assets/icons/chancho.svg";
+import TheadTable from "./TheadTable";
+import TableButton from "./TableButton";
 
-const Table = () => {
-  /////
-
+const Table = ({ titulo, button, bg }) => {
   const [data, setData] = useState(datos);
+  const [total, setTotal] = useState(0);
+  //
+  // const { setSubTotal } = useContext(DataContext);
 
   ////
   const handleDelete = (id) => () => {
@@ -15,21 +21,29 @@ const Table = () => {
 
   ///
 
+  const getTotal = () => {
+    let precioSinSigno = data.map((dato) => dato.valor.replace("$", "").trim());
+    let precioNumerico = precioSinSigno.map((dato) => parseFloat(dato));
+    let total = precioNumerico.reduce((acc, curr) => acc + curr, 0);
+    setTotal(total.toFixed(2));
+  };
+
+  useEffect(() => {
+    getTotal();
+  }, [data]);
+
   return (
     <>
       <section className="total-table">
         <div className="table-wrapper">
-          <h2>Ingresos</h2>
+          <div className="contenedor-titulo-botoningreso">
+            <h2>{titulo} </h2>
+            <TableButton titulo={titulo} button={button} bg={bg} />
+          </div>
           <div className="table-container">
             <table>
               <thead>
-                <tr>
-                  <th>Fecha</th>
-                  <th>Descripción</th>
-                  <th>Categoría</th>
-                  <th>Valor</th>
-                  <th>Acciones</th>
-                </tr>
+                <TheadTable />
               </thead>
               <tbody>
                 {/* <!-- Filas --> */}
@@ -48,8 +62,15 @@ const Table = () => {
           </div>
         </div>
       </section>
-      <br />
-      <br />
+      <div className="box">
+        <div className="box-wrapper">
+          <Card
+            title={"Total"}
+            total={total}
+            icon={titulo === "Ingresos" ? "chancho" : "money"}
+          />
+        </div>
+      </div>
       <br />
       <br />
     </>

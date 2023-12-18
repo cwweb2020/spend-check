@@ -2,8 +2,8 @@ import React from "react";
 import MedioCirculo from "./MedioCirculo";
 
 const GastosIngresos = () => {
-  const porcentajes = [40, 10, 50];
-  const colores = ["red", "#36A2EB", "green", "#0099cc"];
+  const porcentajes = [20, 10, 50, 20];
+  const colores = ["red", "#36A2EB", "yellow", "green"];
 
   //
 
@@ -36,9 +36,6 @@ const GastosIngresos = () => {
                   </ul>
                 </div>
               </div>
-              <div className="bottomcointainer">
-                <a href="#">Ver mas</a>
-              </div>
             </div>
           </div>
           <div className="ingresos-ingresos">
@@ -65,9 +62,6 @@ const GastosIngresos = () => {
                     </li>
                   </ul>
                 </div>
-              </div>
-              <div className="bottomcointainer">
-                <a href="#">Ver mas</a>
               </div>
             </div>
           </div>

@@ -5,6 +5,7 @@ export const DataContext = createContext();
 
 const DataUserProvider = ({ children }) => {
   const [isLoged, setIsLoged] = useState(false);
+
   const navigate = useNavigate();
 
   const handleLoged = () => {

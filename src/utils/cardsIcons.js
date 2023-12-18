@@ -8,21 +8,25 @@ export const cardsIcons = [
     id: 3,
     icon: bank,
     title: "Saldo actual",
+    total: "$ 950",
   },
   {
     id: 2,
     icon: arrowUp,
     title: "Ingresos",
+    total: "$ 350",
   },
   {
     id: 1,
     icon: arrowDown,
     title: "Gastos",
+    total: "$ 400",
   },
 
   {
     id: 4,
     icon: cc,
     title: "Tarjeta de credito",
+    total: "$ 100",
   },
 ];
