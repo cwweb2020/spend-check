@@ -6,9 +6,15 @@ import { DataContext } from "../context/provider/DataUserProvider";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { handleLogingOut } = useContext(DataContext);
 
   const redirectToHome = () => {
     navigate("/dashboard");
+  };
+  //
+
+  const handleLogOut = () => {
+    handleLogingOut();
   };
 
   return (
@@ -24,7 +30,10 @@ const Header = () => {
               src={person}
               alt=""
             />
-            <h3>claudio</h3>/<h4 style={salir}>Salir</h4>
+            <h3>claudio</h3>/
+            <h4 onClick={handleLogOut} style={salir}>
+              Salir
+            </h4>
           </div>
         </div>
       </section>

@@ -38,7 +38,7 @@
     padding: 20px 18px 24px;
     display: flex;
     justify-content: space-between;
-    .saldo {
+    .expenses {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -53,7 +53,7 @@
       }
     }
 
-    .icono {
+    .icon {
       display: flex;
       align-items: center;
       img {

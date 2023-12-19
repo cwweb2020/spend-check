@@ -13,8 +13,13 @@ const DataUserProvider = ({ children }) => {
     navigate("/dashboard");
   };
 
+  const handleLogingOut = () => {
+    setIsLoged(false);
+    navigate("/");
+  };
+
   return (
-    <DataContext.Provider value={{ isLoged, handleLoged }}>
+    <DataContext.Provider value={{ isLoged, handleLoged, handleLogingOut }}>
       {children}
     </DataContext.Provider>
   );

@@ -13,10 +13,9 @@ import {
 const BarChartExample = () => {
   // Datos de ejemplo (puedes reemplazarlos con tus propios datos)
   const data = [
-    { name: "Setiembre", ingresos: 1000, gastos: 600 },
     { name: "Octubre", ingresos: 1200, gastos: 800 },
     { name: "Noviembre", ingresos: 1800, gastos: 1200 },
-    { name: "Diciembre", ingresos: 1700, gastos: 112 },
+    { name: "Diciembre", ingresos: 1700, gastos: 312 },
     // ... más datos
   ];
 

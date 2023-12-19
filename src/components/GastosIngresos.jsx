@@ -10,10 +10,10 @@ const GastosIngresos = () => {
   return (
     <>
       <section className="total-gastos-ingresos">
-        <div className="gastos-ingresos-wrapper">
-          <div className="gastos-gastos">
-            <h4 className="gastos-ingresos-titulo">Gastos por catergoría</h4>
-            <div className="contenedor-gastos">
+        <div className="expenses-incomes-wrapperr">
+          <div className="expenses-expenses">
+            <h4 className="expenses-incomes-title">Gastos por catergoría</h4>
+            <div className="expenses-container">
               <div className="topcontainer">
                 <div className="left-box">
                   <MedioCirculo porcentajes={porcentajes} colores={colores} />
@@ -42,9 +42,9 @@ const GastosIngresos = () => {
               </div>
             </div>
           </div>
-          <div className="ingresos-ingresos">
-            <h4 className="gastos-ingresos-titulo">Ingresos por catergoría</h4>
-            <div className="contenedor-ingresos">
+          <div className="incomes-incomes">
+            <h4 className="expenses-incomes-title">Ingresos por catergoría</h4>
+            <div className="incomes-container">
               <div className="topcontainer">
                 <div className="left-box">
                   <MedioCirculo porcentajes={porcentajes} colores={colores} />

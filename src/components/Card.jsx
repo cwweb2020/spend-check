@@ -26,11 +26,11 @@ const Card = ({ icon, title, total }) => {
     <>
       <section onClick={() => handleNavigate(title)} className="total-card">
         <div className="card-wrapper">
-          <div className="saldo">
+          <div className="expenses">
             <h4>{title}</h4>
             <h5>{total}</h5>
           </div>
-          <div className="icono">
+          <div className="icon">
             <img
               src={
                 icon === "chancho" ? chancho : icon === "money" ? money : icon

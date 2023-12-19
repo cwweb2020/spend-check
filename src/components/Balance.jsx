@@ -16,11 +16,11 @@ const Balance = () => {
                   <span style={{ color: "#4caf50" }}>$ 1700</span>
                 </li>
                 <li>
-                  <h4>Gastos</h4> <span style={{ color: "red" }}>$ 112</span>
+                  <h4>Gastos</h4> <span style={{ color: "red" }}>$ 312</span>
                 </li>
                 <hr />
                 <li>
-                  <h4>Balance</h4> <span>$ 1588</span>
+                  <h4>Balance</h4> <span>$ 1388</span>
                 </li>
               </ul>
             </div>

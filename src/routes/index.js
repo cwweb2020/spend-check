@@ -14,8 +14,8 @@ const MainRoutes = () => {
       <BrowserRouter>
         <DataUserProvider>
           <Routes>
+            <Route index element={<LandingPage />} />
             <Route path="/" element={<Layout />}>
-              <Route index element={<LandingPage />} />
               <Route path="ingresos" element={<Incomings />} />
               <Route path="gastos" element={<Expenses />} />
               <Route

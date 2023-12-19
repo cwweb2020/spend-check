@@ -12,7 +12,13 @@
     flex-direction: column;
 
     h1 {
+      margin: 0 0 1em 0;
+      font-size: 1.6875em;
+      text-align: center;
+    }
+    h3 {
       margin: 0 0 35px 0;
+      font-size: 1.125em;
     }
 
     button {
