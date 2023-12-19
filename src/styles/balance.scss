@@ -1,0 +1,68 @@
+@import "variables.scss";
+
+.total-balance {
+  width: 83%;
+  margin: auto;
+
+  .wrapper-balance {
+    // width: 80%;
+
+    h3 {
+      font-size: 1.4375em;
+      color: $color-titles;
+    }
+    .balance-chart-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .balance-chart {
+        flex-basis: 55%;
+      }
+      .balance-container {
+        background: white;
+        border-radius: 31px;
+        box-shadow: $shadow;
+        display: flex;
+        flex-direction: column;
+        min-height: 14em;
+        flex-basis: 40%;
+
+        // padding: 1.625em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ul {
+          list-style: none;
+          width: 80%;
+
+          li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.125em;
+
+            h4 {
+              // color: #000000b0;
+              font-weight: 500;
+            }
+            h4,
+            span {
+              font-family: $font;
+              font-size: 1.125em;
+              letter-spacing: 0.8px;
+            }
+            span {
+              font-weight: 600;
+            }
+          }
+
+          hr {
+            border: 1px solid #e0e0e0;
+            margin-bottom: 1.125em;
+          }
+        }
+      }
+    }
+  }
+}

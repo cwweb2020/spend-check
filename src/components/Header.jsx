@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import house from "../assets/icons/house.svg";
 import { useNavigate } from "react-router-dom";
 import person from "../assets/icons/person-svgrepo-com.svg";
+import { DataContext } from "../context/provider/DataUserProvider";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,12 +24,18 @@ const Header = () => {
               src={person}
               alt=""
             />
-            <h3>claudio</h3>
+            <h3>claudio</h3>/<h4 style={salir}>Salir</h4>
           </div>
         </div>
       </section>
     </>
   );
+};
+
+const salir = {
+  color: "#ff0000",
+  cursor: "pointer",
+  fontSize: "1.06em",
 };
 
 export default Header;

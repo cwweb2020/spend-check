@@ -22,16 +22,20 @@ const GastosIngresos = () => {
                   <h2>$ 950</h2>
                   <ul>
                     <li>
-                      <span style={{ backgroundColor: "red" }}></span> red
+                      <span style={{ backgroundColor: "red" }}></span>{" "}
+                      Comestibles
                     </li>
                     <li>
-                      <span style={{ backgroundColor: "#36a2eb" }}></span> blue
+                      <span style={{ backgroundColor: "#36a2eb" }}></span>{" "}
+                      Medicamentos
                     </li>
                     <li>
-                      <span style={{ backgroundColor: "green" }}></span> green
+                      <span style={{ backgroundColor: "green" }}></span>{" "}
+                      Entretenimiento
                     </li>
                     <li>
-                      <span style={{ backgroundColor: "yellow" }}></span> yellow
+                      <span style={{ backgroundColor: "yellow" }}></span>{" "}
+                      Miscelaneos
                     </li>
                   </ul>
                 </div>
@@ -49,16 +53,18 @@ const GastosIngresos = () => {
                   <h2>$ 950</h2>
                   <ul>
                     <li>
-                      <span style={{ backgroundColor: "red" }}></span> red
+                      <span style={{ backgroundColor: "red" }}></span> Sueldo
                     </li>
                     <li>
-                      <span style={{ backgroundColor: "#36a2eb" }}></span> blue
+                      <span style={{ backgroundColor: "#36a2eb" }}></span>{" "}
+                      Intereses/banc
                     </li>
                     <li>
-                      <span style={{ backgroundColor: "green" }}></span> green
+                      <span style={{ backgroundColor: "green" }}></span>{" "}
+                      Prestamos
                     </li>
                     <li>
-                      <span style={{ backgroundColor: "yellow" }}></span> yellow
+                      <span style={{ backgroundColor: "yellow" }}></span> Otros
                     </li>
                   </ul>
                 </div>

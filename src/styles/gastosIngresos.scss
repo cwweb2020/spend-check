@@ -3,8 +3,10 @@
 .total-gastos-ingresos {
   width: 91%;
   margin: 0 auto;
-  margin-top: 81px;
-  margin-bottom: 90px;
+  //  margin-top: 81px;
+  // margin-bottom: 90px;
+  margin-top: 5em;
+  margin-bottom: 5.625em;
 
   .gastos-ingresos-wrapper {
     display: grid;
@@ -30,7 +32,7 @@
         flex-direction: column;
 
         //  height: 300px; // provisoria
-        min-height: 320px;
+        min-height: 19em;
 
         .topcontainer {
           flex: 1;
@@ -104,8 +106,9 @@
         display: flex;
         flex-direction: column;
 
-        //   height: 300px; // provisoria
-        min-height: 320px;
+        // // provisoria
+        // min-height: 20em;
+        min-height: 19em;
 
         .topcontainer {
           flex: 1;
@@ -115,7 +118,8 @@
 
           .left-box {
             svg {
-              height: 11.25em;
+              //  height: 11.25em;
+              height: 12em;
             }
           }
           .right-box {
@@ -173,6 +177,6 @@
   margin-top: 40px;
 
   .box-wrapper {
-    width: 300px;
+    width: 18.75em;
   }
 }
