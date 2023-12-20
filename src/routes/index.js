@@ -7,26 +7,29 @@ import PrivateRoute from "../components/PrivateRoute";
 import Incomings from "../views/Incomings";
 import Expenses from "../views/Expenses";
 import Layout from "./Layout";
+import UserLoginProvider from "../context/provider/UserLoginProvider";
 
 const MainRoutes = () => {
   return (
     <>
       <BrowserRouter>
-        <DataUserProvider>
-          <Routes>
-            <Route index element={<LandingPage />} />
-            <Route path="/" element={<Layout />}>
-              <Route path="ingresos" element={<Incomings />} />
-              <Route path="gastos" element={<Expenses />} />
-              <Route
-                path="dashboard"
-                element={
-                  <PrivateRoute redirect="/" component={<Dashboard />} />
-                }
-              />
-            </Route>
-          </Routes>
-        </DataUserProvider>
+        <UserLoginProvider>
+          <DataUserProvider>
+            <Routes>
+              <Route index element={<LandingPage />} />
+              <Route path="/" element={<Layout />}>
+                <Route path="ingresos" element={<Incomings />} />
+                <Route path="gastos" element={<Expenses />} />
+                <Route
+                  path="dashboard"
+                  element={
+                    <PrivateRoute redirect="/" component={<Dashboard />} />
+                  }
+                />
+              </Route>
+            </Routes>
+          </DataUserProvider>
+        </UserLoginProvider>
       </BrowserRouter>
     </>
   );

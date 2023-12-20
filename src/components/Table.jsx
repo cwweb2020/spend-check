@@ -6,6 +6,7 @@ import { DataContext } from "../context/provider/DataUserProvider";
 import iconChancho from "../assets/icons/chancho.svg";
 import TheadTable from "./TheadTable";
 import TableButton from "./TableButton";
+import Flotante from "./material-icons/Flotante";
 
 const Table = ({ titulo, button, bg }) => {
   const [data, setData] = useState(datos);
@@ -38,7 +39,13 @@ const Table = ({ titulo, button, bg }) => {
         <div className="table-wrapper">
           <div className="contenedor-titulo-botoningreso">
             <h2>{titulo} </h2>
-            <TableButton titulo={titulo} button={button} bg={bg} />
+            <div className="testing">
+              {/* <TableButton titulo={titulo} button={button} bg={bg} /> */}
+              <Flotante bg={bg} />
+              <h4 style={{ color: titulo === "Gastos" ? "red" : "#388e3c" }}>
+                {titulo}
+              </h4>
+            </div>
           </div>
           <div className="table-container">
             <table>

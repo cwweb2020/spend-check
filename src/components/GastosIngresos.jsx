@@ -3,7 +3,7 @@ import MedioCirculo from "./MedioCirculo";
 
 const GastosIngresos = () => {
   const porcentajes = [20, 10, 50, 20];
-  const colores = ["red", "#36A2EB", "yellow", "green"];
+  const colores = ["#9933cc", "#36A2EB", "#ff725e", "green"];
 
   //
 
@@ -17,12 +17,12 @@ const GastosIngresos = () => {
               <div className="topcontainer">
                 <div className="left-box">
                   <MedioCirculo porcentajes={porcentajes} colores={colores} />
+                  <h2>$950</h2>
                 </div>
                 <div className="right-box">
-                  <h2>$ 950</h2>
                   <ul>
                     <li>
-                      <span style={{ backgroundColor: "red" }}></span>{" "}
+                      <span style={{ backgroundColor: "#9933cc" }}></span>{" "}
                       Comestibles
                     </li>
                     <li>
@@ -34,7 +34,7 @@ const GastosIngresos = () => {
                       Entretenimiento
                     </li>
                     <li>
-                      <span style={{ backgroundColor: "yellow" }}></span>{" "}
+                      <span style={{ backgroundColor: "#ff725e" }}></span>{" "}
                       Miscelaneos
                     </li>
                   </ul>
@@ -48,9 +48,9 @@ const GastosIngresos = () => {
               <div className="topcontainer">
                 <div className="left-box">
                   <MedioCirculo porcentajes={porcentajes} colores={colores} />
+                  <h2>$950</h2>
                 </div>
                 <div className="right-box">
-                  <h2>$ 950</h2>
                   <ul>
                     <li>
                       <span style={{ backgroundColor: "red" }}></span> Sueldo

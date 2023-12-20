@@ -17,19 +17,18 @@
       justify-content: space-between;
 
       .balance-chart {
-        flex-basis: 55%;
+        flex-basis: 60%;
       }
       .balance-container {
-        background: white;
-        border-radius: 31px;
-        box-shadow: $shadow;
-        display: flex;
-        flex-direction: column;
-        min-height: 14em;
+        //  background: white;
+        //   border-radius: 31px;
+        //  box-shadow: $shadow;
+        //   min-height: 14em;
         flex-basis: 40%;
 
         // padding: 1.625em;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
 

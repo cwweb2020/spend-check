@@ -11,7 +11,7 @@ import {
 } from "recharts";
 
 const BarChartExample = () => {
-  // Datos de ejemplo (puedes reemplazarlos con tus propios datos)
+  // Datos
   const data = [
     { name: "Octubre", ingresos: 1200, gastos: 800 },
     { name: "Noviembre", ingresos: 1800, gastos: 1200 },
