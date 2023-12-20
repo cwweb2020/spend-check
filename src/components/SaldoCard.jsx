@@ -4,6 +4,7 @@ const SaldoCard = () => {
   return (
     <>
       <div className="total-balance-card-container">
+        <h4 className="total-balance-title">Saldo</h4>
         <section className="total-balance-card">
           <div className="refill">
             <div className="wrapper-balance-card">
