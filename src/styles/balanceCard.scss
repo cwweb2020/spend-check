@@ -37,12 +37,15 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.9375em;
-            font-size: 1.1em;
+            font-size: 1em;
 
             h4 {
-              color: #666666;
+              //  color: #666666;
               font-family: "Numans";
-              letter-spacing: 2px;
+              letter-spacing: 1px;
+            }
+            .balance-card-number {
+              letter-spacing: 3px;
             }
           }
           hr {

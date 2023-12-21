@@ -51,15 +51,19 @@
   background-color: white;
   box-shadow: $shadow;
   cursor: pointer;
+  width: 100%;
+
   .card-wrapper {
     min-height: 6.875em;
     padding: 20px 18px 24px;
     display: flex;
     justify-content: space-between;
+
     .expenses {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
       h4 {
         color: rgba(0, 0, 0, 0.54);
         font-size: 1em;
@@ -68,6 +72,7 @@
         font-size: 1.125em;
         margin: 0;
         font-family: "Numans", sans-serif;
+        letter-spacing: 1.1px;
       }
     }
 

@@ -194,7 +194,12 @@
   margin: auto;
   margin-top: 40px;
 
+  display: flex;
+
   .box-wrapper {
     width: 18.75em;
+
+    display: flex;
+    align-items: center;
   }
 }

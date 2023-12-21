@@ -7,6 +7,10 @@ import iconChancho from "../assets/icons/chancho.svg";
 import TheadTable from "./TheadTable";
 import TableButton from "./TableButton";
 import Flotante from "./material-icons/Flotante";
+import money from "../assets/img/money.svg";
+import expenses from "../assets/img/expenses.svg";
+
+//
 
 const Table = ({ titulo, button, bg }) => {
   const [data, setData] = useState(datos);
@@ -70,6 +74,11 @@ const Table = ({ titulo, button, bg }) => {
         </div>
       </section>
       <div className="box">
+        <img
+          src={titulo === "Ingresos" ? money : expenses}
+          alt=""
+          width="161px"
+        />
         <div className="box-wrapper">
           <Card
             title={"Total"}
