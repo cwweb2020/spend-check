@@ -16,17 +16,17 @@
     display: flex;
     flex-direction: column;
 
-    width: 42%;
+    width: 39%;
     overflow: hidden;
 
     .refill {
-      background: #455a64;
+      // background: #455a64;
       // padding: 075em 0;
 
       .wrapper-balance-card {
         background: white;
         border-radius: 0.8125em;
-        padding: 1.5em;
+        padding: 2em 1.5em;
         width: 90%;
         margin: auto;
 
@@ -41,8 +41,10 @@
 
             h4 {
               //  color: #666666;
-              font-family: "Numans";
+              font-family: system-ui;
               letter-spacing: 1px;
+              font-size: 1.125em;
+              font-weight: 600;
             }
             .balance-card-number {
               letter-spacing: 3px;

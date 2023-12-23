@@ -1,25 +1,16 @@
 import React, { createContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const DataContext = createContext();
 
 const DataUserProvider = ({ children }) => {
-  const [isLoged, setIsLoged] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const navigate = useNavigate();
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-  const handleLoged = () => {
-    setIsLoged(true);
-    navigate("/dashboard");
-  };
-
-  const handleLogingOut = () => {
-    setIsLoged(false);
-    navigate("/");
-  };
-
+  //
   return (
-    <DataContext.Provider value={{ isLoged, handleLoged, handleLogingOut }}>
+    <DataContext.Provider value={{ handleClose, handleOpen, setOpen, open }}>
       {children}
     </DataContext.Provider>
   );

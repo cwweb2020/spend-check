@@ -2,16 +2,18 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-import toast, { Toaster } from "react-hot-toast";
+// import toast, { Toaster } from "react-hot-toast";
+import { DataContext } from "../../context/provider/DataUserProvider";
 
 export default function Flotante({ bg }) {
   //
-
+  const { handleOpen } = React.useContext(DataContext);
   //
 
   const notify = () => {
-    let text = bg === "#388e3c" ? "Ingreso" : "Gasto";
-    toast.success(`${text} añadido.`);
+    // let text = bg === "#388e3c" ? "Ingreso" : "Gasto";
+    // toast.success(`${text} añadido.`);
+    handleOpen();
   };
 
   //
@@ -27,7 +29,7 @@ export default function Flotante({ bg }) {
       >
         <AddIcon />
       </Fab>
-      <Toaster
+      {/* <Toaster
         position="top-center"
         gutter={8}
         containerStyle={{}}
@@ -51,7 +53,7 @@ export default function Flotante({ bg }) {
             },
           },
         }}
-      />
+      /> */}
     </Box>
   );
 }

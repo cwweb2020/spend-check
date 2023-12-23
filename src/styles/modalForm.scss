@@ -1,0 +1,79 @@
+.modal-form-container {
+  min-width: 27vw;
+  min-height: 58vh;
+  padding: 20px;
+
+  .modal-form-form {
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .form-title {
+        margin-bottom: 35px;
+      }
+
+      label {
+        font-size: 13px;
+        margin-bottom: 8px;
+        font-family: system-ui;
+      }
+
+      input {
+        margin-bottom: 37px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        font-family: system-ui;
+
+        &:focus {
+          outline: none;
+        }
+      }
+      textarea {
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        margin-bottom: 40px;
+        font-family: system-ui;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .select-form {
+        font-family: system-ui;
+
+        div {
+          padding: 6px !important;
+          font-size: 13px;
+          padding-left: 13px !important;
+
+          ul {
+            li {
+              font-size: 13px !important;
+            }
+          }
+        }
+
+        option {
+          padding: 9px 12px;
+          border-radius: 7px;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .buttons-container {
+        margin-top: 40px;
+        display: flex;
+        justify-content: end;
+      }
+    }
+  }
+}

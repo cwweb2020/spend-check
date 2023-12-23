@@ -13,7 +13,7 @@ const SaldoCard = () => {
                   <h4>Ingresos</h4>{" "}
                   <h4
                     className="balance-card-number"
-                    style={{ color: "#388e3c" }}
+                    style={{ color: "#3b9a5f" }}
                   >
                     $960
                   </h4>
@@ -26,12 +26,10 @@ const SaldoCard = () => {
                 </li>
                 <hr />
                 <li>
-                  <h4 style={{ color: "black", fontStyle: "italic" }}>
-                    Saldo Actual
-                  </h4>{" "}
+                  <h4 style={{ color: "black" }}>Saldo Actual</h4>{" "}
                   <h4
                     className="balance-card-number"
-                    style={{ color: "black", fontStyle: "italic" }}
+                    style={{ color: "black" }}
                   >
                     $610
                   </h4>

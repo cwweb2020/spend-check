@@ -9,6 +9,7 @@ import TableButton from "./TableButton";
 import Flotante from "./material-icons/Flotante";
 import money from "../assets/img/money.svg";
 import expenses from "../assets/img/expenses.svg";
+import ModalForm from "./ModalForm";
 
 //
 
@@ -89,6 +90,7 @@ const Table = ({ titulo, button, bg }) => {
       </div>
       <br />
       <br />
+      <ModalForm />
     </>
   );
 };

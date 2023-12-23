@@ -12,12 +12,18 @@ const Card = ({ icon, title, total }) => {
   const handleNavigate = (title) => {
     //  navigate("/dashboard");
     let tarjeta =
-      title === "Tarjeta de credito" ? "tarjeta" : title.toLowerCase();
+      title === "Tarjeta de credito"
+        ? "tarjeta"
+        : title === "Saldo actual"
+        ? "saldo"
+        : title.toLowerCase();
     // console.log(tarjeta);
 
-    if (title === "Tarjeta de credito" || title === "Saldo actual") {
+    if (title === "Tarjeta de credito") {
       return;
     }
+
+    if (title === "Saldo actual") title = "saldo";
     navigate(`/${tarjeta}`);
   };
 

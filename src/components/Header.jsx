@@ -2,20 +2,14 @@ import React, { useContext } from "react";
 import house from "../assets/icons/house.svg";
 import { useNavigate } from "react-router-dom";
 import person from "../assets/icons/person-svgrepo-com.svg";
-import { DataContext } from "../context/provider/DataUserProvider";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { handleLogingOut } = useContext(DataContext);
 
   const redirectToHome = () => {
     navigate("/dashboard");
   };
   //
-
-  const handleLogOut = () => {
-    handleLogingOut();
-  };
 
   return (
     <>
@@ -31,7 +25,7 @@ const Header = () => {
               alt=""
             />
             <h3>claudio</h3>/
-            <h4 onClick={handleLogOut} style={salir}>
+            <h4 onClick={() => navigate("/dashboard")} style={salir}>
               Salir
             </h4>
           </div>
