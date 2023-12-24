@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MedioCirculo from "./MedioCirculo";
 
 const GastosIngresos = () => {
   const porcentajes = [20, 10, 50, 20];
   const colores = ["#9933cc", "#36A2EB", "#ff725e", "green"];
 
-  //
+  ///
+  ///
 
   return (
     <>

@@ -13,7 +13,7 @@ import ModalForm from "./ModalForm";
 
 //
 
-const Table = ({ titulo, button, bg }) => {
+const Table = ({ titulo, bg }) => {
   const [data, setData] = useState(datos);
   const [total, setTotal] = useState(0);
   //
