@@ -5,6 +5,14 @@ import { DataContext } from "../context/provider/DataUserProvider";
 import MenuItem from "@mui/material/MenuItem";
 import { InputLabel, Select } from "@mui/material";
 import { VscChromeClose } from "react-icons/vsc";
+import home from "../assets/icons/gastos-icon/home.svg";
+import gym from "../assets/icons/gastos-icon/gym.svg";
+import market from "../assets/icons/gastos-icon/market.svg";
+import entert from "../assets/icons/gastos-icon/entert.svg";
+import resto from "../assets/icons/gastos-icon/resto.svg";
+import edu from "../assets/icons/gastos-icon/edu.svg";
+import car from "../assets/icons/gastos-icon/car.svg";
+import bus from "../assets/icons/gastos-icon/bus.svg";
 
 const styleForm = {
   position: "absolute",
@@ -104,22 +112,28 @@ export default function ModalForm() {
                   onChange={handleInputChange}
                 >
                   <MenuItem style={{ fontSize: "13px" }} value="vivienda">
-                    Vivienda
+                    vivienda
                   </MenuItem>
                   <MenuItem style={{ fontSize: "13px" }} value="deportes">
-                    Deportes
+                    vivienda
                   </MenuItem>
                   <MenuItem style={{ fontSize: "13px" }} value="comestibles">
-                    Comestibles
+                    vivienda
                   </MenuItem>
                   <MenuItem style={{ fontSize: "13px" }} value="salidas">
-                    Salidas
+                    vivienda
                   </MenuItem>
                   <MenuItem style={{ fontSize: "13px" }} value="alquiler">
-                    Alquiler
+                    vivienda
                   </MenuItem>
                   <MenuItem style={{ fontSize: "13px" }} value="otros">
-                    Otros
+                    vivienda
+                  </MenuItem>
+                  <MenuItem style={{ fontSize: "13px" }} value="otros">
+                    vivienda
+                  </MenuItem>
+                  <MenuItem style={{ fontSize: "13px" }} value="otros">
+                    vivienda
                   </MenuItem>
                 </Select>
                 <div className="buttons-container">
