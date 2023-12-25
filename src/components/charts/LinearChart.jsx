@@ -54,7 +54,7 @@ export const options = {
 const labels = ["Setiembre", "Octubre", "noviembre", "diciembre"];
 // Datos de ingresos mensuales fijos
 const ingresosMensuales = [2500, 2520, 2750, 3100];
-const egresosMensuales = [1250, 1450, 1600, 2900];
+const egresosMensuales = [1250, 1450, 1600, 1900];
 
 export const data = {
   labels,

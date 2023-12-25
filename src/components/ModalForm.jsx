@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import { DataContext } from "../context/provider/DataUserProvider";
 import MenuItem from "@mui/material/MenuItem";
@@ -128,13 +127,16 @@ export default function ModalForm() {
                     <VscChromeClose onClick={handleCloseForModal} />
                   </span>
 
-                  <Button
+                  {/* <Button
                     style={{ fontSize: "14px" }}
                     type="submit"
                     variant="contained"
                   >
                     Agregar
-                  </Button>
+                  </Button> */}
+                  <button className="modal-submit-button" type="submit">
+                    Agregar
+                  </button>
                 </div>
               </form>
             </div>

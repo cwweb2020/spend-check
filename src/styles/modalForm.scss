@@ -78,6 +78,24 @@
         margin-top: 40px;
         display: flex;
         justify-content: end;
+
+        .modal-submit-button {
+          background: green;
+          color: white;
+          font-weight: 600;
+          padding: 12px 31px;
+          border: none;
+          border-radius: 21px;
+          box-shadow: $shadow;
+          cursor: pointer;
+          letter-spacing: 1px;
+
+          &:hover {
+            background: #0d8e0d;
+            transform: scale(1.009);
+            transition: all 200ms;
+          }
+        }
       }
     }
   }
