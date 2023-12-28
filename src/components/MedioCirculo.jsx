@@ -1,10 +1,10 @@
 import React from "react";
 import { PieChart } from "react-minimal-pie-chart";
 
-const MedioCirculo = ({ porcentajes, colores }) => {
-  const data = porcentajes.map((porcentaje, index) => ({
-    value: porcentaje,
-    color: colores[index],
+const MedioCirculo = ({ porcentage, colors }) => {
+  const data = porcentage.map((porcentage, index) => ({
+    value: porcentage,
+    color: colors[index],
   }));
 
   return (

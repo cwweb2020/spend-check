@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { DataContext } from "../context/provider/DataUserProvider";
 import chancho from "../assets/icons/chancho.svg";
 import money from "../assets/icons/gastos.svg";
@@ -9,9 +9,17 @@ const Card = ({ icon, title, total }) => {
   // const { subTotal } = useContext(DataContext);
   //
 
+  // // obtengo la url actual
+  // const location = useLocation();
+  // const currentUrl = location.pathname;
+  // const pureUrl = currentUrl.replace("/", "");
+  // console.log(pureUrl);
+
+  //
+
   const handleNavigate = (title) => {
     //  navigate("/dashboard");
-    let tarjeta =
+    let changedTitle =
       title === "Tarjeta de credito"
         ? "tarjeta"
         : title === "Saldo actual"
@@ -24,7 +32,7 @@ const Card = ({ icon, title, total }) => {
     }
 
     if (title === "Saldo actual") title = "saldo";
-    navigate(`/${tarjeta}`);
+    navigate(`/${changedTitle}`);
   };
 
   //

@@ -41,6 +41,7 @@ const SaldoCard = () => {
       </div>
       <br />
       <br />
+      <br />
     </>
   );
 };

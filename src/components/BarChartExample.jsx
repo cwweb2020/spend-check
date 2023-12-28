@@ -20,15 +20,22 @@ const BarChartExample = () => {
   //   // ... más datos
   // ];
   //
-  const data2 = [
+
+  //  este es el dato que va
+  // supongamos que viene data de la base de datos
+  const db = [
     { name: "Vivienda", monto: 290 },
-    { name: "Entretenimiento", monto: 70 },
-    { name: "Transporte", monto: 50 },
-    { name: "Alimentación", monto: 100 },
-    { name: "Educación", monto: 50 },
-    { name: "Salud", monto: 44 },
-    { name: "Otros", monto: 10 },
+    { name: "Entretenimiento", monto: 60 },
+    { name: "Transporte", monto: 55 },
+    { name: "Alimentación", monto: 210 },
+    { name: "Educación", monto: 75 },
+    { name: "Salud", monto: 150 },
+    { name: "Otros", monto: 15 },
   ];
+  const data2 = [...db];
+  //////
+
+  const orderedData = [...data2].sort((a, b) => b.monto - a.monto);
 
   const countWordsLength = (str) => {
     let abreviated = str.map((item) => {
@@ -41,7 +48,8 @@ const BarChartExample = () => {
   };
 
   useEffect(() => {
-    countWordsLength(data2);
+    // countWordsLength(data2);
+    countWordsLength(orderedData);
   }, []);
 
   return (
@@ -62,7 +70,7 @@ const BarChartExample = () => {
         <Legend />
         {/* <Bar dataKey="ingresos" fill="#82ca9d" name="Ingresos" />
         <Bar dataKey="gastos" fill="#8884d8" name="Gastos" /> */}
-        <Bar dataKey="monto" fill="#ff725e" name="monto" />
+        <Bar dataKey="monto" fill="#ff725e" name="Monto" />
       </BarChart>
     </ResponsiveContainer>
   );

@@ -4,12 +4,7 @@ import Table from "../components/Table";
 const Expenses = () => {
   return (
     <>
-      <Table
-        titulo={"Gastos"}
-        button={"Nuevo Gasto"}
-        bg={"#d32f2f"}
-        iconMoney={"iconMoney"}
-      />
+      <Table titulo={"Gastos"} bg={"#d32f2f"} iconMoney={"iconMoney"} />
     </>
   );
 };

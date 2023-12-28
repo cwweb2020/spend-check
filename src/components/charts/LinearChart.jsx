@@ -31,7 +31,7 @@ export const options = {
       position: "top",
     },
     title: {
-      display: true,
+      display: false,
       text: "Monto",
     },
   },
@@ -50,24 +50,47 @@ export const options = {
     },
   },
 };
+//  ejemplo de manejo de objeto para graficar
+const arrObjGastos = [
+  {
+    month: "Setiembre",
+    amount: 1250,
+  },
+  {
+    month: "Octubre",
+    amount: 1450,
+  },
+  {
+    month: "Noviembre",
+    amount: 1600,
+  },
+  {
+    month: "Diciembre",
+    amount: 1900,
+  },
+];
+const arrMeses = arrObjGastos.map((obj) => obj.month);
 
-const labels = ["Setiembre", "Octubre", "noviembre", "diciembre"];
+//
+
+const dataMonths = ["Setiembre", "Octubre", "Noviembre", "Diciembre"];
+const labels = [...dataMonths];
 // Datos de ingresos mensuales fijos
-const ingresosMensuales = [2500, 2520, 2750, 3100];
+// const ingresosMensuales = [2500, 2520, 2750, 3100];
 const egresosMensuales = [1250, 1450, 1600, 1900];
 
 export const data = {
   labels,
   datasets: [
-    {
-      fill: true,
-      label: "Ingresos",
-      data: ingresosMensuales,
-      // borderColor: "rgb(53, 162, 235)",
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
-      pointRadius: 10,
-      borderColor: "rgba(75,192,192,1)",
-    },
+    // {
+    //   fill: true,
+    //   label: "Ingresos",
+    //   data: ingresosMensuales,
+    //   // borderColor: "rgb(53, 162, 235)",
+    //   backgroundColor: "rgba(53, 162, 235, 0.5)",
+    //   pointRadius: 10,
+    //   borderColor: "rgba(75,192,192,1)",
+    // },
     {
       fill: true,
       label: "Gastos",

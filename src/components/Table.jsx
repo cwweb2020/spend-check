@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { datos } from "../utils/fakeData";
 import TrTableComponent from "./TrTableComponent";
 import Card from "./Card";
@@ -18,6 +19,14 @@ const Table = ({ titulo, bg }) => {
   const [total, setTotal] = useState(0);
   //
   // const { setSubTotal } = useContext(DataContext);
+
+  ////
+
+  // obtengo la url actual
+  const location = useLocation();
+  const currentUrl = location.pathname;
+  const pureUrl = currentUrl.replace("/", "");
+  console.log(pureUrl);
 
   ////
   const handleDelete = (id) => () => {
@@ -90,7 +99,7 @@ const Table = ({ titulo, bg }) => {
       </div>
       <br />
       <br />
-      <ModalForm />
+      <ModalForm url={pureUrl} />
     </>
   );
 };

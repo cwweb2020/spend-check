@@ -1,13 +1,78 @@
 import React, { useEffect, useRef, useState } from "react";
 import MedioCirculo from "./MedioCirculo";
+import LiGastosIngresos from "./LiGastosIngresos";
 
 const GastosIngresos = () => {
-  const porcentajes = [20, 10, 50, 20];
-  const colores = ["#9933cc", "#36A2EB", "#ff725e", "green"];
+  const porcentage = [20, 10, 50, 20];
+  const colors = ["#9933cc", "#36A2EB", "#ff725e", "green"];
 
   ///
   ///
 
+  const category = [
+    {
+      name: "Alquiler",
+      color: "#ff725e",
+      porcentaje: 50,
+    },
+    {
+      name: "Comestibles",
+      color: "#9933cc",
+      porcentaje: 20,
+    },
+    {
+      name: "Salud",
+      color: "#36A2EB",
+      porcentaje: 10,
+    },
+    {
+      name: "Entretenimiento",
+      color: "#b8860b",
+      porcentaje: 20,
+    },
+  ];
+
+  // Ordena el array en base a los porcentajes de manera decreciente
+  // const orderedCategory = category.sort((a, b) => b.porcentaje - a.porcentaje);
+  const porcentage1 = category.map((category) => category.porcentaje);
+  console.log("porcentaje1 ", porcentage1);
+  const colors1 = category.map((category) => category.color);
+  console.log("colors1 ", colors1);
+
+  // Extrae los colores después de ordenar el array
+  // const orderedColors = orderedCategory.map((category) => category.color);
+
+  //
+
+  const category2 = [
+    {
+      name: "Sueldo",
+      color: "red",
+      porcentaje: 50,
+    },
+    {
+      name: "Intereses/banc",
+      color: "#36a2eb",
+      porcentaje: 10,
+    },
+    {
+      name: "Prestamos",
+      color: "green",
+      porcentaje: 20,
+    },
+    {
+      name: "Otros",
+      color: "yellow",
+      porcentaje: 20,
+    },
+  ];
+  //
+  // obtengo los porcentajes y ordeno las categorias por porcentaje
+  const porcentage2 = category2.map((category) => category.porcentaje);
+  const colors2 = category2.map((category) => category.color);
+  const orderedCategory = category.sort((a, b) => b.porcentaje - a.porcentaje);
+
+  //
   return (
     <>
       <section className="total-gastos-ingresos">
@@ -17,27 +82,20 @@ const GastosIngresos = () => {
             <div className="expenses-container">
               <div className="topcontainer">
                 <div className="left-box">
-                  <MedioCirculo porcentajes={porcentajes} colores={colores} />
+                  <MedioCirculo porcentage={porcentage1} colors={colors1} />
                   <h2>$950</h2>
                 </div>
                 <div className="right-box">
                   <ul>
-                    <li>
-                      <span style={{ backgroundColor: "#9933cc" }}></span>{" "}
-                      Comestibles
-                    </li>
-                    <li>
-                      <span style={{ backgroundColor: "#36a2eb" }}></span>{" "}
-                      Medicamentos
-                    </li>
-                    <li>
-                      <span style={{ backgroundColor: "green" }}></span>{" "}
-                      Entretenimiento
-                    </li>
-                    <li>
-                      <span style={{ backgroundColor: "#ff725e" }}></span>{" "}
-                      Miscelaneos
-                    </li>
+                    {orderedCategory.map((category, index) => {
+                      return (
+                        <LiGastosIngresos
+                          key={index}
+                          category={category.name}
+                          color={category.color}
+                        />
+                      );
+                    })}
                   </ul>
                 </div>
               </div>
@@ -48,25 +106,20 @@ const GastosIngresos = () => {
             <div className="incomes-container">
               <div className="topcontainer">
                 <div className="left-box">
-                  <MedioCirculo porcentajes={porcentajes} colores={colores} />
+                  <MedioCirculo porcentage={porcentage2} colors={colors2} />
                   <h2>$950</h2>
                 </div>
                 <div className="right-box">
                   <ul>
-                    <li>
-                      <span style={{ backgroundColor: "red" }}></span> Sueldo
-                    </li>
-                    <li>
-                      <span style={{ backgroundColor: "#36a2eb" }}></span>{" "}
-                      Intereses/banc
-                    </li>
-                    <li>
-                      <span style={{ backgroundColor: "green" }}></span>{" "}
-                      Prestamos
-                    </li>
-                    <li>
-                      <span style={{ backgroundColor: "yellow" }}></span> Otros
-                    </li>
+                    {category2.map((category, index) => {
+                      return (
+                        <LiGastosIngresos
+                          key={index}
+                          category={category.name}
+                          color={category.color}
+                        />
+                      );
+                    })}
                   </ul>
                 </div>
               </div>

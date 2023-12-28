@@ -5,15 +5,16 @@ import { DataContext } from "../context/provider/DataUserProvider";
 import MenuItem from "@mui/material/MenuItem";
 import { InputLabel, Select } from "@mui/material";
 import { VscChromeClose } from "react-icons/vsc";
-import home from "../assets/icons/gastos-icon/home.svg";
-import gym from "../assets/icons/gastos-icon/gym.svg";
-import market from "../assets/icons/gastos-icon/market.svg";
-import entert from "../assets/icons/gastos-icon/entert.svg";
-import resto from "../assets/icons/gastos-icon/resto.svg";
-import edu from "../assets/icons/gastos-icon/edu.svg";
-import car from "../assets/icons/gastos-icon/car.svg";
-import bus from "../assets/icons/gastos-icon/bus.svg";
+// import home from "../assets/icons/gastos-icon/home.svg";
+// import gym from "../assets/icons/gastos-icon/gym.svg";
+// import market from "../assets/icons/gastos-icon/market.svg";
+// import entert from "../assets/icons/gastos-icon/entert.svg";
+// import resto from "../assets/icons/gastos-icon/resto.svg";
+// import edu from "../assets/icons/gastos-icon/edu.svg";
+// import car from "../assets/icons/gastos-icon/car.svg";
+// import bus from "../assets/icons/gastos-icon/bus.svg";
 
+// estilos
 const styleForm = {
   position: "absolute",
   top: "50%",
@@ -33,14 +34,27 @@ const ex = {
   cursor: "pointer",
 };
 
-export default function ModalForm() {
+//////////////////  fake data categorias
+const categoriasDeGastos = [
+  { text: "Alimentación", value: "alimentacion" },
+  { text: "Vivienda", value: "vivienda" },
+  { text: "Transporte", value: "transporte" },
+  { text: "Entretenimiento", value: "entretenimiento" },
+  { text: "Salud", value: "salud" },
+  { text: "Educación", value: "educacion" },
+  { text: "Servicios públicos", value: "servicios_publicos" },
+  { text: "Misceláneos", value: "miscelaneos" },
+];
+
+export default function ModalForm({ url }) {
   const [formValue, setFormValue] = React.useState({
     amount: "",
     date: "",
     description: "",
     selection: "",
   });
-  const [coleccionInputs, setColeccionInputs] = React.useState([]);
+  const [colectionInputs, setColectionInputs] = React.useState([]);
+  const [buttonIsOn, setButtonIsOn] = React.useState(false);
 
   //
 
@@ -50,26 +64,33 @@ export default function ModalForm() {
     handleClose();
   };
   //
+  //
   const handleInputChange = (e) => {
     setFormValue({
       ...formValue,
       [e.target.name]: e.target.value,
     });
-    console.log(formValue);
+
+    if (formValue.amount !== "") setButtonIsOn(true);
   };
 
+  //
   //
   const handleSubmit = (e) => {
     e.preventDefault();
     //
 
-    setColeccionInputs([...coleccionInputs, formValue]);
+    setColectionInputs([...colectionInputs, formValue]);
     e.target.reset();
     //
+    console.log(colectionInputs);
     handleCloseForModal();
+    setButtonIsOn(false);
   };
 
   //
+  //
+
   //
   return (
     <>
@@ -83,7 +104,15 @@ export default function ModalForm() {
           <div className="modal-form-container">
             <div className="modal-form-form">
               <form onSubmit={handleSubmit}>
-                <h3 className="form-title">Añadir</h3>
+                <h3
+                  style={{
+                    color: url === "gastos" ? "red" : "green",
+                    textShadow: url === "gastos" ? "1px 0 red" : "1px 0 green",
+                  }}
+                  className="form-title"
+                >
+                  {url === "gastos" ? "Añadir Gasto" : "Añadir Ingreso"}
+                </h3>
                 <input
                   className="input-money"
                   name="amount"
@@ -111,44 +140,30 @@ export default function ModalForm() {
                   label="Catergoria"
                   onChange={handleInputChange}
                 >
-                  <MenuItem style={{ fontSize: "13px" }} value="vivienda">
-                    vivienda
-                  </MenuItem>
-                  <MenuItem style={{ fontSize: "13px" }} value="deportes">
-                    vivienda
-                  </MenuItem>
-                  <MenuItem style={{ fontSize: "13px" }} value="comestibles">
-                    vivienda
-                  </MenuItem>
-                  <MenuItem style={{ fontSize: "13px" }} value="salidas">
-                    vivienda
-                  </MenuItem>
-                  <MenuItem style={{ fontSize: "13px" }} value="alquiler">
-                    vivienda
-                  </MenuItem>
-                  <MenuItem style={{ fontSize: "13px" }} value="otros">
-                    vivienda
-                  </MenuItem>
-                  <MenuItem style={{ fontSize: "13px" }} value="otros">
-                    vivienda
-                  </MenuItem>
-                  <MenuItem style={{ fontSize: "13px" }} value="otros">
-                    vivienda
-                  </MenuItem>
+                  {/* mapeo los datos para llenar el menu item */}
+
+                  {categoriasDeGastos.map((categoria, index) => (
+                    <MenuItem
+                      style={{ fontSize: "13px", textTransform: "capitalize" }}
+                      value={categoria.value}
+                      key={index}
+                    >
+                      {categoria.text}
+                    </MenuItem>
+                  ))}
                 </Select>
                 <div className="buttons-container">
                   <span className="ex-close" style={ex}>
                     <VscChromeClose onClick={handleCloseForModal} />
                   </span>
-
-                  {/* <Button
-                    style={{ fontSize: "14px" }}
+                  <button
+                    className="modal-submit-button"
                     type="submit"
-                    variant="contained"
+                    disabled={!buttonIsOn}
+                    style={{
+                      backgroundColor: buttonIsOn ? "#2F80ED" : "#BDBDBD",
+                    }}
                   >
-                    Agregar
-                  </Button> */}
-                  <button className="modal-submit-button" type="submit">
                     Agregar
                   </button>
                 </div>
