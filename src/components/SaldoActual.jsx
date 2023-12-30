@@ -9,18 +9,20 @@ import PieComponent from "./charts/PieComponent";
 const SaldoActual = () => {
   //
   //
+  //
 
   return (
     <>
       <section className="total-saldo-actual">
         <div className="total-saldo-big-container">
-          <h2>Saldo actual</h2>
+          <h2 style={title1}>Saldo actual</h2>
 
           <div style={container} className="total-saldo-wrapper">
             <div className="saldo-linear-contaienr" style={{ width: "900px" }}>
               <LinearChart />
             </div>
             <div className="saldo-bar-container" style={container2}>
+              <h3>Gastos por categoria</h3>
               <BarChartExample />
             </div>
           </div>
@@ -47,6 +49,12 @@ const container2 = {
   width: "700px",
   // height: "100%",
   marginTop: "4.3125em",
+};
+
+const title1 = {
+  fontSize: "1.6em",
+  fontWeight: "500",
+  letterSpacing: "-0.5px;",
 };
 
 export default SaldoActual;

@@ -26,7 +26,6 @@ const Table = ({ titulo, bg }) => {
   const location = useLocation();
   const currentUrl = location.pathname;
   const pureUrl = currentUrl.replace("/", "");
-  console.log(pureUrl);
 
   ////
   const handleDelete = (id) => () => {

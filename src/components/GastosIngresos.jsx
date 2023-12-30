@@ -8,7 +8,7 @@ const GastosIngresos = () => {
 
   ///
   ///
-
+  // gastos
   const category = [
     {
       name: "Alquiler",
@@ -22,13 +22,18 @@ const GastosIngresos = () => {
     },
     {
       name: "Salud",
-      color: "#36A2EB",
+      color: "#0099cc",
       porcentaje: 10,
     },
     {
       name: "Entretenimiento",
       color: "#b8860b",
-      porcentaje: 20,
+      porcentaje: 5,
+    },
+    {
+      name: "CC",
+      color: "#8fbc8f",
+      porcentaje: 15,
     },
   ];
 
@@ -42,17 +47,16 @@ const GastosIngresos = () => {
   // Extrae los colores después de ordenar el array
   // const orderedColors = orderedCategory.map((category) => category.color);
 
-  //
-
+  // ingresos
   const category2 = [
     {
       name: "Sueldo",
-      color: "red",
+      color: "#0099cc",
       porcentaje: 50,
     },
     {
       name: "Intereses/banc",
-      color: "#36a2eb",
+      color: "#ff725e",
       porcentaje: 10,
     },
     {
@@ -61,7 +65,7 @@ const GastosIngresos = () => {
       porcentaje: 20,
     },
     {
-      name: "Otros",
+      name: "Adicionales",
       color: "yellow",
       porcentaje: 20,
     },

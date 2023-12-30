@@ -6,7 +6,7 @@ const MedioCirculo = ({ porcentage, colors }) => {
     value: porcentage,
     color: colors[index],
   }));
-
+  console.log("data ", data);
   return (
     <PieChart
       data={data}

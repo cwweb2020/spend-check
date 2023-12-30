@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import house from "../assets/icons/house.svg";
 import { useNavigate } from "react-router-dom";
 import person from "../assets/icons/person-svgrepo-com.svg";
+import LanguageSelector from "./material-icons/LanguageSelector";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Header = () => {
             <img src={house} alt="" />
           </div>
           <div className="person">
+            <LanguageSelector />
             <img
               //  style={{ width: "40px", height: "40px" }}
               src={person}
