@@ -26,7 +26,7 @@ export const cardsIcons = [
   {
     id: 4,
     icon: cc,
-    title: "Tarjeta de credito",
+    title: "Presupuesto",
     total: "$ 100",
   },
 ];

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
-const LanguageSelector = () => {
+const LanguageSelector = ({ langTitle }) => {
   const [active, setActive] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("spanish");
 
@@ -20,7 +20,7 @@ const LanguageSelector = () => {
   return (
     <div className="language-selector">
       <span onClick={habdleSelect} className="language-title">
-        Language &nbsp;{" "}
+        {langTitle} &nbsp;{" "}
         <IoIosArrowDown
           style={{
             transform: active ? "rotate(180deg)" : "rotate(0deg)",

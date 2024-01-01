@@ -9,7 +9,7 @@
 
   .language-title {
     font-weight: 600;
-    margin-right: 1.875em;
+    //  margin-right: 1.875em;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -25,19 +25,20 @@
     right: 50%;
     box-shadow: $shadow;
     border-radius: 10px;
-    min-width: 10em;
+    min-width: 11em;
     display: none;
+    overflow: hidden;
 
     li {
-      margin: 12px 0 15px;
+      padding: 15px 17px;
       cursor: pointer;
-      padding: 6px 0 0 20px;
       letter-spacing: 1.1px;
       font-weight: 600;
 
       &:hover {
-        color: #0099cc;
+        color: white;
         transition: all 200ms;
+        background: black;
       }
     }
   }

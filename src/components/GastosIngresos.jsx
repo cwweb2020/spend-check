@@ -31,7 +31,7 @@ const GastosIngresos = () => {
       porcentaje: 5,
     },
     {
-      name: "CC",
+      name: "Tarj./Credito",
       color: "#8fbc8f",
       porcentaje: 15,
     },
@@ -40,9 +40,9 @@ const GastosIngresos = () => {
   // Ordena el array en base a los porcentajes de manera decreciente
   // const orderedCategory = category.sort((a, b) => b.porcentaje - a.porcentaje);
   const porcentage1 = category.map((category) => category.porcentaje);
-  console.log("porcentaje1 ", porcentage1);
+  // console.log("porcentaje1 ", porcentage1);
   const colors1 = category.map((category) => category.color);
-  console.log("colors1 ", colors1);
+  // console.log("colors1 ", colors1);
 
   // Extrae los colores después de ordenar el array
   // const orderedColors = orderedCategory.map((category) => category.color);

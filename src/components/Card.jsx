@@ -12,26 +12,26 @@ const Card = ({ icon, title, total }) => {
   // // obtengo la url actual
   // const location = useLocation();
   // const currentUrl = location.pathname;
-  // const pureUrl = currentUrl.replace("/", "");
+  //  const regex = /[^0-9]/g;
+  // const pureUrl = currentUrl.replace(regex, "");
   // console.log(pureUrl);
 
   //
 
   const handleNavigate = (title) => {
-    //  navigate("/dashboard");
+    //
     let changedTitle =
       title === "Tarjeta de credito"
         ? "tarjeta"
         : title === "Saldo actual"
         ? "saldo"
         : title.toLowerCase();
-    // console.log(tarjeta);
+    //
 
-    if (title === "Tarjeta de credito") {
+    if (title === "Presupuesto") {
       return;
     }
 
-    if (title === "Saldo actual") title = "saldo";
     navigate(`/${changedTitle}`);
   };
 

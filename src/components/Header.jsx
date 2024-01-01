@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import house from "../assets/icons/house.svg";
 import { useNavigate } from "react-router-dom";
 import person from "../assets/icons/person-svgrepo-com.svg";
 import LanguageSelector from "./material-icons/LanguageSelector";
+import { useGetScreenWidth } from "../hooks/useGetScreenWidth";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -10,6 +11,11 @@ const Header = () => {
   const redirectToHome = () => {
     navigate("/dashboard");
   };
+  //
+  const screenWidth = useGetScreenWidth();
+
+  const langTitle = screenWidth < 900 ? "Lang" : "Language";
+
   //
 
   return (
@@ -20,7 +26,7 @@ const Header = () => {
             <img src={house} alt="" />
           </div>
           <div className="person">
-            <LanguageSelector />
+            <LanguageSelector langTitle={langTitle} />
             <img
               //  style={{ width: "40px", height: "40px" }}
               src={person}
