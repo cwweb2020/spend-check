@@ -8,13 +8,13 @@ export const cardsIcons = [
     id: 3,
     icon: dollar,
     title: "Saldo actual",
-    total: "$ 950",
+    total: "$ 600",
   },
   {
     id: 2,
     icon: arrowUp,
     title: "Ingresos",
-    total: "$ 350",
+    total: "$ 1050",
   },
   {
     id: 1,

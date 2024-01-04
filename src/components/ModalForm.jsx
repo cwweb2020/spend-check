@@ -106,7 +106,7 @@ export default function ModalForm({ url }) {
               <form onSubmit={handleSubmit}>
                 <h3
                   style={{
-                    color: url === "gastos" ? "red" : "green",
+                    color: url === "gastos" ? "#ff0000" : "#2a8c4a",
                   }}
                   className="form-title"
                 >
@@ -136,7 +136,7 @@ export default function ModalForm({ url }) {
                   required
                 />
                 {/* <label>Categoria</label> */}
-                <InputLabel id="demo-simple-select-label">Categoria</InputLabel>
+                <InputLabel id="demo-simple-select-label">Categoría</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"

@@ -3,8 +3,7 @@
   margin: auto;
 
   .total-balance-title {
-    font-size: 1.4375em;
-    color: #0000008a;
+    @include customFontSub;
     margin-bottom: 1.5em;
   }
 
@@ -41,9 +40,11 @@
 
             h4 {
               //  color: #666666;
-              font-family: system-ui;
+              font-family: $font;
               letter-spacing: 1px;
               font-size: 1.125em;
+              font-weight: 500;
+              color: #6f6a6a;
               font-weight: 600;
 
               img {
@@ -54,6 +55,7 @@
               letter-spacing: 3px;
               display: flex;
               align-items: center;
+              font-family: $font;
             }
           }
           hr {

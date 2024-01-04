@@ -54,28 +54,28 @@ const SaldoActual = () => {
                     600
                   </p>
                 </div>
-                <div className="gastos">
+                <div className="saldo">
                   <div className="box1">
                     <img src={saldo} alt="" />
                     <h3>saldo</h3>
                   </div>
                   <p>
                     <img src={dollar} alt="" />
-                    500
+                    900
                   </p>
                 </div>
               </div>
             </div>
             <Divider />
             <div className="saldo-bar-container">
-              <h3>Gastos por categoria</h3>
+              <h3>Gastos por categoría</h3>
 
               <div className="saldo-bar-icons-most-expenses">
                 <div className="saldo-bar-chart-wrapper">
                   <BarChartExample />
                 </div>
                 <div className="saldo-bar-chart-imgs">
-                  <h4>Categorias con mas gastos:</h4>
+                  <h4>Categoría con mas gastos:</h4>
 
                   <div className="img-icons-container">
                     {firstFours.map((item, index) => {
@@ -88,6 +88,16 @@ const SaldoActual = () => {
                   </div>
                 </div>
               </div>
+            </div>
+            <Divider />
+            <div className="bottom-compare-categories saldo-bar-container">
+              <h4>Comparativa de gastos</h4>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam
+                eum vel odio maiores expedita illum dolorem provident ea labore.
+                Dicta aliquid repellat cum. Praesentium placeat dolores eaque
+                veritatis sit aut?
+              </p>
             </div>
           </div>
         </div>

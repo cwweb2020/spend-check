@@ -8,6 +8,7 @@ import {
   Legend,
   ResponsiveContainer,
   CartesianGrid,
+  Cell,
 } from "recharts";
 import { DataContext } from "../context/provider/DataUserProvider";
 
@@ -25,44 +26,89 @@ const BarChartExample = () => {
   //
 
   //  este es el dato que va
-  // supongamos que viene data de la base de datos
+  //   viene data de la base de datos
+  // const db = [
+  //   {
+  //     name: "Vivienda",
+  //     monto: 290,
+  //     img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/home.svg?alt=media&token=6a0a6660-2c8f-4a8b-ad2a-d444f39f668a",
+  //   },
+  //   {
+  //     name: "Entretenimiento",
+  //     monto: 60,
+  //     img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/entert.svg?alt=media&token=77ee7b04-4136-4d12-848f-ddf876cac98d",
+  //   },
+  //   {
+  //     name: "Transporte",
+  //     monto: 55,
+  //     img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/bus.svg?alt=media&token=2bede269-1af9-4dce-81f5-145fb1f92880",
+  //   },
+  //   {
+  //     name: "Alimentación",
+  //     monto: 210,
+  //     img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/market.svg?alt=media&token=73bd82a4-bb8c-4217-a72b-b78309a27772",
+  //   },
+  //   {
+  //     name: "Educación",
+  //     monto: 75,
+  //     img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/edu.svg?alt=media&token=9adb76e8-c715-4cc0-8b9d-d4f5e39bcbe4",
+  //   },
+  //   {
+  //     name: "Salud",
+  //     monto: 150,
+  //     img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/health.svg?alt=media&token=931e40d1-5b09-4e32-bd01-829c8dae0a8e",
+  //   },
+  //   {
+  //     name: "Gym",
+  //     monto: 20,
+  //     img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/resto.svg?alt=media&token=a8af68af-d22b-4833-a4ed-d9c1b2295b8a",
+  //   },
+  // ];
   const db = [
     {
       name: "Vivienda",
       monto: 290,
       img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/home.svg?alt=media&token=6a0a6660-2c8f-4a8b-ad2a-d444f39f668a",
+      color: "#4CAF50", // Verde mate
     },
     {
       name: "Entretenimiento",
-      monto: 60,
+      monto: 40,
       img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/entert.svg?alt=media&token=77ee7b04-4136-4d12-848f-ddf876cac98d",
+      color: "#795548", // Marrón mate
     },
     {
       name: "Transporte",
       monto: 55,
       img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/bus.svg?alt=media&token=2bede269-1af9-4dce-81f5-145fb1f92880",
+      color: "#2196F3", // Azul mate
     },
     {
       name: "Alimentación",
       monto: 210,
       img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/market.svg?alt=media&token=73bd82a4-bb8c-4217-a72b-b78309a27772",
+      color: "#FF5722", // Naranja mate
     },
     {
       name: "Educación",
       monto: 75,
       img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/edu.svg?alt=media&token=9adb76e8-c715-4cc0-8b9d-d4f5e39bcbe4",
+      color: "#607D8B", // Gris azulado mate
     },
     {
       name: "Salud",
       monto: 150,
       img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/health.svg?alt=media&token=931e40d1-5b09-4e32-bd01-829c8dae0a8e",
+      color: "#FF9800", // Amarillo mate
     },
     {
-      name: "Otros",
-      monto: 15,
+      name: "Gym",
+      monto: 20,
       img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/resto.svg?alt=media&token=a8af68af-d22b-4833-a4ed-d9c1b2295b8a",
+      color: "#9C27B0", // Púrpura mate
     },
   ];
+
   const data2 = [...db];
   //////
 
@@ -105,7 +151,14 @@ const BarChartExample = () => {
         <Legend />
         {/* <Bar dataKey="ingresos" fill="#82ca9d" name="Ingresos" />
         <Bar dataKey="gastos" fill="#8884d8" name="Gastos" /> */}
-        <Bar dataKey="monto" fill="#ff725e" name="Monto" />
+        {/* este que envuelvo es el que estaba antes columna unica de un solo color */}
+        {/* <Bar dataKey="monto" fill="#455a64" name="Monto" /> */}
+        {/* este que envuelvo es el que estaba antes columna unica de un solo color */}
+        <Bar dataKey="monto" name="Monto">
+          {Label.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={entry.color} />
+          ))}
+        </Bar>
       </BarChart>
     </ResponsiveContainer>
   );

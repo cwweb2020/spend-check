@@ -31,9 +31,12 @@
         .aside-saldo-actual-container {
           .ingresos {
             // border-bottom: 1px solid lightgray;
+            border-top-left-radius: 9px;
+            border-top-right-radius: 9px;
           }
           .ingresos,
-          .gastos {
+          .gastos,
+          .saldo {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -52,6 +55,7 @@
 
               h3 {
                 text-transform: capitalize;
+                font-weight: 500;
               }
             }
 
@@ -66,6 +70,11 @@
                 width: 1.8em;
               }
             }
+          }
+          .saldo {
+            // border-bottom: none;
+            border-bottom-left-radius: 9px;
+            border-bottom-right-radius: 9px;
           }
 
           .gastos {
@@ -85,6 +94,7 @@
 
       .saldo-bar-container {
         margin-top: 3.45em;
+        margin-bottom: 3.45em;
         h3 {
           @include customFontSub;
           margin: 0 0 1.1em 0;
@@ -111,6 +121,8 @@
               justify-content: space-evenly;
               flex-wrap: wrap;
               background: white;
+              border-radius: 9px;
+              border-bottom: 1px solid lightgray;
 
               .saldo-bar-chart-img {
                 width: 4em;
