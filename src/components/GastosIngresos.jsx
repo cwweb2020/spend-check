@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import MedioCirculo from "./MedioCirculo";
 import LiGastosIngresos from "./LiGastosIngresos";
 

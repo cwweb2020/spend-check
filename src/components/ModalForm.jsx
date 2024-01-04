@@ -107,7 +107,6 @@ export default function ModalForm({ url }) {
                 <h3
                   style={{
                     color: url === "gastos" ? "red" : "green",
-                    textShadow: url === "gastos" ? "1px 0 red" : "1px 0 green",
                   }}
                   className="form-title"
                 >
@@ -119,8 +118,14 @@ export default function ModalForm({ url }) {
                   placeholder="$ 0.00"
                   type="number"
                   onChange={handleInputChange}
+                  required
                 />
-                <input name="date" type="date" onChange={handleInputChange} />
+                <input
+                  name="date"
+                  type="date"
+                  onChange={handleInputChange}
+                  required
+                />
                 <label>Descripcion</label>
                 <textarea
                   style={{ resize: "none" }}
@@ -128,6 +133,7 @@ export default function ModalForm({ url }) {
                   cols="50"
                   rows="1"
                   onChange={handleInputChange}
+                  required
                 />
                 {/* <label>Categoria</label> */}
                 <InputLabel id="demo-simple-select-label">Categoria</InputLabel>
@@ -139,6 +145,7 @@ export default function ModalForm({ url }) {
                   //  defaultValue="deportes"
                   label="Catergoria"
                   onChange={handleInputChange}
+                  required
                 >
                   {/* mapeo los datos para llenar el menu item */}
 

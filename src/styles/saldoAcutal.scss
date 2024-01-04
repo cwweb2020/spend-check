@@ -1,0 +1,128 @@
+//
+.total-saldo-actual {
+  .total-saldo-big-container {
+    width: 91%;
+    margin: auto;
+
+    .total-saldo-title {
+      @include customFont;
+      margin: 0 0 1.1em 0;
+    }
+
+    .total-saldo-wrapper {
+      width: 90%;
+      margin: auto;
+
+      .total-saldo-subtitle {
+        @include customFontSub;
+        margin: 0 0 1.1em 0;
+        padding-top: 1.2em;
+        text-transform: capitalize;
+      }
+
+      .top-saldo-linear-aside-container {
+        display: grid;
+        grid-template-columns: 840px 1fr;
+        margin-bottom: 3.45em;
+
+        .saldo-linear-contaienr {
+        }
+
+        .aside-saldo-actual-container {
+          .ingresos {
+            // border-bottom: 1px solid lightgray;
+          }
+          .ingresos,
+          .gastos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 1.25em;
+            border-bottom: 1px solid lightgray;
+
+            // conjunto para los dos
+            background: white;
+
+            .box1 {
+              display: flex;
+              align-items: center;
+
+              img {
+              }
+
+              h3 {
+                text-transform: capitalize;
+              }
+            }
+
+            p {
+              display: flex;
+              align-items: center;
+              font-family: $font-maven;
+              font-weight: 500;
+              font-size: 1.3em;
+
+              img {
+                width: 1.8em;
+              }
+            }
+          }
+
+          .gastos {
+            .box1 {
+              img {
+              }
+
+              h3 {
+              }
+            }
+
+            p {
+            }
+          }
+        }
+      }
+
+      .saldo-bar-container {
+        margin-top: 3.45em;
+        h3 {
+          @include customFontSub;
+          margin: 0 0 1.1em 0;
+          text-transform: capitalize;
+        }
+
+        .saldo-bar-icons-most-expenses {
+          display: grid;
+          grid-template-columns: 60% 1fr;
+
+          .saldo-bar-chart-wrapper {
+            // width: 60%;
+            padding-top: 1.56em;
+          }
+          .saldo-bar-chart-imgs {
+            h4 {
+              font-size: 1.25em;
+              font-weight: 500;
+              margin-bottom: 1.25em;
+            }
+            .img-icons-container {
+              padding: 1.125em;
+              display: flex;
+              justify-content: space-evenly;
+              flex-wrap: wrap;
+              background: white;
+
+              .saldo-bar-chart-img {
+                width: 4em;
+
+                img {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

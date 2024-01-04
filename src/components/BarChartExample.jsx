@@ -9,9 +9,12 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
+import { DataContext } from "../context/provider/DataUserProvider";
 
 const BarChartExample = () => {
   const [Label, setLabel] = React.useState([]);
+
+  const { setFirstFours } = React.useContext(DataContext);
   // Datos
   // const data = [
   //   { name: "Octubre", ingresos: 1200, gastos: 800 },
@@ -24,18 +27,49 @@ const BarChartExample = () => {
   //  este es el dato que va
   // supongamos que viene data de la base de datos
   const db = [
-    { name: "Vivienda", monto: 290 },
-    { name: "Entretenimiento", monto: 60 },
-    { name: "Transporte", monto: 55 },
-    { name: "Alimentación", monto: 210 },
-    { name: "Educación", monto: 75 },
-    { name: "Salud", monto: 150 },
-    { name: "Otros", monto: 15 },
+    {
+      name: "Vivienda",
+      monto: 290,
+      img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/home.svg?alt=media&token=6a0a6660-2c8f-4a8b-ad2a-d444f39f668a",
+    },
+    {
+      name: "Entretenimiento",
+      monto: 60,
+      img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/entert.svg?alt=media&token=77ee7b04-4136-4d12-848f-ddf876cac98d",
+    },
+    {
+      name: "Transporte",
+      monto: 55,
+      img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/bus.svg?alt=media&token=2bede269-1af9-4dce-81f5-145fb1f92880",
+    },
+    {
+      name: "Alimentación",
+      monto: 210,
+      img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/market.svg?alt=media&token=73bd82a4-bb8c-4217-a72b-b78309a27772",
+    },
+    {
+      name: "Educación",
+      monto: 75,
+      img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/edu.svg?alt=media&token=9adb76e8-c715-4cc0-8b9d-d4f5e39bcbe4",
+    },
+    {
+      name: "Salud",
+      monto: 150,
+      img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/health.svg?alt=media&token=931e40d1-5b09-4e32-bd01-829c8dae0a8e",
+    },
+    {
+      name: "Otros",
+      monto: 15,
+      img: "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/resto.svg?alt=media&token=a8af68af-d22b-4833-a4ed-d9c1b2295b8a",
+    },
   ];
   const data2 = [...db];
   //////
 
   const orderedData = [...data2].sort((a, b) => b.monto - a.monto);
+
+  // getting the firest 4 elements of the array
+  const firstFour = [...orderedData].slice(0, 4);
 
   const countWordsLength = (str) => {
     let abreviated = str.map((item) => {
@@ -50,6 +84,7 @@ const BarChartExample = () => {
   useEffect(() => {
     // countWordsLength(data2);
     countWordsLength(orderedData);
+    setFirstFours(firstFour);
   }, []);
 
   return (

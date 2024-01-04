@@ -4,7 +4,7 @@ import { datos } from "../utils/fakeData";
 import TrTableComponent from "./TrTableComponent";
 import Card from "./Card";
 import { DataContext } from "../context/provider/DataUserProvider";
-import iconChancho from "../assets/icons/chancho.svg";
+// import iconChancho from "../assets/icons/pig.svg";
 import TheadTable from "./TheadTable";
 import TableButton from "./TableButton";
 import Flotante from "./material-icons/Flotante";
@@ -92,7 +92,7 @@ const Table = ({ titulo, bg }) => {
           <Card
             title={"Total"}
             total={total}
-            icon={titulo === "Ingresos" ? "chancho" : "money"}
+            icon={titulo === "Ingresos" ? "pig" : "money"}
           />
         </div>
       </div>
@@ -104,3 +104,6 @@ const Table = ({ titulo, bg }) => {
 };
 
 export default Table;
+
+// display: grid;
+// grid-template-columns: min-content 1fr 1fr;

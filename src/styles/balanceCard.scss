@@ -45,9 +45,15 @@
               letter-spacing: 1px;
               font-size: 1.125em;
               font-weight: 600;
+
+              img {
+                width: 1.8em;
+              }
             }
             .balance-card-number {
               letter-spacing: 3px;
+              display: flex;
+              align-items: center;
             }
           }
           hr {

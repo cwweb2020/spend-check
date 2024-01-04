@@ -33,7 +33,7 @@ const Header = () => {
               alt=""
             />
             <h3>claudio</h3>/
-            <h4 onClick={() => navigate("/dashboard")} style={salir}>
+            <h4 onClick={() => navigate("/dashboard")} style={exit}>
               Salir
             </h4>
           </div>
@@ -43,7 +43,7 @@ const Header = () => {
   );
 };
 
-const salir = {
+const exit = {
   color: "#ff0000",
   cursor: "pointer",
   fontSize: "1.06em",

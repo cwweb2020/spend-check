@@ -1,6 +1,12 @@
 import React from "react";
+import dollar from "../assets/icons/dollar-sign.svg";
+
+//
 
 const SaldoCard = () => {
+  //
+
+  //
   return (
     <>
       <div className="total-balance-card-container">
@@ -15,13 +21,15 @@ const SaldoCard = () => {
                     className="balance-card-number"
                     style={{ color: "#3b9a5f" }}
                   >
-                    $960
+                    <img src={dollar} alt="" />
+                    960
                   </h4>
                 </li>
                 <li>
                   <h4>Gastos</h4>{" "}
                   <h4 className="balance-card-number" style={{ color: "red" }}>
-                    $350
+                    <img src={dollar} alt="" />
+                    350
                   </h4>
                 </li>
                 <hr />
@@ -31,7 +39,8 @@ const SaldoCard = () => {
                     className="balance-card-number"
                     style={{ color: "black" }}
                   >
-                    $610
+                    <img src={dollar} alt="" />
+                    610
                   </h4>
                 </li>
               </ul>

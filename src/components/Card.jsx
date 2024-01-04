@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { DataContext } from "../context/provider/DataUserProvider";
-import chancho from "../assets/icons/chancho.svg";
+import pig from "../assets/icons/pig.svg";
 import money from "../assets/icons/gastos.svg";
 
 const Card = ({ icon, title, total }) => {
@@ -20,25 +20,31 @@ const Card = ({ icon, title, total }) => {
 
   const handleNavigate = (title) => {
     //
-    let changedTitle =
+    let getRouteByTitle =
       title === "Tarjeta de credito"
         ? "tarjeta"
         : title === "Saldo actual"
         ? "saldo"
+        : title === "Presupuesto"
+        ? "presupuesto"
         : title.toLowerCase();
     //
 
-    if (title === "Presupuesto") {
+    if (title === "Total") {
       return;
     }
 
-    navigate(`/${changedTitle}`);
+    navigate(`/${getRouteByTitle}`);
   };
 
   //
   return (
     <>
-      <section onClick={() => handleNavigate(title)} className="total-card">
+      <section
+        style={{ cursor: title === "Total" ? "default" : "pointer" }}
+        onClick={() => handleNavigate(title)}
+        className="total-card"
+      >
         <div className="card-wrapper">
           <div className="expenses">
             <h4>{title}</h4>
@@ -46,9 +52,7 @@ const Card = ({ icon, title, total }) => {
           </div>
           <div className="icon">
             <img
-              src={
-                icon === "chancho" ? chancho : icon === "money" ? money : icon
-              }
+              src={icon === "pig" ? pig : icon === "money" ? money : icon}
               alt="icon"
             />
           </div>

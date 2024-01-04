@@ -1,12 +1,12 @@
 import arrowDown from "../assets/img/arrow-down.svg";
 import arrowUp from "../assets/img/arrow-up.svg";
-import bank from "../assets/img/bank.svg";
-import cc from "../assets/img/cc.svg";
+import dollar from "../assets/img/dollar.svg";
+import budget from "../assets/img/budget.svg";
 
 export const cardsIcons = [
   {
     id: 3,
-    icon: bank,
+    icon: dollar,
     title: "Saldo actual",
     total: "$ 950",
   },
@@ -25,7 +25,7 @@ export const cardsIcons = [
 
   {
     id: 4,
-    icon: cc,
+    icon: budget,
     title: "Presupuesto",
     total: "$ 100",
   },
