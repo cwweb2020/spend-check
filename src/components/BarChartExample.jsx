@@ -148,7 +148,7 @@ const BarChartExample = () => {
         {/* <XAxis dataKey="name" angle={-45} interval={0} textAnchor="end" /> */}
         <YAxis />
         <Tooltip />
-        <Legend />
+        {/* <Legend /> */}
         {/* <Bar dataKey="ingresos" fill="#82ca9d" name="Ingresos" />
         <Bar dataKey="gastos" fill="#8884d8" name="Gastos" /> */}
         {/* este que envuelvo es el que estaba antes columna unica de un solo color */}

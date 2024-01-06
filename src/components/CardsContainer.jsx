@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import vision from "../assets/img/vision.svg";
 
 import { cardsIcons } from "../utils/cardsIcons";
+import { Skeleton } from "@mui/material";
 
 const CardsContainer = () => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  // Simular carga de imágenes
+  useEffect(() => {
+    const imageLoader = new Image();
+    imageLoader.src = vision; // Usar una de las imágenes para cargar
+
+    imageLoader.onload = () => {
+      // Todas las imágenes se han cargado
+      setImagesLoaded(true);
+    };
+  }, []);
   return (
     <>
       <br />
@@ -15,7 +28,12 @@ const CardsContainer = () => {
           <div className="wrapper-card-container">
             <div className="left-box">
               <div className="imgcontainer">
-                <img src={vision} alt="" />
+                {imagesLoaded ? (
+                  <img src={vision} alt="" />
+                ) : (
+                  <Skeleton variant="rectangular" width={260} height={260} />
+                )}
+                {/* <img src={vision} alt="" /> */}
               </div>
             </div>
             <div className="right-box">

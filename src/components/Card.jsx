@@ -48,7 +48,7 @@ const Card = ({ icon, title, total }) => {
         <div className="card-wrapper">
           <div className="expenses">
             <h4>{title}</h4>
-            <h5>{total}</h5>
+            <h5>{title !== "Presupuesto" ? total : ""}</h5>
           </div>
           <div className="icon">
             <img

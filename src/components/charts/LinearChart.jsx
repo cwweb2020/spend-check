@@ -95,7 +95,7 @@ export const data = {
       fill: true,
       label: "Gastos",
       data: egresosMensuales,
-      backgroundColor: "rgba(255, 99, 132, 0.5)", // Puedes cambiar el color
+      backgroundColor: "#607d8b78", // Puedes cambiar el color
       pointRadius: 10,
       borderColor: "rgba(255,99,132,1)", // Puedes cambiar el color
     },
