@@ -29,3 +29,9 @@ $font-maven: "Maven Pro", sans-serif;
   color: #0000008a;
   font-weight: 600;
 }
+
+// mixin para el wrapper
+@mixin wrapper {
+  width: 90%;
+  margin: auto;
+}

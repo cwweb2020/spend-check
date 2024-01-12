@@ -12,6 +12,7 @@ import { getPorcentageExpenses } from "../utils/calculations/getPorcentageExpens
 import { LuAsterisk } from "react-icons/lu";
 import { AiOutlinePercentage } from "react-icons/ai";
 import { Card, CardContent } from "@mui/material";
+import ScrollToTopButton from "./ScrollToTopButton";
 
 //
 //
@@ -98,6 +99,18 @@ const SaldoActual = () => {
                 </div>
               </div>
             </div>
+            {/* entering extplanation for the chart */}
+            <p
+              style={{
+                padding: "0.625em 0 3.25em 1.1em",
+                fontSize: "1em",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <LuAsterisk /> Progresion de gastos en los ultimos 4 meses
+            </p>
+            {/* entering extplanation for the chart */}
             <Divider />
             <div className="saldo-bar-container">
               <h3>Gastos por categoría</h3>
@@ -123,7 +136,7 @@ const SaldoActual = () => {
             </div>
             <Divider />
             <div className="bottom-compare-categories saldo-bar-container">
-              <h4 className="comparative-title">progresión de gastos</h4>
+              <h4 className="comparative-title">proporción de gastos</h4>
 
               <div className="gasto-chart-compare" style={{ width: "67%" }}>
                 <GastosChart data={porcentage} />
@@ -135,8 +148,7 @@ const SaldoActual = () => {
                     alignItems: "center",
                   }}
                 >
-                  <LuAsterisk /> Este grafico muestra la relación entre tus
-                  gastos y tus ingresos en{" "}
+                  <LuAsterisk /> Relación entre tus gastos y tus ingresos en{" "}
                   <span style={{ opacity: "0" }}>.</span>{" "}
                   <AiOutlinePercentage />
                 </p>
@@ -195,6 +207,7 @@ const SaldoActual = () => {
           </div>
         </div>
       </section>
+      <ScrollToTopButton />
       <br />
       <br />
     </>

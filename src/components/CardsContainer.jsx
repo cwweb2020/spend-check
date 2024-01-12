@@ -18,6 +18,10 @@ const CardsContainer = () => {
       setImagesLoaded(true);
     };
   }, []);
+
+  //
+
+  //
   return (
     <>
       <br />

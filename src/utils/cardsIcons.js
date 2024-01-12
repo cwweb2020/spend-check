@@ -26,7 +26,7 @@ export const cardsIcons = [
   {
     id: 4,
     icon: budget,
-    title: "Presupuesto",
+    title: "Crear presupuesto",
     total: "$ 100",
   },
 ];

@@ -12,6 +12,16 @@
 html,
 body {
   overflow-x: hidden;
+
+  // changing styles in scroll bar
+  &::-webkit-scrollbar-thumb {
+    //  background-color: transparent;
+    background-color: rgb(0, 149, 255);
+    border-radius: 9px;
+  }
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
 }
 
 @import "variables";
@@ -20,6 +30,33 @@ body {
 
 body {
   background-color: $background;
+}
+
+// scroll to top styles
+
+.scroll-to-top-button {
+  visibility: hidden;
+  border: none;
+  font-size: 1.875em;
+  color: crimson;
+  background: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 4%;
+  right: 2%;
+  cursor: pointer;
+  scroll-behavior: smooth;
+  transition: all 0.4s ease;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.scroll-to-top-button.visible {
+  visibility: visible;
 }
 
 // imports
@@ -33,3 +70,4 @@ body {
 @import "modalForm";
 @import "languageSelector";
 @import "saldoAcutal";
+@import "budget";

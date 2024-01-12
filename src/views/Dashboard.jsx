@@ -3,6 +3,8 @@ import CardsContainer from "../components/CardsContainer";
 import GastosIngresos from "../components/GastosIngresos";
 import Balance from "../components/Balance";
 import SaldoCard from "../components/SaldoCard";
+import ScrollToTopButton from "../components/ScrollToTopButton";
+import BudgetSummary from "../components/BudgetSummary";
 
 const Dashboard = () => {
   return (
@@ -12,7 +14,9 @@ const Dashboard = () => {
           <CardsContainer />
           <GastosIngresos />
           <Balance />
+          <BudgetSummary />
           <SaldoCard />
+          <ScrollToTopButton />
         </div>
       </section>
     </>

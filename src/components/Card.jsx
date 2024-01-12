@@ -25,7 +25,7 @@ const Card = ({ icon, title, total }) => {
         ? "tarjeta"
         : title === "Saldo actual"
         ? "saldo"
-        : title === "Presupuesto"
+        : title === "Crear presupuesto"
         ? "presupuesto"
         : title.toLowerCase();
     //
@@ -48,7 +48,7 @@ const Card = ({ icon, title, total }) => {
         <div className="card-wrapper">
           <div className="expenses">
             <h4>{title}</h4>
-            <h5>{title !== "Presupuesto" ? total : ""}</h5>
+            <h5>{title !== "Crear presupuesto" ? total : ""}</h5>
           </div>
           <div className="icon">
             <img

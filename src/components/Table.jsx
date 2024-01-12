@@ -18,9 +18,6 @@ const Table = ({ titulo, bg }) => {
   const [data, setData] = useState(datos);
   const [total, setTotal] = useState(0);
   //
-  // const { setSubTotal } = useContext(DataContext);
-
-  ////
 
   // obtengo la url actual
   const location = useLocation();

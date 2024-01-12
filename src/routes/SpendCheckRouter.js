@@ -6,6 +6,7 @@ import Expenses from "../views/Expenses";
 import Header from "../components/Header";
 import SaldoActual from "../components/SaldoActual";
 import Budget from "../views/Budget";
+import BuiltBudget from "../components/BuiltBudget";
 
 const SpendCheckRouter = () => {
   return (
@@ -17,6 +18,7 @@ const SpendCheckRouter = () => {
         <Route path="/gastos" element={<Expenses />} />
         <Route path="/saldo" element={<SaldoActual />} />
         <Route path="/presupuesto" element={<Budget />} />
+        <Route path="/meta" element={<BuiltBudget />} />
       </Routes>
     </>
   );
