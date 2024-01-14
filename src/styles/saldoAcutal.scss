@@ -24,8 +24,13 @@
         display: grid;
         grid-template-columns: 840px 1fr;
         margin-bottom: 1.45em;
+        grid-column-gap: 35px;
 
         .saldo-linear-contaienr {
+          background: white;
+          box-shadow: $shadow;
+          padding: 25px;
+          border-radius: 18px;
         }
 
         .aside-saldo-actual-container {
@@ -103,11 +108,15 @@
 
         .saldo-bar-icons-most-expenses {
           display: grid;
-          grid-template-columns: 67% 1fr;
+          grid-template-columns: 65% 1fr;
+          grid-column-gap: 35px;
 
           .saldo-bar-chart-wrapper {
             // width: 60%;
             padding-top: 1.56em;
+            background: white;
+            border-radius: 18px;
+            box-shadow: $shadow;
           }
           .saldo-bar-chart-imgs {
             h4 {
@@ -122,10 +131,11 @@
               flex-wrap: wrap;
               background: white;
               border-radius: 9px;
-              border-bottom: 1px solid lightgray;
+              //  border-bottom: 1px solid lightgray;
+              box-shadow: $shadow;
 
               .saldo-bar-chart-img {
-                width: 4em;
+                width: 3.5em;
 
                 img {
                   width: 100%;
@@ -144,12 +154,17 @@
         }
 
         .gasto-chart-compare {
-          margin: 0 0 2em 0;
+          margin: 0 0 4em 0;
+
+          background: white;
+          box-shadow: $shadow;
+          border-radius: 18px;
+          padding: 25px;
         }
         .recomendations-compare-title {
           font-size: 1.25em;
           font-weight: 500;
-          margin-bottom: 1.25em;
+          margin: 1.5em 0;
         }
         // ul {
         //   list-style: none;
@@ -172,12 +187,12 @@
 
         .card-saldo-actual-wrapper {
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: repeat(4, 1fr);
           grid-gap: 15px;
 
           > div {
             p {
-              text-align: justify;
+              // text-align: justify;
               font-family: $font-maven;
               line-height: 20px;
               padding: 10px 10px 0 10px;

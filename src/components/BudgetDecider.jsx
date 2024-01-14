@@ -1,36 +1,35 @@
-import { useState } from "react";
-import piggy from "../assets/img/piggy.svg";
-import { LuAsterisk } from "react-icons/lu";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { useGetScreenWidth } from "../hooks/useGetScreenWidth";
+import { useState } from 'react'
+import piggy from '../assets/img/piggy.svg'
+import { LuAsterisk } from 'react-icons/lu'
+import { FaArrowRightLong } from 'react-icons/fa6'
+import { useGetScreenWidth } from '../hooks/useGetScreenWidth'
 
 const BudgetDecider = ({ handleNext }) => {
-  const [income, setIncome] = useState("");
-  const [savingsPercentage, setSavingsPercentage] = useState("");
-  const [savingsAmount, setSavingsAmount] = useState("");
-  const [totalExpenses, setTotalExpenses] = useState("");
+  const [income, setIncome] = useState('')
+  const [savingsPercentage, setSavingsPercentage] = useState('')
+  const [savingsAmount, setSavingsAmount] = useState('')
+  const [totalExpenses, setTotalExpenses] = useState('')
 
-  const screenWidth = useGetScreenWidth();
+  const screenWidth = useGetScreenWidth()
 
   const calculateSavings = () => {
-    const incomeValue = parseFloat(income);
-    const percentageValue = parseFloat(savingsPercentage);
+    const incomeValue = parseFloat(income)
+    const percentageValue = parseFloat(savingsPercentage)
 
     if (!isNaN(incomeValue) && !isNaN(percentageValue)) {
-      const savings = (incomeValue * percentageValue) / 100;
-      setSavingsAmount(savings.toFixed(2));
-      const monthlyExpenses = incomeValue - savings; // Restamos el ahorro del ingreso
-      setTotalExpenses(monthlyExpenses.toFixed(2));
-      const toSaveInLocalStorage = { savings, monthlyExpenses };
-      localStorage.setItem("budget", JSON.stringify(toSaveInLocalStorage));
+      const savings = (incomeValue * percentageValue) / 100
+      setSavingsAmount(savings.toFixed(2))
+      const monthlyExpenses = incomeValue - savings // Restamos el ahorro del ingreso
+      setTotalExpenses(monthlyExpenses.toFixed(2))
+      const toSaveInLocalStorage = { savings, monthlyExpenses }
+      localStorage.setItem('budget', JSON.stringify(toSaveInLocalStorage))
       //
     } else {
-      setSavingsAmount("");
-      setTotalExpenses("");
+      setSavingsAmount('')
+      setTotalExpenses('')
     }
-  };
-  //
-  //
+  }
+
   return (
     <>
       <br />
@@ -43,20 +42,13 @@ const BudgetDecider = ({ handleNext }) => {
             {/* Primer input-container */}
             <div className="input-container">
               <label htmlFor="income">Ingreso Mensual ($):</label>
-              <input
-                type="number"
-                id="income"
-                value={income}
-                onChange={(e) => setIncome(e.target.value)}
-              />
+              <input type="number" id="income" value={income} onChange={(e) => setIncome(e.target.value)} />
             </div>
 
             {/* Segundo input-container */}
             <div className="input-container">
               <label htmlFor="savingsPercentage">
-                {screenWidth < 900
-                  ? "Porcent. de ahorro (%):"
-                  : "Porcentaje de Ahorro (%):"}
+                {screenWidth < 900 ? 'Porcent. de ahorro (%):' : 'Porcentaje de Ahorro (%):'}
               </label>
               <input
                 type="number"
@@ -71,7 +63,7 @@ const BudgetDecider = ({ handleNext }) => {
             Calcular Ahorro
           </button>
 
-          {savingsAmount !== "" && (
+          {savingsAmount !== '' && (
             <div className="result-container">
               <p>Ahorro Mensual Resultante:</p>
               <div className="budget-amount-container">
@@ -92,28 +84,26 @@ const BudgetDecider = ({ handleNext }) => {
             </div>
           )}
         </div>
-        <p style={{ display: "flex", alignItems: "center", marginTop: "18px" }}>
+        <p style={{ display: 'flex', alignItems: 'center', marginTop: '18px' }}>
           <LuAsterisk /> Estima una meta (presupuesto) de lo que quieres ahorrar
         </p>
         <button
           style={{
-            top: screenWidth < 900 ? "100%" : "97%",
-            background: savingsAmount === "" && "lightgray",
-            cursor: savingsAmount === "" && "not-allowed",
+            top: screenWidth < 900 ? '100%' : '97%',
+            background: savingsAmount === '' && 'lightgray',
+            cursor: savingsAmount === '' && 'not-allowed',
           }}
           className="handle-next"
-          disabled={savingsAmount === ""}
-          onClick={handleNext}
-        >
-          {screenWidth > 900 ? "siguiente" : ""}{" "}
-          <span style={{ visibility: "hidden" }}>/</span> <FaArrowRightLong />
+          disabled={savingsAmount === ''}
+          onClick={handleNext}>
+          {screenWidth > 900 ? 'siguiente' : ''} <span style={{ visibility: 'hidden' }}>/</span> <FaArrowRightLong />
         </button>
       </section>
 
       <br />
       <br />
     </>
-  );
-};
+  )
+}
 
-export default BudgetDecider;
+export default BudgetDecider

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Card from "./Card";
-import vision from "../assets/img/vision.svg";
+import React, { useEffect, useState } from 'react';
+import Card from './Card';
+import vision from '../assets/img/vision.svg';
 
-import { cardsIcons } from "../utils/cardsIcons";
-import { Skeleton } from "@mui/material";
+import { cardsIcons } from '../utils/cardsIcons';
+import { Skeleton } from '@mui/material';
 
 const CardsContainer = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -28,26 +28,17 @@ const CardsContainer = () => {
       <br />
       <section className="total-card-container">
         <div className="card-card-container">
-          <h3>Vision General </h3>
+          <h3>Visión General </h3>
           <div className="wrapper-card-container">
             <div className="left-box">
               <div className="imgcontainer">
-                {imagesLoaded ? (
-                  <img src={vision} alt="" />
-                ) : (
-                  <Skeleton variant="rectangular" width={260} height={260} />
-                )}
+                {imagesLoaded ? <img src={vision} alt="" /> : <Skeleton variant="rectangular" width={260} height={260} />}
                 {/* <img src={vision} alt="" /> */}
               </div>
             </div>
             <div className="right-box">
               {cardsIcons.map((cardIcon) => (
-                <Card
-                  key={cardIcon.id}
-                  icon={cardIcon.icon}
-                  title={cardIcon.title}
-                  total={cardIcon.total}
-                />
+                <Card key={cardIcon.id} icon={cardIcon.icon} title={cardIcon.title} total={cardIcon.total} />
               ))}
             </div>
           </div>
