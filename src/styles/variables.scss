@@ -5,18 +5,17 @@ $gastos: rgb(244, 67, 54);
 $tarjeta: rgb(0, 121, 107);
 $botones-links: #35128c;
 
-$shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+$shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 $tamaño-card: 1 1 calc(25% - 36px);
 $radius: 25px;
-$icono-person: url("https://portalvhdshl0fsz1rywfcp.blob.core.windows.net/fotoperfilmobills/avatar.png");
+$icono-person: url('https://portalvhdshl0fsz1rywfcp.blob.core.windows.net/fotoperfilmobills/avatar.png');
 // font para numeros
-$font: "Numans", sans-serif;
+$font: 'Numans', sans-serif;
+$font-maven: 'Maven Pro', sans-serif;
+
 $color-titles: #0000008a;
 //
-
-$font-maven: "Maven Pro", sans-serif;
-
+$shadow-buttons: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 // mixin para fuentes de titulos
 @mixin customFont {
   font-size: 1.8em;
@@ -28,6 +27,12 @@ $font-maven: "Maven Pro", sans-serif;
   font-size: 1.4375em;
   color: #0000008a;
   font-weight: 600;
+}
+
+// mixin para section
+@mixin section {
+  width: 91%;
+  margin: auto;
 }
 
 // mixin para el wrapper

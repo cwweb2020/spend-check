@@ -1,0 +1,20 @@
+.progress-bar-container {
+  padding: 1.25em 1.56em;
+  p {
+    margin-bottom: 0.5em;
+    font-family: $font;
+    font-size: 0.88em;
+  }
+
+  .progress-bar {
+    border-radius: 18px;
+
+    .progress-text {
+    }
+  }
+
+  .amount-info {
+    p {
+    }
+  }
+}

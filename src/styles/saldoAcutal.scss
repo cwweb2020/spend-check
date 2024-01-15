@@ -142,6 +142,21 @@
                 }
               }
             }
+            .img-icons-container-names {
+              padding: 1.5em;
+
+              h6 {
+                font-size: 1em;
+                margin: 1em 0;
+                font-weight: 500;
+              }
+              .names-icons-container {
+                display: flex;
+                justify-content: space-evenly;
+                background: white;
+                padding: 1.25em;
+              }
+            }
           }
         }
       }

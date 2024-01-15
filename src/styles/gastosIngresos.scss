@@ -1,5 +1,5 @@
-@import "variables.scss";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
+@import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
 
 .total-gastos-ingresos {
   width: 91%;
@@ -54,7 +54,8 @@
               left: 50%;
               transform: translate(-50%, -50%);
               // font-family: system-ui;
-              font-family: "Montserrat", sans-serif;
+              //  font-family: "Montserrat", sans-serif;
+              font-family: $font-maven;
               letter-spacing: 1px;
             }
           }
@@ -140,7 +141,8 @@
               transform: translate(-50%, -50%);
               //  font-family: system-ui;
               // margin-bottom: 18px;
-              font-family: "Montserrat", sans-serif;
+              // font-family: 'Montserrat', sans-serif;
+              font-family: $font-maven;
               letter-spacing: 1px;
             }
           }

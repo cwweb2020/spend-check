@@ -2,24 +2,25 @@ import { useState } from 'react';
 import { categoryList } from '../constants/category_list';
 import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
 import { useGetScreenWidth } from '../hooks/useGetScreenWidth';
+import ProgressBar from './ProgressBar';
 
 //
 
-const CategoryDecider = ({ handlePreview }) => {
+const CategoryDecider = ({ handlePreview, handleNext }) => {
   const getLocalStorage = JSON.parse(localStorage.getItem('budget'));
   const [budgetData, setBudgetData] = useState({
     savings: getLocalStorage.savings || '',
     monthlyExpenses: getLocalStorage.monthlyExpenses || '',
   });
-  //  console.log('gastos', budgetData.monthlyExpenses);
+  // estado para guardar los values de las categorias seleccionadas
+  const [arrOfInputValues, setArrOfInputValues] = useState([]);
+  // console.log('gastos', budgetData.monthlyExpenses);
 
   //  categorias seleccionadas
   const [allCategories, setAllCategories] = useState(categoryList);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  // const [inputValue, setInputValue] = useState({
-  //   name: '',
-  //   value: '',
-  // });
+  //
+
   const [arrOfSelectedDataInput, setArrOfSelectedDataInput] = useState([]);
   const [isDataEntered, setIsDataEntered] = useState(false);
 
@@ -63,9 +64,14 @@ const CategoryDecider = ({ handlePreview }) => {
     );
     setSelectedCategories(updatedCategories);
     setIsDataEntered(true);
+    //  console.log('updatedCategories', updatedCategories);
+
+    // tomo los valores que va ingresando el cliente y los guardo en un array
+    const arrOfInputValues = updatedCategories.map((cat) => cat.value);
+    setArrOfInputValues(arrOfInputValues);
   };
 
-  const handleNext = () => {
+  const handleOnClick = () => {
     const budgetData = selectedCategories.map((category) => ({
       name: category.name,
       value: category.value,
@@ -135,6 +141,11 @@ const CategoryDecider = ({ handlePreview }) => {
                 );
               })}
             </div>
+            {selectedCategories.length > 0 && (
+              <ProgressBar totalGastos={budgetData.monthlyExpenses} values={arrOfInputValues} />
+            )}
+
+            {/* buttons en posicion absoluta */}
             <div className="cat-decider-buttons-container">
               <button className="back" onClick={handlePreview}>
                 <FaArrowLeftLong /> <span style={{ visibility: 'hidden' }}>/</span> {screenWidth > 900 ? 'volver' : ''}
@@ -146,16 +157,15 @@ const CategoryDecider = ({ handlePreview }) => {
                 }}
                 disabled={!isDataEntered || selectedCategories.length === 0}
                 className="next-category"
-                onClick={handleNext}>
+                onClick={() => {
+                  handleNext();
+                  handleOnClick();
+                }}>
                 {screenWidth > 900 ? 'siguiente' : ''}
                 <span style={{ visibility: 'hidden' }}>/</span> <FaArrowRightLong />
               </button>
             </div>
           </div>
-        </div>
-        <div className="cat-decider-progresive-line">
-          <h4></h4>
-          <div className="cat-decider-line"></div>
         </div>
       </section>
       <br />

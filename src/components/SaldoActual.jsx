@@ -21,8 +21,6 @@ const SaldoActual = () => {
   const { firstFours } = React.useContext(DataContext);
 
   //
-  //
-  //
 
   const gastosData = [
     { label: 'setiembre', amount: 500 },
@@ -119,7 +117,7 @@ const SaldoActual = () => {
                   <BarChartExample />
                 </div>
                 <div className="saldo-bar-chart-imgs">
-                  <h4>Categoría con mas gastos:</h4>
+                  <h4>Categorías con mas gastos:</h4>
 
                   <div className="img-icons-container">
                     {firstFours.map((item, index) => {
@@ -129,6 +127,14 @@ const SaldoActual = () => {
                         </div>
                       );
                     })}
+                  </div>
+                  <div className="img-icons-container-names">
+                    <h6>Categorías:</h6>
+                    <div className="names-icons-container">
+                      {firstFours.map((name, index) => (
+                        <p key={index}>{name.name}</p>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -146,7 +152,7 @@ const SaldoActual = () => {
                     display: 'flex',
                     alignItems: 'center',
                   }}>
-                  <LuAsterisk /> Relación entre tus gastos y tus ingresos en <span style={{ opacity: '0' }}>.</span>{' '}
+                  <LuAsterisk /> Porcentaje de tus gastos sobre tus ingresos en <span style={{ opacity: '0' }}>.</span>{' '}
                   <AiOutlinePercentage />
                 </p>
               </div>

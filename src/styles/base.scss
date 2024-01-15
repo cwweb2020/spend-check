@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Numans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Numans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 html,
@@ -24,7 +24,7 @@ body {
   }
 }
 
-@import "variables";
+@import 'variables';
 
 //
 
@@ -60,14 +60,15 @@ body {
 }
 
 // imports
-@import "landing";
-@import "card";
-@import "gastosIngresos";
-@import "header";
-@import "table";
-@import "balance";
-@import "balanceCard";
-@import "modalForm";
-@import "languageSelector";
-@import "saldoAcutal";
-@import "budget";
+@import 'landing';
+@import 'card';
+@import 'gastosIngresos';
+@import 'header';
+@import 'table';
+@import 'balance';
+@import 'balanceCard';
+@import 'modalForm';
+@import 'languageSelector';
+@import 'saldoAcutal';
+@import 'budget';
+@import 'progressBar';
