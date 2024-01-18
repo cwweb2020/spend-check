@@ -3,7 +3,7 @@ import Card from './Card';
 import vision from '../assets/img/vision.svg';
 
 import { cardsIcons } from '../utils/cardsIcons';
-import { Skeleton } from '@mui/material';
+import { Divider, Skeleton } from '@mui/material';
 
 const CardsContainer = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -44,6 +44,7 @@ const CardsContainer = () => {
           </div>
         </div>
       </section>
+      <Divider style={{ width: '80%', margin: 'auto' }} />
     </>
   );
 };

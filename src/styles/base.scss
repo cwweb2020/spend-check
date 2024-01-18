@@ -16,7 +16,8 @@ body {
   // changing styles in scroll bar
   &::-webkit-scrollbar-thumb {
     //  background-color: transparent;
-    background-color: rgb(0, 149, 255);
+    // background-color: rgb(0, 149, 255);
+    background-color: gray;
     border-radius: 9px;
   }
   &::-webkit-scrollbar {
@@ -57,6 +58,22 @@ body {
 
 .scroll-to-top-button.visible {
   visibility: visible;
+}
+
+// generic button in dashboard
+
+.budget-more-details {
+  background-color: #48d1cc;
+  padding: 8px 0;
+  border: none;
+  border-radius: 18px;
+  text-transform: capitalize;
+  font-size: 1.05em;
+  font-weight: 600;
+  font-family: 'Maven Pro', sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+  letter-spacing: 1px;
 }
 
 // imports

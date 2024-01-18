@@ -16,6 +16,8 @@ $font-maven: 'Maven Pro', sans-serif;
 $color-titles: #0000008a;
 //
 $shadow-buttons: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+$shadow-ver-detalle-button: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 // mixin para fuentes de titulos
 @mixin customFont {
   font-size: 1.8em;

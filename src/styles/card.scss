@@ -1,11 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Numans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Numans&display=swap');
 
 //// cards container
-@import "variables";
+@import 'variables';
 
 .total-card-container {
   width: 100%;
   padding-bottom: 1.875em;
+  margin-bottom: 2.5em;
 
   .card-card-container {
     width: 91%;
@@ -73,7 +74,7 @@
       h5 {
         font-size: 1.125em;
         margin: 0;
-        font-family: "Numans", sans-serif;
+        font-family: 'Numans', sans-serif;
         letter-spacing: 1.1px;
       }
     }

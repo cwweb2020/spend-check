@@ -4,9 +4,9 @@ const BuiltBudget = ({ handlePreview }) => {
   return (
     <>
       <h1>Presupuesto construido</h1>
-      <button className="back" onClick={handlePreview}>
+      {/* <button className="back" onClick={handlePreview}>
         ATRAS
-      </button>
+      </button> */}
     </>
   );
 };

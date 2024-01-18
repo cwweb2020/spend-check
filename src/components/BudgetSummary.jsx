@@ -58,9 +58,9 @@ const BudgetSummary = () => {
                     </div>
                     <p>nivel actual</p>
                     <div className="barra">
-                      <span style={{ width: '20%', background: 'blue', display: 'block', height: '100%' }}></span>
+                      <span style={{ width: '20%', background: '#0076d4', display: 'block', height: '100%' }}></span>
                     </div>
-                    <h5>20 %</h5>
+                    <h5 style={{ fontSize: '13px' }}>20 %</h5>
                   </div>
                 </>
               ) : (

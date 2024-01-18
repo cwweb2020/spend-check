@@ -1,38 +1,41 @@
-import React from "react";
-import MedioCirculo from "./MedioCirculo";
-import LiGastosIngresos from "./LiGastosIngresos";
+import React from 'react';
+import MedioCirculo from './MedioCirculo';
+import LiGastosIngresos from './LiGastosIngresos';
+import { useNavigate } from 'react-router-dom';
+import { Divider } from '@mui/material';
+import { useGetScreenWidth } from '../hooks/useGetScreenWidth';
 
 const GastosIngresos = () => {
   const porcentage = [20, 10, 50, 20];
-  const colors = ["#9933cc", "#36A2EB", "#ff725e", "green"];
+  const colors = ['#9933cc', '#36A2EB', '#ff725e', 'green'];
 
-  ///
-  ///
+  const navigate = useNavigate();
+
   // gastos
   const category = [
     {
-      name: "Alquiler",
-      color: "#ff725e",
+      name: 'Alquiler',
+      color: '#ff725e',
       porcentaje: 50,
     },
     {
-      name: "Comestibles",
-      color: "#9933cc",
+      name: 'Comestibles',
+      color: '#9933cc',
       porcentaje: 20,
     },
     {
-      name: "Salud",
-      color: "#0099cc",
+      name: 'Salud',
+      color: '#0099cc',
       porcentaje: 10,
     },
     {
-      name: "Entretenimiento",
-      color: "#b8860b",
+      name: 'Entretenimiento',
+      color: '#b8860b',
       porcentaje: 5,
     },
     {
-      name: "Tarj./Credito",
-      color: "#8fbc8f",
+      name: 'Tarj./Credito',
+      color: '#8fbc8f',
       porcentaje: 15,
     },
   ];
@@ -50,23 +53,23 @@ const GastosIngresos = () => {
   // ingresos
   const category2 = [
     {
-      name: "Sueldo",
-      color: "#0099cc",
+      name: 'Sueldo',
+      color: '#0099cc',
       porcentaje: 50,
     },
     {
-      name: "Intereses/banc",
-      color: "#ff725e",
+      name: 'Intereses/banc',
+      color: '#ff725e',
       porcentaje: 10,
     },
     {
-      name: "Prestamos",
-      color: "green",
+      name: 'Prestamos',
+      color: 'green',
       porcentaje: 20,
     },
     {
-      name: "Adicionales",
-      color: "yellow",
+      name: 'Adicionales',
+      color: 'yellow',
       porcentaje: 20,
     },
   ];
@@ -92,16 +95,18 @@ const GastosIngresos = () => {
                 <div className="right-box">
                   <ul>
                     {orderedCategory.map((category, index) => {
-                      return (
-                        <LiGastosIngresos
-                          key={index}
-                          category={category.name}
-                          color={category.color}
-                        />
-                      );
+                      return <LiGastosIngresos key={index} category={category.name} color={category.color} />;
                     })}
                   </ul>
                 </div>
+              </div>
+              <div style={{ padding: '20px' }}>
+                <button
+                  style={{ width: '100%', background: '#4c3f7d', color: 'white' }}
+                  onClick={() => navigate('/saldo')}
+                  className="budget-more-details">
+                  ver mas
+                </button>
               </div>
             </div>
           </div>
@@ -116,21 +121,24 @@ const GastosIngresos = () => {
                 <div className="right-box">
                   <ul>
                     {category2.map((category, index) => {
-                      return (
-                        <LiGastosIngresos
-                          key={index}
-                          category={category.name}
-                          color={category.color}
-                        />
-                      );
+                      return <LiGastosIngresos key={index} category={category.name} color={category.color} />;
                     })}
                   </ul>
                 </div>
+              </div>
+              <div style={{ padding: '20px' }}>
+                <button
+                  style={{ width: '100%', background: '#4c3f7d', color: 'white' }}
+                  onClick={() => navigate('/saldo')}
+                  className="budget-more-details">
+                  ver mas
+                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
+      {/* <Divider style={{ width: '80%', margin: 'auto' }} /> */}
     </>
   );
 };

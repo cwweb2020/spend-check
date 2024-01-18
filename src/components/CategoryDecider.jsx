@@ -68,6 +68,7 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
 
     // tomo los valores que va ingresando el cliente y los guardo en un array
     const arrOfInputValues = updatedCategories.map((cat) => cat.value);
+
     setArrOfInputValues(arrOfInputValues);
   };
 

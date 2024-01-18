@@ -87,15 +87,21 @@
           font-weight: 600;
           padding: 12px 31px;
           border: none;
-          border-radius: 21px;
+          border-radius: 11px;
           box-shadow: $shadow;
           cursor: pointer;
           letter-spacing: 1px;
+          display: flex;
+          align-items: center;
 
           &:hover {
             background: #0d8e0d;
             transform: scale(1.009);
             transition: all 200ms;
+          }
+
+          svg {
+            align-self: end;
           }
         }
       }

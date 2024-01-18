@@ -2,8 +2,24 @@
   padding: 1.25em 1.56em;
   p {
     margin-bottom: 0.5em;
-    font-family: $font;
+    // font-family: $font-maven;
     font-size: 0.88em;
+    color: #3b3838e6;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 1.49em;
+      font-family: $font;
+      margin-bottom: 0.2em;
+      margin: 0;
+    }
+  }
+
+  .barra {
+    margin-top: 0.625em;
   }
 
   .progress-bar {

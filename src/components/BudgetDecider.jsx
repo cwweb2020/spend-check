@@ -1,34 +1,34 @@
-import { useState } from 'react'
-import piggy from '../assets/img/piggy.svg'
-import { LuAsterisk } from 'react-icons/lu'
-import { FaArrowRightLong } from 'react-icons/fa6'
-import { useGetScreenWidth } from '../hooks/useGetScreenWidth'
+import { useState } from 'react';
+import piggy from '../assets/img/piggy.svg';
+import { LuAsterisk } from 'react-icons/lu';
+import { FaArrowRightLong } from 'react-icons/fa6';
+import { useGetScreenWidth } from '../hooks/useGetScreenWidth';
 
 const BudgetDecider = ({ handleNext }) => {
-  const [income, setIncome] = useState('')
-  const [savingsPercentage, setSavingsPercentage] = useState('')
-  const [savingsAmount, setSavingsAmount] = useState('')
-  const [totalExpenses, setTotalExpenses] = useState('')
+  const [income, setIncome] = useState('');
+  const [savingsPercentage, setSavingsPercentage] = useState('');
+  const [savingsAmount, setSavingsAmount] = useState('');
+  const [totalExpenses, setTotalExpenses] = useState('');
 
-  const screenWidth = useGetScreenWidth()
+  const screenWidth = useGetScreenWidth();
 
   const calculateSavings = () => {
-    const incomeValue = parseFloat(income)
-    const percentageValue = parseFloat(savingsPercentage)
+    const incomeValue = parseFloat(income);
+    const percentageValue = parseFloat(savingsPercentage);
 
     if (!isNaN(incomeValue) && !isNaN(percentageValue)) {
-      const savings = (incomeValue * percentageValue) / 100
-      setSavingsAmount(savings.toFixed(2))
-      const monthlyExpenses = incomeValue - savings // Restamos el ahorro del ingreso
-      setTotalExpenses(monthlyExpenses.toFixed(2))
-      const toSaveInLocalStorage = { savings, monthlyExpenses }
-      localStorage.setItem('budget', JSON.stringify(toSaveInLocalStorage))
+      const savings = (incomeValue * percentageValue) / 100;
+      setSavingsAmount(savings.toFixed(2));
+      const monthlyExpenses = incomeValue - savings; // Restamos el ahorro del ingreso
+      setTotalExpenses(monthlyExpenses.toFixed(2));
+      const toSaveInLocalStorage = { savings, monthlyExpenses };
+      localStorage.setItem('budget', JSON.stringify(toSaveInLocalStorage));
       //
     } else {
-      setSavingsAmount('')
-      setTotalExpenses('')
+      setSavingsAmount('');
+      setTotalExpenses('');
     }
-  }
+  };
 
   return (
     <>
@@ -37,7 +37,7 @@ const BudgetDecider = ({ handleNext }) => {
       <section className="budget-section">
         <h2 className="budget-title">Presupuesto</h2>
         <div className="budget-wrapper">
-          <h4 className="budget-subtitle">Cuanto deseas ahorrar</h4>
+          <h4 className="budget-subtitle">Cuanto deseas ahorrar ?</h4>
           <div className="inputs-wrapper">
             {/* Primer input-container */}
             <div className="input-container">
@@ -103,7 +103,7 @@ const BudgetDecider = ({ handleNext }) => {
       <br />
       <br />
     </>
-  )
-}
+  );
+};
 
-export default BudgetDecider
+export default BudgetDecider;
