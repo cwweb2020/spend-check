@@ -1,56 +1,62 @@
-import React from "react";
-import dollar from "../assets/icons/dollar-sign.svg";
-
-//
+import React from 'react';
+import { FaMoneyBill, FaMoneyCheck, FaMoneyBillAlt } from 'react-icons/fa';
+import { useGetScreenWidth } from '../hooks/useGetScreenWidth';
+import gastos from '../assets/icons/summary/pay-summary.svg';
+import ingresos from '../assets/icons/summary/income-summary.svg';
+import saldo from '../assets/icons/summary/saldo-summary.svg';
 
 const SaldoCard = () => {
-  //
+  const screenWidth = useGetScreenWidth();
 
-  //
   return (
     <>
-      <div className="total-balance-card-container">
-        <h4 className="total-balance-title">Saldo</h4>
-        <section className="total-balance-card">
-          <div className="refill">
-            <div className="wrapper-balance-card">
-              <ul>
-                <li>
-                  <h4>Ingresos</h4>{" "}
-                  <h4
-                    className="balance-card-number"
-                    style={{ color: "#3b9a5f" }}
-                  >
-                    <img src={dollar} alt="" />
-                    960
-                  </h4>
-                </li>
-                <li>
-                  <h4>Gastos</h4>{" "}
-                  <h4 className="balance-card-number" style={{ color: "red" }}>
-                    <img src={dollar} alt="" />
-                    350
-                  </h4>
-                </li>
-                <hr />
-                <li>
-                  <h4 style={{ color: "black" }}>Saldo Actual</h4>{" "}
-                  <h4
-                    className="balance-card-number"
-                    style={{ color: "black" }}
-                  >
-                    <img src={dollar} alt="" />
-                    610
-                  </h4>
-                </li>
-              </ul>
+      <section className="total-summary-container">
+        <div className="upper-summary-container">
+          <h4>Resumen actual</h4>
+          <div className="total-summary-wrapper">
+            <div style={{ borderLeft: '4px solid #08af13' }} className="summary-card-container">
+              <div className="icon-summary-title">
+                <img src={ingresos} alt="" />
+                <p className="summary-card-header">Ingresos</p>
+              </div>
+              <p className="card-number-income">
+                <span style={{ color: 'black' }}>$</span> 960
+              </p>
+            </div>
+
+            <div style={{ borderLeft: '4px solid #c92e13' }} className="summary-card-container">
+              <div className="icon-summary-title">
+                <img src={gastos} alt="" />
+                <p className="summary-card-header">Gastos</p>
+              </div>
+
+              <p className="card-number-expense">
+                <span style={{ color: 'black' }}>$</span> 350
+              </p>
+            </div>
+
+            <div style={{ borderLeft: '4px solid #1089b1' }} className="summary-card-container">
+              <div className="icon-summary-title">
+                <img src={saldo} alt="" />
+                <p className="summary-card-header">Saldo</p>
+              </div>
+              <p className="card-number-balance">
+                <span style={{ color: 'black' }}>$</span> 610
+              </p>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
       <br />
       <br />
       <br />
+      {screenWidth < 900 && (
+        <>
+          <br />
+          <br />
+          <br />
+        </>
+      )}
     </>
   );
 };

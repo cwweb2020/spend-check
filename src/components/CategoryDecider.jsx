@@ -7,19 +7,24 @@ import ProgressBar from './ProgressBar';
 //
 
 const CategoryDecider = ({ handlePreview, handleNext }) => {
-  const getLocalStorage = JSON.parse(localStorage.getItem('budget'));
-  const [budgetData, setBudgetData] = useState({
-    savings: getLocalStorage.savings || '',
-    monthlyExpenses: getLocalStorage.monthlyExpenses || '',
-  });
-  // estado para guardar los values de las categorias seleccionadas
+  const storedBudget = JSON.parse(localStorage.getItem('budget')) || {};
+  const { savings = '', monthlyExpenses = '' } = storedBudget;
+  const [budgetData, setBudgetData] = useState({ savings, monthlyExpenses });
+  console.log('budgetData', budgetData);
+  // get screenwidth
+  const screenWidth = useGetScreenWidth();
+
+  // state to store the values of the selected categories
   const [arrOfInputValues, setArrOfInputValues] = useState([]);
   // console.log('gastos', budgetData.monthlyExpenses);
 
-  //  categorias seleccionadas
+  // selected categories
   const [allCategories, setAllCategories] = useState(categoryList);
   const [selectedCategories, setSelectedCategories] = useState([]);
   //
+
+  // this state is for the total amount of the selected categories
+  const [totalAmount, setTotalAmount] = useState(0);
 
   const [arrOfSelectedDataInput, setArrOfSelectedDataInput] = useState([]);
   const [isDataEntered, setIsDataEntered] = useState(false);
@@ -37,22 +42,8 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
     setAllCategories([...allCategories, category]);
   };
 
-  // get screenwidth
-  const screenWidth = useGetScreenWidth();
-  const manageDiv2 = () => {
-    if (screenWidth < 900) {
-      if (selectedCategories.length <= 0) {
-        return 'none';
-      } else {
-        return 'block';
-      }
-    } else {
-      return 'flex';
-    }
-  };
-  // get screenwidth
-
-  const manageDivSecond = manageDiv2();
+  // const manageDivSecond = manageDiv2();
+  const manageDivSecond = { display: screenWidth < 900 ? (selectedCategories.length <= 0 ? 'none' : 'block') : 'flex' };
 
   const divDos = {
     display: manageDivSecond,
@@ -63,10 +54,15 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
       cat.id === category.id ? { ...cat, value: e.target.value } : cat,
     );
     setSelectedCategories(updatedCategories);
+
+    // add the values of the selected categories in real time
+    const totalAmount = updatedCategories.reduce((total, cat) => total + parseFloat(cat.value) || 0, 0);
+    setTotalAmount(totalAmount);
+    console.log('totalAmount', totalAmount);
     setIsDataEntered(true);
     //  console.log('updatedCategories', updatedCategories);
 
-    // tomo los valores que va ingresando el cliente y los guardo en un array
+    // create array of the values of the selected categories
     const arrOfInputValues = updatedCategories.map((cat) => cat.value);
 
     setArrOfInputValues(arrOfInputValues);
@@ -78,9 +74,15 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
       value: category.value,
     }));
 
-    // arr de objetos con los valores de las categorias seleccionadas
+    // array of objects with the selected categories and their values
     console.log(budgetData);
     setArrOfSelectedDataInput(budgetData);
+  };
+
+  //next button style
+  const nextButton = {
+    top: screenWidth < 900 ? '100%' : '97%',
+    background: !isDataEntered && 'lightgray',
   };
 
   return (
@@ -152,10 +154,7 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
                 <FaArrowLeftLong /> <span style={{ visibility: 'hidden' }}>/</span> {screenWidth > 900 ? 'volver' : ''}
               </button>
               <button
-                style={{
-                  top: screenWidth < 900 ? '100%' : '97%',
-                  background: !isDataEntered && 'lightgray',
-                }}
+                style={nextButton}
                 disabled={!isDataEntered || selectedCategories.length === 0}
                 className="next-category"
                 onClick={() => {
@@ -168,6 +167,7 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
             </div>
           </div>
         </div>
+        <p>Total: {totalAmount.toFixed(2)}</p>
       </section>
       <br />
       <br />

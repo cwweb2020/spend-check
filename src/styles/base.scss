@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Numans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&display=swap');
+@import 'variables';
 
 * {
   margin: 0;
@@ -17,19 +18,12 @@ body {
   &::-webkit-scrollbar-thumb {
     //  background-color: transparent;
     // background-color: rgb(0, 149, 255);
-    background-color: gray;
+    background-color: #547071;
     border-radius: 9px;
   }
   &::-webkit-scrollbar {
     width: 12px;
   }
-}
-
-@import 'variables';
-
-//
-
-body {
   background-color: $background;
 }
 
@@ -89,3 +83,4 @@ body {
 @import 'saldoAcutal';
 @import 'budget';
 @import 'progressBar';
+@import 'saldoCardSummary';

@@ -1,0 +1,270 @@
+// .total-summary-container {
+//   width: 91%;
+//   margin: 0 auto;
+//   margin-top: 2.5em;
+
+//   .upper-summary-container {
+//     width: 90%;
+//     margin: auto;
+
+//     h4 {
+//       @include customFontSub;
+//       margin-bottom: 1em;
+//     }
+
+//     /* Estilo del contenedor de tarjetas */
+//     .total-summary-wrapper {
+//       width: 70%;
+
+//       .summary-card-container {
+//         flex: 1;
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         padding: 1.1em 1.5em;
+//         box-sizing: border-box;
+//         // border: 1px solid #ddd;
+//         border-radius: 10px;
+//         background-color: #fff;
+//         margin-bottom: 1em;
+//         width: 50%;
+//         box-shadow: $shadow;
+
+//         .icon-summary-title {
+//           display: flex;
+//           align-items: center;
+
+//           img {
+//             width: 3em;
+//             margin-right: 1em;
+//           }
+
+//           /* Estilo del encabezado de la tarjeta */
+//           .summary-card-header {
+//             font-size: 1.3em;
+//             font-weight: bold;
+//             color: #333333;
+//             font-family: $font-maven;
+//           }
+//         }
+
+//         /* Estilo del número en la tarjeta para Ingresos */
+//         .card-number-income {
+//           font-size: 1.7em;
+//           font-weight: bold;
+//           color: #27ae60; /* Verde */
+//           //  margin-top: 0.5em;
+//           font-family: $font-maven; // Convertido a em
+//         }
+
+//         /* Estilo del número en la tarjeta para Gastos */
+//         .card-number-expense {
+//           font-size: 1.7em;
+//           font-weight: bold;
+//           color: #e74c3c; /* Rojo */
+//           //   margin-top: 0.5em;
+//           font-family: $font-maven;
+//         }
+
+//         /* Estilo del número en la tarjeta para Saldo Actual */
+//         .card-number-balance {
+//           font-size: 1.7em;
+//           font-weight: bold;
+//           color: #3498db; /* Azul */
+//           //   margin-top: 0.5em;
+//           font-family: $font-maven;
+//         }
+//       }
+//     }
+//   }
+// }
+
+//// estilos del nuevo saldo card dos
+.total-summary-balance {
+  width: 91%;
+  margin: auto;
+
+  .summary-balance-container {
+    width: 83%;
+    margin: auto;
+    margin-bottom: 2em;
+    margin-top: 3.81em;
+
+    h5 {
+      @include customFontSub;
+      margin-bottom: 1.2em;
+    }
+
+    .summary-balance-card {
+      border-radius: 18px;
+      box-shadow: $shadow;
+      background-color: #fff;
+      width: fit-content;
+      padding: 2em 1em;
+
+      min-height: 15.12em;
+      display: flex;
+      align-items: stretch;
+
+      .summary-balance-wrapper {
+        display: flex;
+        gap: 1.25em;
+
+        .summary-balance-left-box {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          padding: 0 0.75em;
+          align-items: center;
+
+          .summary-balance-up {
+            display: flex;
+            //  flex-direction: column;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            padding: 0.5625em 0.75em;
+            border-radius: 15px;
+
+            h4 {
+              font: 600 1.3em $font-maven;
+              color: #08af13;
+              margin-bottom: 2px;
+              display: flex;
+              align-items: center;
+
+              img {
+                width: 1.875em;
+                margin-right: 0.2em;
+              }
+            }
+
+            p {
+              font: bold 1.2em $font;
+            }
+          }
+
+          .summary-balance-bottom {
+            display: flex;
+            //  flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            padding: 0.5625em 0.75em;
+            border-radius: 15px;
+
+            h4 {
+              font: 600 1.3em $font-maven;
+              color: #c92e13;
+              margin-bottom: 2px;
+              display: flex;
+              align-items: center;
+
+              img {
+                width: 1.875em;
+                margin-right: 0.2em;
+              }
+            }
+
+            p {
+              font: bold 1.2em $font;
+              align-self: center;
+            }
+          }
+          .summary-balance-footer {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            padding: 0.5625em 0.75em;
+            border-radius: 15px;
+
+            h4 {
+              font: 600 1.3em $font-maven;
+              color: #1089b1;
+              margin-bottom: 2px;
+              display: flex;
+              align-items: center;
+
+              img {
+                width: 1.875em;
+                margin-right: 0.2em;
+              }
+            }
+
+            p {
+              font: bold 1.2em $font;
+              align-self: center;
+            }
+          }
+        }
+
+        .summary-balance-right-box {
+          padding: 0 1em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          svg {
+            circle {
+            }
+          }
+        }
+        .summary-balance-center-circle {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .summary-balance-right-box-gastos {
+            font: 600 1em $font;
+            color: rgba(0, 0, 0, 0.69);
+            margin-bottom: 2px;
+          }
+          p {
+            font: bold 1.08em $font;
+            align-self: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+.summary-balance-right-box {
+  --porcentaje: 75;
+}
+
+.summary-balance-right-box circle {
+  fill: none;
+  stroke-width: 18px;
+  stroke-dasharray: 100 100;
+  transform: rotate(-90deg);
+  transform-origin: 50%;
+  stroke: #aaa;
+}
+
+.summary-balance-right-box circle:nth-child(2) {
+  stroke-dasharray: var(--porcentaje) 100;
+  stroke: #1c0992;
+  animation: rellenar 0.35s linear forwards;
+}
+
+@keyframes rellenar {
+  to {
+    stroke-dasharray: var(--porcentaje) 100;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  // .total-summary-container {
+  //   font-size: 13px;
+  //   .upper-summary-container {
+  //     .total-summary-wrapper {
+  //       width: unset;
+  //       .summary-card-container {
+  //         width: unset;
+  //       }
+  //     }
+  //   }
+  // }
+}

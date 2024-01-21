@@ -11,6 +11,8 @@ const GastosIngresos = () => {
 
   const navigate = useNavigate();
 
+  const screenWidth = useGetScreenWidth();
+
   // gastos
   const category = [
     {
@@ -100,7 +102,7 @@ const GastosIngresos = () => {
                   </ul>
                 </div>
               </div>
-              <div style={{ padding: '20px' }}>
+              <div style={{ padding: screenWidth < 900 ? '0 20px 20px 20px' : '20px' }}>
                 <button
                   style={{ width: '100%', background: '#4c3f7d', color: 'white' }}
                   onClick={() => navigate('/saldo')}
@@ -126,7 +128,7 @@ const GastosIngresos = () => {
                   </ul>
                 </div>
               </div>
-              <div style={{ padding: '20px' }}>
+              <div style={{ padding: screenWidth < 900 ? '0 20px 20px 20px' : '20px' }}>
                 <button
                   style={{ width: '100%', background: '#4c3f7d', color: 'white' }}
                   onClick={() => navigate('/saldo')}
@@ -138,7 +140,7 @@ const GastosIngresos = () => {
           </div>
         </div>
       </section>
-      {/* <Divider style={{ width: '80%', margin: 'auto' }} /> */}
+      <Divider style={{ width: '80%', margin: 'auto' }} />
     </>
   );
 };

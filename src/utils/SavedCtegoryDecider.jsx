@@ -1,65 +1,94 @@
-import { useState } from "react";
-import { categoryList } from "../constants/category_list";
-import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
-import { useGetScreenWidth } from "../hooks/useGetScreenWidth";
+import { useState } from 'react';
+import { categoryList } from '../constants/category_list';
+import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
+import { useGetScreenWidth } from '../hooks/useGetScreenWidth';
+import ProgressBar from './ProgressBar';
 
 //
-//
 
-const CategoryDecider = ({ handlePreview }) => {
-  const getLocalStorage = JSON.parse(localStorage.getItem("budget"));
-  const [savingsAmount, setSavingsAmount] = useState(getLocalStorage.savings);
-  const [totalExpenses, setTotalExpenses] = useState(
-    getLocalStorage.monthlyExpenses
-  );
-  console.log(savingsAmount, totalExpenses);
+const CategoryDecider = ({ handlePreview, handleNext }) => {
+  const storedBudget = JSON.parse(localStorage.getItem('budget')) || {};
+  const { savings = '', monthlyExpenses = '' } = storedBudget;
+  const [budgetData, setBudgetData] = useState({ savings, monthlyExpenses });
+
+  // estado para guardar los values de las categorias seleccionadas
+  const [arrOfInputValues, setArrOfInputValues] = useState([]);
+  // console.log('gastos', budgetData.monthlyExpenses);
+
   //  categorias seleccionadas
   const [allCategories, setAllCategories] = useState(categoryList);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [inputValue, setInputValue] = useState({
-    name: "",
-    value: "",
-  });
+  //
+
+  // this state is for the total amount of the selected categories
+  const [totalAmount, setTotalAmount] = useState(0);
+
+  const [arrOfSelectedDataInput, setArrOfSelectedDataInput] = useState([]);
+  const [isDataEntered, setIsDataEntered] = useState(false);
 
   const handleAddToSelected = (category) => {
     const newSelectedCategories = [...selectedCategories, category];
+
     setSelectedCategories(newSelectedCategories);
     setAllCategories(allCategories.filter((cat) => cat.id !== category.id));
   };
 
   const handleRemoveFromSelected = (category) => {
-    const newSelectedCategories = selectedCategories.filter(
-      (cat) => cat.id !== category.id
-    );
+    const newSelectedCategories = selectedCategories.filter((cat) => cat.id !== category.id);
     setSelectedCategories(newSelectedCategories);
     setAllCategories([...allCategories, category]);
   };
 
   // get screenwidth
   const screenWidth = useGetScreenWidth();
-  const manageDiv2 = () => {
-    if (screenWidth < 900) {
-      if (selectedCategories.length <= 0) {
-        return "none";
-      } else {
-        return "block";
-      }
-    } else {
-      return "flex";
-    }
-  };
+  // const manageDiv2 = () => {
+  //   if (screenWidth < 900) {
+  //     if (selectedCategories.length <= 0) {
+  //       return 'none';
+  //     } else {
+  //       return 'block';
+  //     }
+  //   } else {
+  //     return 'flex';
+  //   }
+  // };
+  // // get screenwidth
 
-  const manageDivSecond = manageDiv2();
+  // const manageDivSecond = manageDiv2();
+  const manageDivSecond = { display: screenWidth < 900 ? (selectedCategories.length <= 0 ? 'none' : 'block') : 'flex' };
 
   const divDos = {
     display: manageDivSecond,
   };
 
-  const handleCatInput = (e) => {
-    // const { name, value } = e.target;
+  const handleCatInput = (e, category) => {
+    const updatedCategories = selectedCategories.map((cat) =>
+      cat.id === category.id ? { ...cat, value: e.target.value } : cat,
+    );
+    setSelectedCategories(updatedCategories);
 
-    setInputValue({ ...inputValue, [e.target.name]: e.target.value });
-    console.log(inputValue);
+    // Sumar los montos ingresados en tiempo real
+    const totalAmount = updatedCategories.reduce((total, cat) => total + parseFloat(cat.value) || 0, 0);
+    setTotalAmount(totalAmount);
+    console.log('totalAmount', totalAmount);
+    setIsDataEntered(true);
+    //  console.log('updatedCategories', updatedCategories);
+
+    // tomo los valores que va ingresando el cliente y los guardo en un array
+    const arrOfInputValues = updatedCategories.map((cat) => cat.value);
+
+    setArrOfInputValues(arrOfInputValues);
+  };
+
+  const handleOnClick = () => {
+    const budgetData = selectedCategories.map((category) => ({
+      name: category.name,
+      value: category.value,
+    }));
+
+    // arr de objetos con los valores de las categorias seleccionadas
+    console.log(budgetData);
+    setArrOfSelectedDataInput(budgetData);
   };
 
   return (
@@ -69,17 +98,12 @@ const CategoryDecider = ({ handlePreview }) => {
       <section className="total-category-decider budget-section">
         <h4 className="category-decider-title">Planifica tus gastos</h4>
         <div className="cat-decider-big-container">
-          <h4 className="cat-decider-subtitulo">
-            Elije los gastos que deseas trackear
-          </h4>
+          <h4 className="cat-decider-subtitulo">Elije los gastos que deseas trackear</h4>
           <div className="cat-decider-wrapper">
             <div className="uno">
               {allCategories.map((category) => {
                 return (
-                  <div
-                    onClick={() => handleAddToSelected(category)}
-                    key={category.id}
-                  >
+                  <div onClick={() => handleAddToSelected(category)} key={category.id}>
                     <span className="cat-decider-img-container">
                       <img src={category.icon} alt="" />
                     </span>
@@ -109,58 +133,50 @@ const CategoryDecider = ({ handlePreview }) => {
 
               {selectedCategories.map((category) => {
                 return (
-                  <div
-                    className="dos-container"
-                    // onClick={() => handleRemoveFromSelected(category)}
-                    key={category.id}
-                    style={{ display: "flex", alignItems: "center" }}
-                  >
+                  <div className="dos-container" key={category.id} style={{ display: 'flex', alignItems: 'center' }}>
                     <span className="cat-decider-title-img">
                       <h4>{category.name} </h4>
-                      <img
-                        onClick={() => handleRemoveFromSelected(category)}
-                        src={category.icon}
-                        alt=""
-                      />
+                      <img onClick={() => handleRemoveFromSelected(category)} src={category.icon} alt="" />
                     </span>
                     <span className="cat-decider-input">
                       <input
                         onChange={(e) => handleCatInput(e, category)}
                         name={category.name}
                         type="number"
+                        value={category.value || ''}
                       />
                     </span>
                   </div>
                 );
               })}
             </div>
+            {selectedCategories.length > 0 && (
+              <ProgressBar totalGastos={budgetData.monthlyExpenses} values={arrOfInputValues} />
+            )}
+
+            {/* buttons en posicion absoluta */}
             <div className="cat-decider-buttons-container">
               <button className="back" onClick={handlePreview}>
-                <FaArrowLeftLong />{" "}
-                <span style={{ visibility: "hidden" }}>/</span>{" "}
-                {screenWidth > 900 ? "volver" : ""}
+                <FaArrowLeftLong /> <span style={{ visibility: 'hidden' }}>/</span> {screenWidth > 900 ? 'volver' : ''}
               </button>
               <button
                 style={{
-                  top: screenWidth < 900 ? "100%" : "97%",
-                  //  background: savingsAmount === "" && "lightgray",
-                  //   cursor: savingsAmount === "" && "not-allowed",
+                  top: screenWidth < 900 ? '100%' : '97%',
+                  background: !isDataEntered && 'lightgray',
                 }}
-                className=" next-category"
-                //  disabled={savingsAmount === ""}
-                //  onClick={handleNext}
-              >
-                {screenWidth > 900 ? "siguiente" : ""}
-                <span style={{ visibility: "hidden" }}>/</span>{" "}
-                <FaArrowRightLong />
+                disabled={!isDataEntered || selectedCategories.length === 0}
+                className="next-category"
+                onClick={() => {
+                  handleNext();
+                  handleOnClick();
+                }}>
+                {screenWidth > 900 ? 'siguiente' : ''}
+                <span style={{ visibility: 'hidden' }}>/</span> <FaArrowRightLong />
               </button>
             </div>
           </div>
         </div>
-        <div className="cat-decider-progresive-line">
-          <h4></h4>
-          <div className="cat-decider-line"></div>
-        </div>
+        <p>Total: {totalAmount.toFixed(2)}</p>
       </section>
       <br />
       <br />
@@ -169,8 +185,8 @@ const CategoryDecider = ({ handlePreview }) => {
 };
 
 const catSelected = {
-  marginTop: "1em",
-  textAlign: "center",
+  marginTop: '1em',
+  textAlign: 'center',
 };
 
 export default CategoryDecider;

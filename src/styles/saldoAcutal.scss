@@ -136,6 +136,9 @@
 
               .saldo-bar-chart-img {
                 width: 3.5em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
                 img {
                   width: 100%;

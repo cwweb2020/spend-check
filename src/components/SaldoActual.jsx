@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Tooltip from '@mui/material/Tooltip';
 import { LinearChart } from './charts/LinearChart';
 import BarChartExample from './BarChartExample';
 import income from '../assets/icons/incomes.svg';
@@ -14,13 +15,10 @@ import { AiOutlinePercentage } from 'react-icons/ai';
 import { Card, CardContent } from '@mui/material';
 import ScrollToTopButton from './ScrollToTopButton';
 
-//
-//
-
 const SaldoActual = () => {
   const { firstFours } = React.useContext(DataContext);
-
-  //
+  console.log('firstFours', firstFours);
+  const [tooltipText, setTooltipText] = useState('');
 
   const gastosData = [
     { label: 'setiembre', amount: 500 },
@@ -29,7 +27,6 @@ const SaldoActual = () => {
     { label: 'diciembre', amount: 800 },
   ];
 
-  //
   const totalIncomes = 1050;
   const porcentageArray = [];
 
@@ -77,7 +74,7 @@ const SaldoActual = () => {
                 <div className="gastos">
                   <div className="box1">
                     <img src={outcome} alt="" />
-                    <h3>gastos</h3>
+                    <h3>Gastos</h3>
                   </div>
                   <p style={{ color: 'red' }}>
                     <img src={dollar} alt="" />
@@ -88,7 +85,7 @@ const SaldoActual = () => {
                 <div className="saldo">
                   <div className="box1">
                     <img src={saldo} alt="" />
-                    <h3>saldo</h3>
+                    <h3>Saldo</h3>
                   </div>
                   <p>
                     <img src={dollar} alt="" />
@@ -105,7 +102,7 @@ const SaldoActual = () => {
                 display: 'flex',
                 alignItems: 'center',
               }}>
-              <LuAsterisk /> Progresión de gastos en los ultimos 4 meses
+              <LuAsterisk /> Progresión de gastos en los últimos 4 meses
             </p>
             {/* entering extplanation for the chart */}
             <Divider />
@@ -122,26 +119,26 @@ const SaldoActual = () => {
                   <div className="img-icons-container">
                     {firstFours.map((item, index) => {
                       return (
-                        <div className="saldo-bar-chart-img" key={index}>
-                          <img src={item.img} alt="" />
-                        </div>
+                        <Tooltip
+                          key={index}
+                          title={`Monto gastado: ${item.monto} $`}
+                          enterDelay={500}
+                          leaveDelay={200}
+                          placement="top">
+                          <div className="saldo-bar-chart-img">
+                            <img src={item.img} alt="" />
+                            <h5>{item.name} </h5>
+                          </div>
+                        </Tooltip>
                       );
                     })}
-                  </div>
-                  <div className="img-icons-container-names">
-                    <h6>Categorías:</h6>
-                    <div className="names-icons-container">
-                      {firstFours.map((name, index) => (
-                        <p key={index}>{name.name}</p>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <Divider />
             <div className="bottom-compare-categories saldo-bar-container">
-              <h4 className="comparative-title">proporción de gastos</h4>
+              <h4 className="comparative-title">Proporción de gastos</h4>
 
               <div className="gasto-chart-compare" style={{ width: '67%' }}>
                 <GastosChart data={porcentage} />
@@ -166,9 +163,9 @@ const SaldoActual = () => {
                   <CardContent>
                     <p className="card-p-content">
                       <b>Gasto Promedio Mensual:</b> Calcula el promedio mensual de gastos sumando los gastos de los cuatro
-                      meses y dividiéndolo entre el número de meses. Promedio Mensual = Gasto de Setiembre + Gasto de Octubre
-                      + Gasto de Noviembre + Gasto de Diciembre 4 Promedio Mensual= 4 Gasto de Setiembre+Gasto de
-                      Octubre+Gasto de Noviembre+Gasto de Diciembre
+                      meses y dividiéndolo entre el número de meses. Promedio Mensual = Gasto de Setiembre + Gasto de Octubre +
+                      Gasto de Noviembre + Gasto de Diciembre 4 Promedio Mensual= 4 Gasto de Setiembre+Gasto de Octubre+Gasto de
+                      Noviembre+Gasto de Diciembre
                     </p>
                   </CardContent>
                 </Card>
@@ -193,8 +190,8 @@ const SaldoActual = () => {
                 <Card style={{ borderRadius: '12px' }}>
                   <CardContent>
                     <p>
-                      <b> Análisis de Proporciones:</b> Examina la proporción de gastos en cada mes en relación con el total
-                      de los cuatro meses. ¿Hubo un mes en el que gastaste más en comparación con los otros meses?
+                      <b> Análisis de Proporciones:</b> Examina la proporción de gastos en cada mes en relación con el total de
+                      los cuatro meses. ¿Hubo un mes en el que gastaste más en comparación con los otros meses?
                     </p>
                   </CardContent>
                 </Card>

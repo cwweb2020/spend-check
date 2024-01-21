@@ -1,4 +1,4 @@
-@import 'variables.scss';
+//@import 'variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
 
 .total-gastos-ingresos {
@@ -6,7 +6,7 @@
   margin: 0 auto;
   //  margin-top: 81px;
   // margin-bottom: 90px;
-  margin-top: 2.5em;
+  margin-top: 3.5em;
   padding-bottom: 3em;
 
   .expenses-incomes-wrapperr {
@@ -203,5 +203,42 @@
 
     display: flex;
     align-items: center;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .total-gastos-ingresos {
+    font-size: 13px;
+    .expenses-incomes-wrapperr {
+      grid-template-columns: 1fr;
+      .expenses-expenses {
+        .expenses-container {
+          margin-bottom: 2em;
+          .topcontainer {
+            .left-box {
+              svg {
+                height: 10em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .total-gastos-ingresos {
+    .expenses-incomes-wrapperr {
+      .incomes-incomes {
+        .incomes-container {
+          .topcontainer {
+            .left-box {
+              svg {
+                height: 10em;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

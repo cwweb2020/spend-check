@@ -1,10 +1,10 @@
-@import 'variables.scss';
+// @import 'variables.scss';
 
 .total-balance {
   width: 83%;
   margin: auto;
   margin-bottom: 2em;
-  margin-top: 2.81em;
+  margin-top: 3.81em;
 
   .wrapper-balance {
     // width: 80%;
@@ -133,6 +133,24 @@
             border: 1px solid #e0e0e0;
             margin-bottom: 1.125em;
           }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .total-balance {
+    font-size: 13px;
+    width: 90%;
+    .wrapper-balance {
+      .balance-chart-container {
+        display: unset;
+        .balance-container {
+          display: none;
+        }
+        .balance-chart {
+          min-height: 214px !important;
         }
       }
     }

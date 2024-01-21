@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
+import React, { useState } from 'react';
+import { IoIosArrowDown } from 'react-icons/io';
 
-const LanguageSelector = ({ langTitle }) => {
+const LanguageSelector = ({ langTitle, screenWidth }) => {
   const [active, setActive] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("spanish");
+  const [selectedLanguage, setSelectedLanguage] = useState('spanish');
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
@@ -15,24 +15,20 @@ const LanguageSelector = ({ langTitle }) => {
   const habdleSelect = () => {
     setActive(!active);
   };
-  const dinamicClass = active ? "active" : "";
+  const dinamicClass = active ? 'active' : '';
 
   return (
     <div className="language-selector">
       <span onClick={habdleSelect} className="language-title">
-        {langTitle} &nbsp;{" "}
+        {langTitle} &nbsp;{' '}
         <IoIosArrowDown
           style={{
-            transform: active ? "rotate(180deg)" : "rotate(0deg)",
-            transition: active
-              ? "all 300ms"
-              : active === false
-              ? "all 300ms"
-              : "",
+            transform: active ? 'rotate(180deg)' : 'rotate(0deg)',
+            transition: active ? 'all 300ms' : active === false ? 'all 300ms' : '',
           }}
         />
       </span>
-      <ul className={`${dinamicClass} `}>
+      <ul style={{ bottom: screenWidth < 900 && '130%', top: screenWidth < 900 && 'unset' }} className={`${dinamicClass} `}>
         <li>spanish</li>
         <hr />
         <li>english</li>
