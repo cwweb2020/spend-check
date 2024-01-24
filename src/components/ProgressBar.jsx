@@ -14,14 +14,14 @@ const ProgressBar = ({ totalGastos, values }) => {
 
   return (
     <section className="progress-bar-container">
-      <p>
-        Total a trackear:{' '}
+      <div className="progress-bar-container-wrap">
+        Total a trackear:
         <div className="total-to-track-amount">
           <p>
             <span style={{ visibility: 'hidden', display: 'inline-block' }}>/</span> <span>$ {totalGastos}</span>
           </p>
         </div>
-      </p>
+      </div>
       {/* progress bar */}
       <div style={bar} className="barra">
         <span style={{ width: '30%', background: '#0076d4', display: 'block', height: '100%' }}></span>

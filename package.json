@@ -58,5 +58,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "git": {
+    "commitMessageType": "inputBox",
+    "enableSmartCommit": true,
+    "confirmSync": false,
+    "autofetch": true
   }
 }

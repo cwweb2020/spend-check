@@ -1,88 +1,82 @@
-import { useState } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { categoryList } from '../constants/category_list';
 import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
 import { useGetScreenWidth } from '../hooks/useGetScreenWidth';
 import ProgressBar from './ProgressBar';
 
-//
-
 const CategoryDecider = ({ handlePreview, handleNext }) => {
   const storedBudget = JSON.parse(localStorage.getItem('budget')) || {};
-  const { savings = '', monthlyExpenses = '' } = storedBudget;
-  const [budgetData, setBudgetData] = useState({ savings, monthlyExpenses });
-  console.log('budgetData', budgetData);
-  // get screenwidth
+  const { savings = null, monthlyExpenses = null } = storedBudget;
+
+  const [categoryData, setCategoryData] = useState({
+    allCategories: categoryList,
+    selectedCategories: [],
+    totalAmount: 0,
+    arrOfInputValues: [],
+  });
+
   const screenWidth = useGetScreenWidth();
 
-  // state to store the values of the selected categories
-  const [arrOfInputValues, setArrOfInputValues] = useState([]);
-  // console.log('gastos', budgetData.monthlyExpenses);
+  const handleAddToSelected = useCallback(
+    (category) => {
+      const newSelectedCategories = [...categoryData.selectedCategories, category];
+      setCategoryData({
+        ...categoryData,
+        selectedCategories: newSelectedCategories,
+        allCategories: categoryData.allCategories.filter((cat) => cat.id !== category.id),
+      });
+    },
+    [categoryData],
+  );
 
-  // selected categories
-  const [allCategories, setAllCategories] = useState(categoryList);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  //
+  const handleRemoveFromSelected = useCallback(
+    (category) => {
+      const newSelectedCategories = categoryData.selectedCategories.filter((cat) => cat.id !== category.id);
+      setCategoryData({
+        ...categoryData,
+        selectedCategories: newSelectedCategories,
+        allCategories: [...categoryData.allCategories, category],
+      });
+    },
+    [categoryData],
+  );
 
-  // this state is for the total amount of the selected categories
-  const [totalAmount, setTotalAmount] = useState(0);
+  const handleCatInput = useCallback(
+    (e, category) => {
+      const updatedCategories = categoryData.selectedCategories.map((cat) =>
+        cat.id === category.id ? { ...cat, value: e.target.value } : cat,
+      );
 
-  const [arrOfSelectedDataInput, setArrOfSelectedDataInput] = useState([]);
-  const [isDataEntered, setIsDataEntered] = useState(false);
+      setCategoryData((prevData) => ({
+        ...prevData,
+        selectedCategories: updatedCategories,
+        totalAmount: updatedCategories.reduce((total, cat) => total + parseFloat(cat.value) || 0, 0),
+        isDataEntered: true,
+        arrOfInputValues: updatedCategories.map((cat) => cat.value),
+      }));
+    },
+    [categoryData],
+  );
 
-  const handleAddToSelected = (category) => {
-    const newSelectedCategories = [...selectedCategories, category];
-
-    setSelectedCategories(newSelectedCategories);
-    setAllCategories(allCategories.filter((cat) => cat.id !== category.id));
-  };
-
-  const handleRemoveFromSelected = (category) => {
-    const newSelectedCategories = selectedCategories.filter((cat) => cat.id !== category.id);
-    setSelectedCategories(newSelectedCategories);
-    setAllCategories([...allCategories, category]);
-  };
-
-  // const manageDivSecond = manageDiv2();
-  const manageDivSecond = { display: screenWidth < 900 ? (selectedCategories.length <= 0 ? 'none' : 'block') : 'flex' };
-
-  const divDos = {
-    display: manageDivSecond,
-  };
-
-  const handleCatInput = (e, category) => {
-    const updatedCategories = selectedCategories.map((cat) =>
-      cat.id === category.id ? { ...cat, value: e.target.value } : cat,
-    );
-    setSelectedCategories(updatedCategories);
-
-    // add the values of the selected categories in real time
-    const totalAmount = updatedCategories.reduce((total, cat) => total + parseFloat(cat.value) || 0, 0);
-    setTotalAmount(totalAmount);
-    console.log('totalAmount', totalAmount);
-    setIsDataEntered(true);
-    //  console.log('updatedCategories', updatedCategories);
-
-    // create array of the values of the selected categories
-    const arrOfInputValues = updatedCategories.map((cat) => cat.value);
-
-    setArrOfInputValues(arrOfInputValues);
-  };
-
-  const handleOnClick = () => {
-    const budgetData = selectedCategories.map((category) => ({
+  const gatherBudgetData = useCallback(() => {
+    const budgetData = categoryData.selectedCategories.map((category) => ({
       name: category.name,
       value: category.value,
     }));
 
-    // array of objects with the selected categories and their values
-    console.log(budgetData);
-    setArrOfSelectedDataInput(budgetData);
-  };
+    setCategoryData({ ...categoryData, arrOfSelectedDataInput: budgetData });
+  }, [categoryData]);
 
-  //next button style
-  const nextButton = {
+  const arrOfSelectedDataInput = useMemo(() => {
+    return categoryData.selectedCategories.map((category) => ({
+      name: category.name,
+      value: category.value,
+    }));
+  }, [categoryData.selectedCategories]);
+
+  const nextButtonStyle = {
     top: screenWidth < 900 ? '100%' : '97%',
-    background: !isDataEntered && 'lightgray',
+    background: !categoryData.isDataEntered && 'lightgray',
   };
 
   return (
@@ -95,7 +89,7 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
           <h4 className="cat-decider-subtitulo">Elije los gastos que deseas trackear</h4>
           <div className="cat-decider-wrapper">
             <div className="uno">
-              {allCategories.map((category) => {
+              {categoryData.allCategories.map((category) => {
                 return (
                   <div onClick={() => handleAddToSelected(category)} key={category.id}>
                     <span className="cat-decider-img-container">
@@ -107,7 +101,7 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
               })}
             </div>
 
-            {selectedCategories.length > 0 && screenWidth < 900 && (
+            {categoryData.selectedCategories.length > 0 && screenWidth < 900 && (
               <>
                 <hr />
                 <h4 style={catSelected} className="cat-decider-subtitulo">
@@ -116,7 +110,13 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
               </>
             )}
 
-            <div style={divDos} className="dos">
+            <div
+              style={
+                screenWidth < 900
+                  ? { display: categoryData.selectedCategories.length <= 0 ? 'none' : 'block' }
+                  : { display: 'flex' }
+              }
+              className="dos">
               {screenWidth > 900 && (
                 <>
                   <h4 style={catSelected} className="cat-decider-subtitulo">
@@ -125,7 +125,7 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
                 </>
               )}
 
-              {selectedCategories.map((category) => {
+              {categoryData.selectedCategories.map((category) => {
                 return (
                   <div className="dos-container" key={category.id} style={{ display: 'flex', alignItems: 'center' }}>
                     <span className="cat-decider-title-img">
@@ -144,22 +144,21 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
                 );
               })}
             </div>
-            {selectedCategories.length > 0 && (
-              <ProgressBar totalGastos={budgetData.monthlyExpenses} values={arrOfInputValues} />
+            {categoryData.selectedCategories.length > 0 && (
+              <ProgressBar totalGastos={monthlyExpenses} values={categoryData.arrOfInputValues} />
             )}
 
-            {/* buttons en posicion absoluta */}
             <div className="cat-decider-buttons-container">
               <button className="back" onClick={handlePreview}>
                 <FaArrowLeftLong /> <span style={{ visibility: 'hidden' }}>/</span> {screenWidth > 900 ? 'volver' : ''}
               </button>
               <button
-                style={nextButton}
-                disabled={!isDataEntered || selectedCategories.length === 0}
+                style={nextButtonStyle}
+                disabled={!categoryData.isDataEntered || categoryData.selectedCategories.length === 0}
                 className="next-category"
                 onClick={() => {
                   handleNext();
-                  handleOnClick();
+                  gatherBudgetData();
                 }}>
                 {screenWidth > 900 ? 'siguiente' : ''}
                 <span style={{ visibility: 'hidden' }}>/</span> <FaArrowRightLong />
@@ -167,7 +166,7 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
             </div>
           </div>
         </div>
-        <p>Total: {totalAmount.toFixed(2)}</p>
+        <p>Total: {categoryData.totalAmount.toFixed(2)}</p>
       </section>
       <br />
       <br />

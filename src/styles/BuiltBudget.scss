@@ -1,0 +1,12 @@
+.total-built-budget {
+  @include section;
+
+  .total-built-budget-container {
+    @include wrapper;
+
+    .built-budget-title {
+      @include customFont;
+      //  margin-bottom: 0.5em;
+    }
+  }
+}

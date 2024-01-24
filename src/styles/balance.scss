@@ -80,7 +80,7 @@
         }
         /// nuevo
         .budget-more-details {
-          background-color: #48d1cc;
+          background-color: #7449f1;
           padding: 8px 0;
           border: none;
           border-radius: 18px;
@@ -90,6 +90,7 @@
           font-family: $font-maven;
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
           cursor: pointer;
+          color: white;
         }
       }
       .balance-container {

@@ -60,7 +60,7 @@ const BudgetDecider = ({ handleNext }) => {
           </div>
 
           <button className="budget-button" onClick={calculateSavings}>
-            Calcular Ahorro
+            Calcular {screenWidth > 900 && 'Ahorro'}
           </button>
 
           {savingsAmount !== '' && (
@@ -84,8 +84,8 @@ const BudgetDecider = ({ handleNext }) => {
             </div>
           )}
         </div>
-        <p style={{ display: 'flex', alignItems: 'center', marginTop: '18px' }}>
-          <LuAsterisk /> Estima una meta (presupuesto) de lo que quieres ahorrar
+        <p style={{ display: 'flex', alignItems: 'center', marginTop: screenWidth > 900 ? '18px' : '12px' }}>
+          <LuAsterisk /> Estima una meta (presupuesto) {screenWidth > 900 ? 'de lo que quieres ahorrar' : 'de ahorro'}
         </p>
         <button
           style={{

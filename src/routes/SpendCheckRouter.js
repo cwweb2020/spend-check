@@ -8,6 +8,7 @@ import SaldoActual from '../components/SaldoActual';
 import Budget from '../views/Budget';
 import BuiltBudget from '../components/BuiltBudget';
 import ScrollToTopOnMount from '../utils/ScrollToTopOnMount';
+import NotFound from '../views/NotFound';
 
 const SpendCheckRouter = () => {
   return (
@@ -15,12 +16,13 @@ const SpendCheckRouter = () => {
       <Header />
       <ScrollToTopOnMount />
       <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/ingresos" element={<Incomings />} />
         <Route path="/gastos" element={<Expenses />} />
         <Route path="/saldo" element={<SaldoActual />} />
         <Route path="/presupuesto" element={<Budget />} />
         <Route path="/meta" element={<BuiltBudget />} />
+        <Route path="/not-found" element={<NotFound />} />
       </Routes>
     </>
   );

@@ -52,12 +52,13 @@ body {
 
 .scroll-to-top-button.visible {
   visibility: visible;
+  z-index: 1000;
 }
 
 // generic button in dashboard
 
 .budget-more-details {
-  background-color: #48d1cc;
+  background-color: #7449f1;
   padding: 8px 0;
   border: none;
   border-radius: 18px;
@@ -68,6 +69,12 @@ body {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
   letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 900px) {
+  .scroll-to-top-button {
+    bottom: 9%;
+  }
 }
 
 // imports
@@ -84,3 +91,4 @@ body {
 @import 'budget';
 @import 'progressBar';
 @import 'saldoCardSummary';
+@import 'BuiltBudget';

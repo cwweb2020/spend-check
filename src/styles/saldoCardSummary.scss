@@ -102,7 +102,7 @@
       width: fit-content;
       padding: 2em 1em;
 
-      min-height: 15.12em;
+      min-height: 16.12em;
       display: flex;
       align-items: stretch;
 
@@ -236,16 +236,17 @@
 
 .summary-balance-right-box circle {
   fill: none;
-  stroke-width: 18px;
+  stroke-width: 21px;
   stroke-dasharray: 100 100;
   transform: rotate(-90deg);
   transform-origin: 50%;
-  stroke: #aaa;
+  stroke: #aaaaaa6e;
 }
 
 .summary-balance-right-box circle:nth-child(2) {
   stroke-dasharray: var(--porcentaje) 100;
-  stroke: #1c0992;
+  // stroke: #eb9c4d;
+  stroke: #ff725e;
   animation: rellenar 0.35s linear forwards;
 }
 
@@ -256,15 +257,69 @@
 }
 
 @media only screen and (max-width: 900px) {
-  // .total-summary-container {
-  //   font-size: 13px;
-  //   .upper-summary-container {
-  //     .total-summary-wrapper {
-  //       width: unset;
-  //       .summary-card-container {
-  //         width: unset;
-  //       }
-  //     }
-  //   }
-  // }
+  .total-summary-balance {
+    font-size: 13px;
+    width: 95%;
+
+    .summary-balance-container {
+      width: unset;
+      margin-top: 1.81em;
+
+      h5 {
+      }
+
+      .summary-balance-card {
+        .summary-balance-wrapper {
+          gap: unset;
+          font-size: 11px;
+
+          .summary-balance-left-box {
+            .summary-balance-up {
+              h4 {
+                img {
+                }
+              }
+
+              p {
+              }
+            }
+
+            .summary-balance-bottom {
+              h4 {
+                img {
+                }
+              }
+
+              p {
+              }
+            }
+            .summary-balance-footer {
+              h4 {
+                img {
+                }
+              }
+
+              p {
+              }
+            }
+          }
+
+          .summary-balance-right-box {
+            padding: 4px;
+
+            svg {
+              circle {
+              }
+            }
+          }
+          .summary-balance-center-circle {
+            .summary-balance-right-box-gastos {
+            }
+            p {
+            }
+          }
+        }
+      }
+    }
+  }
 }
