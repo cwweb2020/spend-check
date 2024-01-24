@@ -12,10 +12,10 @@ span {
   }
 
   .budget-wrapper {
-    width: 95%;
-    margin: auto;
+    width: 55%;
+    //  margin: auto;
     background: white;
-    padding: 2.5em;
+    padding: 2.5em 3em 2.5em 2.5em;
     border-radius: 10px;
     box-shadow: $shadow;
 
@@ -25,7 +25,7 @@ span {
     }
 
     .inputs-wrapper {
-      width: 65%;
+      //  width: 65%;
 
       .input-container {
         margin-top: 3.12em;
@@ -313,6 +313,58 @@ span {
         p {
           font-family: $font;
           font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+// media queries
+@media only screen and (max-width: 900px) {
+  .budget-section {
+    font-size: 12.5px;
+
+    .budget-title {
+      text-align: center;
+    }
+
+    .budget-wrapper {
+      width: unset;
+      .result-container {
+        .budget-amount-container {
+          img {
+            width: 96px;
+          }
+        }
+      }
+      .budget-button {
+        margin-top: 2em;
+      }
+    }
+  }
+
+  // category decider responsive
+  .total-category-decider {
+    width: 95%;
+
+    .cat-decider-big-container {
+      width: unset;
+
+      .cat-decider-wrapper {
+        grid-template-columns: 1fr;
+        min-height: unset;
+
+        .uno {
+          padding: 1.25em 1.3em;
+
+          div {
+          }
+        }
+        .dos {
+          .dos-container {
+            // justify-content: center;
+            margin-left: 20px;
+          }
         }
       }
     }

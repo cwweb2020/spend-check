@@ -22,7 +22,7 @@ const SaldoCard2 = () => {
   }, [porcentaje]);
 
   const circleStyle = {
-    '--porcentaje': porcentaje,
+    '--porcentaje': porcent,
   };
 
   return (
@@ -69,12 +69,12 @@ const SaldoCard2 = () => {
               </div>
               <div className="summary-balance-right-box" style={circleStyle}>
                 <svg width={'150px'} height={'150px'}>
-                  <circle cx="50%" cy="50%" r="65" pathLength={100}></circle>
-                  <circle cx="50%" cy="50%" r="65" pathLength={100}></circle>
+                  <circle cx="50%" cy="50%" r="64" pathLength={100}></circle>
+                  <circle cx="50%" cy="50%" r="64" pathLength={100}></circle>
                 </svg>
                 <div className="summary-balance-center-circle">
                   <h5 className="summary-balance-right-box-gastos">Gastos</h5>
-                  <p> {porcent}%</p>
+                  <p>{porcent}%</p>
                 </div>
               </div>
             </div>

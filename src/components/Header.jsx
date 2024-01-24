@@ -9,7 +9,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const redirectToHome = () => {
-    navigate('/dashboard');
+    navigate('/');
   };
   //
   const screenWidth = useGetScreenWidth();
@@ -33,7 +33,7 @@ const Header = () => {
               alt=""
             />
             <h3>claudio</h3>/
-            <h4 onClick={() => navigate('/dashboard')} style={exit}>
+            <h4 onClick={() => navigate('/')} style={exit}>
               Salir
             </h4>
           </div>

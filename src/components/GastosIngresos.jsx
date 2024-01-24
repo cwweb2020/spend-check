@@ -104,7 +104,7 @@ const GastosIngresos = () => {
               </div>
               <div style={{ padding: screenWidth < 900 ? '0 20px 20px 20px' : '20px' }}>
                 <button
-                  style={{ width: '100%', background: '#4c3f7d', color: 'white' }}
+                  style={{ width: '100%', background: '#7449f1', color: 'white' }}
                   onClick={() => navigate('/saldo')}
                   className="budget-more-details">
                   ver mas
@@ -130,7 +130,7 @@ const GastosIngresos = () => {
               </div>
               <div style={{ padding: screenWidth < 900 ? '0 20px 20px 20px' : '20px' }}>
                 <button
-                  style={{ width: '100%', background: '#4c3f7d', color: 'white' }}
+                  style={{ width: '100%', background: '#7449f1', color: 'white' }}
                   onClick={() => navigate('/saldo')}
                   className="budget-more-details">
                   ver mas

@@ -1,6 +1,6 @@
-import React from "react";
-import { Route, Routes } from "react-router";
-import LandingPage from "../views/LandingPage";
+import React from 'react';
+import { Route, Routes } from 'react-router';
+import LandingPage from '../views/LandingPage';
 
 const AuthRouter = () => {
   return (
