@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { DataContext } from "../context/provider/DataUserProvider";
-import pig from "../assets/icons/pig.svg";
-import money from "../assets/icons/gastos.svg";
+import React, { useContext } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { DataContext } from '../context/provider/DataUserProvider';
+import pig from '../assets/icons/pig.svg';
+import money from '../assets/icons/gastos.svg';
 
 const Card = ({ icon, title, total }) => {
   const navigate = useNavigate();
   // const { subTotal } = useContext(DataContext);
-  //
 
   // // obtengo la url actual
   // const location = useLocation();
@@ -21,18 +20,18 @@ const Card = ({ icon, title, total }) => {
   const handleNavigate = (title) => {
     //
     let getRouteByTitle =
-      title === "Tarjeta de credito"
-        ? "tarjeta"
-        : title === "Saldo actual"
-        ? "saldo"
-        : title === "Crear presupuesto"
-        ? "presupuesto"
+      title === 'Tarjeta de credito'
+        ? 'tarjeta'
+        : title === 'Saldo actual'
+        ? 'saldo'
+        : title === 'Crear presupuesto'
+        ? 'presupuesto'
         : title.toLowerCase();
     //
 
-    if (title === "Total") {
-      return;
-    }
+    // if (title === 'Total') {
+    //   return;
+    // }
 
     navigate(`/${getRouteByTitle}`);
   };
@@ -41,20 +40,16 @@ const Card = ({ icon, title, total }) => {
   return (
     <>
       <section
-        style={{ cursor: title === "Total" ? "default" : "pointer" }}
+        style={{ cursor: title === 'Total' ? 'default' : 'pointer' }}
         onClick={() => handleNavigate(title)}
-        className="total-card"
-      >
+        className="total-card">
         <div className="card-wrapper">
           <div className="expenses">
             <h4>{title}</h4>
-            <h5>{title !== "Crear presupuesto" ? total : ""}</h5>
+            <h5>{title !== 'Crear presupuesto' ? total : ''}</h5>
           </div>
-          <div className="icon">
-            <img
-              src={icon === "pig" ? pig : icon === "money" ? money : icon}
-              alt="icon"
-            />
+          <div style={{ transform: title === 'Gastos' || title === 'Ingresos' ? 'rotate(180deg)' : '' }} className="icon">
+            <img src={icon === 'pig' ? pig : icon === 'money' ? money : icon} alt="icon" />
           </div>
         </div>
       </section>

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from 'react';
 
 export const DataContext = createContext();
 
@@ -7,8 +7,16 @@ const DataUserProvider = ({ children }) => {
   // saving first 4 elements of the array
   const [firstFours, setFirstFours] = useState([]);
   //
+  // const [name, setName] = useState();
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  // useEffect(() => {
+  //   if (localStorage.getItem('name')) {
+  //     setName(localStorage.getItem('name'));
+  //   }
+  // }, []);
 
   //
   return (
@@ -20,8 +28,8 @@ const DataUserProvider = ({ children }) => {
         open,
         setFirstFours,
         firstFours,
-      }}
-    >
+        // name,
+      }}>
       {children}
     </DataContext.Provider>
   );

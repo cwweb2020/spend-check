@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import vision from '../assets/img/vision.svg';
-
 import { cardsIcons } from '../utils/cardsIcons';
 import { Divider, Skeleton } from '@mui/material';
 
@@ -19,9 +18,6 @@ const CardsContainer = () => {
     };
   }, []);
 
-  //
-
-  //
   return (
     <>
       <br />

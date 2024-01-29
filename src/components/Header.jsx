@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import house from '../assets/icons/house.svg';
 import { useNavigate } from 'react-router-dom';
 import person from '../assets/icons/person-svgrepo-com.svg';
 import LanguageSelector from './material-icons/LanguageSelector';
 import { useGetScreenWidth } from '../hooks/useGetScreenWidth';
+import { AuthContext } from '../context/AuthContext';
 
 const Header = () => {
+  const nameLocalStorage = localStorage.getItem('name');
+  const [name, setName] = useState(nameLocalStorage);
   const navigate = useNavigate();
+  //
 
   const redirectToHome = () => {
     navigate('/');
   };
   //
   const screenWidth = useGetScreenWidth();
-
   const langTitle = screenWidth < 900 ? 'Lang' : 'Language';
 
   //
@@ -32,10 +35,7 @@ const Header = () => {
               src={person}
               alt=""
             />
-            <h3>claudio</h3>/
-            <h4 onClick={() => navigate('/')} style={exit}>
-              Salir
-            </h4>
+            <h3>{name}</h3>/<h4 style={exit}>Salir</h4>
           </div>
         </div>
       </section>

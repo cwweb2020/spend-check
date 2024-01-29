@@ -9,15 +9,21 @@ import Divider from '@mui/material/Divider';
 import saldo from '../assets/icons/rest-saldo.svg';
 import { DataContext } from '../context/provider/DataUserProvider';
 import GastosChart from './charts/GastosChart';
-import { getPorcentageExpenses } from '../utils/calculations/getPorcentageExpenses';
 import { LuAsterisk } from 'react-icons/lu';
 import { AiOutlinePercentage } from 'react-icons/ai';
-import { Card, CardContent } from '@mui/material';
+import { Card, CardContent, CircularProgress } from '@mui/material';
 import ScrollToTopButton from './ScrollToTopButton';
+import FinancialCard from './FinancialCard';
+import { porcentageFunc } from '../utils/calculations/getPorcentageExpenses';
+
+//
+
+//
 
 const SaldoActual = () => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const { firstFours } = React.useContext(DataContext);
-  console.log('firstFours', firstFours);
+  // console.log('firstFours', firstFours);
   const [tooltipText, setTooltipText] = useState('');
 
   const gastosData = [
@@ -28,20 +34,22 @@ const SaldoActual = () => {
   ];
 
   const totalIncomes = 1050;
-  const porcentageArray = [];
 
-  const porcentageFunc = () => {
-    gastosData.map((gasto) => {
-      const percent = getPorcentageExpenses(gasto.amount, totalIncomes);
-      porcentageArray.push({ label: gasto.label, percent });
-    });
-    return porcentageArray;
-  };
-
-  const porcentage = porcentageFunc();
+  const porcentage = porcentageFunc(gastosData, totalIncomes);
 
   React.useEffect(() => {
-    porcentageFunc();
+    porcentageFunc(gastosData, totalIncomes);
+  }, []);
+
+  // Simular carga de imágenes
+  React.useEffect(() => {
+    const imageLoader = new Image();
+    imageLoader.src = income; // Usar una de las imágenes para cargar
+
+    imageLoader.onload = () => {
+      // Todas las imágenes se han cargado
+      setImagesLoaded(true);
+    };
   }, []);
 
   return (
@@ -59,39 +67,47 @@ const SaldoActual = () => {
                 <LinearChart />
               </div>
 
-              <div className="aside-saldo-actual-container">
-                <div className="ingresos">
-                  <div className="box1">
-                    <img src={income} alt="" />
-                    <h3>Ingresos</h3>
-                  </div>
-                  <p style={{ color: 'green' }}>
-                    <img src={dollar} alt="" />
-                    1500
-                  </p>
-                </div>
+              <div
+                style={{ display: !imagesLoaded ? 'flex' : '', justifyContent: !imagesLoaded ? 'center' : '' }}
+                className="aside-saldo-actual-container">
+                {imagesLoaded ? (
+                  <>
+                    <div className="ingresos">
+                      <div className="box1">
+                        <img src={income} alt="" />
+                        <h3>Ingresos</h3>
+                      </div>
+                      <p style={{ color: 'green' }}>
+                        <img src={dollar} alt="" />
+                        1500
+                      </p>
+                    </div>
 
-                <div className="gastos">
-                  <div className="box1">
-                    <img src={outcome} alt="" />
-                    <h3>Gastos</h3>
-                  </div>
-                  <p style={{ color: 'red' }}>
-                    <img src={dollar} alt="" />
-                    600
-                  </p>
-                </div>
+                    <div className="gastos">
+                      <div className="box1">
+                        <img src={outcome} alt="" />
+                        <h3>Gastos</h3>
+                      </div>
+                      <p style={{ color: 'red' }}>
+                        <img src={dollar} alt="" />
+                        600
+                      </p>
+                    </div>
 
-                <div className="saldo">
-                  <div className="box1">
-                    <img src={saldo} alt="" />
-                    <h3>Saldo</h3>
-                  </div>
-                  <p>
-                    <img src={dollar} alt="" />
-                    900
-                  </p>
-                </div>
+                    <div className="saldo">
+                      <div className="box1">
+                        <img src={saldo} alt="" />
+                        <h3>Saldo</h3>
+                      </div>
+                      <p>
+                        <img src={dollar} alt="" />
+                        900
+                      </p>
+                    </div>
+                  </>
+                ) : (
+                  <CircularProgress />
+                )}
               </div>
             </div>
             {/* entering extplanation for the chart */}
@@ -159,7 +175,7 @@ const SaldoActual = () => {
               <h5 className="recomendations-compare-title">Análisis en base a los datos</h5>
 
               <div className="card-saldo-actual-wrapper">
-                <Card style={{ borderRadius: '12px' }}>
+                {/* <Card style={{ borderRadius: '12px' }}>
                   <CardContent>
                     <p className="card-p-content">
                       <b>Gasto Promedio Mensual:</b> Calcula el promedio mensual de gastos sumando los gastos de los cuatro
@@ -194,7 +210,9 @@ const SaldoActual = () => {
                       los cuatro meses. ¿Hubo un mes en el que gastaste más en comparación con los otros meses?
                     </p>
                   </CardContent>
-                </Card>
+                </Card> */}
+                <FinancialCard />
+                <FinancialCard />
               </div>
             </div>
           </div>

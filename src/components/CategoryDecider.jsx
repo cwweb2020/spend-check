@@ -77,6 +77,7 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
   const nextButtonStyle = {
     top: screenWidth < 900 ? '100%' : '97%',
     background: !categoryData.isDataEntered && 'lightgray',
+    cursor: !categoryData.isDataEntered && 'not-allowed',
   };
 
   return (

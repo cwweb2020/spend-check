@@ -1,0 +1,44 @@
+{
+  "categorias": [
+    {
+      "nombre": "bus",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/bus.svg?alt=media&token=2bede269-1af9-4dce-81f5-145fb1f92880"
+    },
+    {
+      "nombre": "car",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/car.svg?alt=media&token=8f166ffe-101f-44cb-a2f6-b79deb831fb4"
+    },
+    {
+      "nombre": "cellphone",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/cellphone.svg?alt=media&token=1eb43698-1422-45d9-aed2-2c4980c6318d"
+    },
+    {
+      "nombre": "edu",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/edu.svg?alt=media&token=9adb76e8-c715-4cc0-8b9d-d4f5e39bcbe4"
+    },
+    {
+      "nombre": "entert",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/entert.svg?alt=media&token=77ee7b04-4136-4d12-848f-ddf876cac98d"
+    },
+    {
+      "nombre": "gym",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/gym.svg?alt=media&token=02611c73-9173-463e-966e-8dacecec4241"
+    },
+    {
+      "nombre": "health",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/health.svg?alt=media&token=931e40d1-5b09-4e32-bd01-829c8dae0a8e"
+    },
+    {
+      "nombre": "home",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/home.svg?alt=media&token=0d1e5300-1cd0-4c8f-934e-46159a2e245d"
+    },
+    {
+      "nombre": "market",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/market.svg?alt=media&token=73bd82a4-bb8c-4217-a72b-b78309a27772"
+    },
+    {
+      "nombre": "resto",
+      "imagen": "https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/resto.svg?alt=media&token=a8af68af-d22b-4833-a4ed-d9c1b2295b8a"
+    }
+  ]
+}

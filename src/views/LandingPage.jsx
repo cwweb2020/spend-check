@@ -1,23 +1,21 @@
-import React, { useContext } from "react";
-import g from "../assets/img/g.png";
-import { DataContext } from "../context/provider/DataUserProvider";
-import ilustrarion from "../assets/img/finanza.png";
+import React, { useContext, useEffect } from 'react';
+import g from '../assets/img/g.png';
+import ilustrarion from '../assets/img/finanza.png';
+import { signInWithGoogle } from '../firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const LandingPage = () => {
-  const { handleLoged } = useContext(DataContext);
+  const navigate = useNavigate();
 
   return (
     <>
       <section className="landing-total">
         <div className="wrapper">
           <h1>Lleva un track de todos tus gastos</h1>
-          <img
-            style={{ width: "230px", marginBottom: "2.5em" }}
-            src={ilustrarion}
-            alt=""
-          />
+          <img style={{ width: '230px', marginBottom: '2.5em' }} src={ilustrarion} alt="" />
           <h3>Ingresa con tu cuenta de google</h3>
-          <button onClick={handleLoged}>
+          <button onClick={signInWithGoogle}>
             <img src={g} alt="" />
             Accede con Google
           </button>
