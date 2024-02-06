@@ -1,12 +1,10 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import g from '../assets/img/g.png';
 import ilustrarion from '../assets/img/finanza.png';
 import { signInWithGoogle } from '../firebase/auth';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
 
 const LandingPage = () => {
-  const navigate = useNavigate();
+  //
 
   return (
     <>

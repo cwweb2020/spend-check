@@ -20,8 +20,15 @@ $shadow-buttons: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 $shadow-ver-detalle-button: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 // mixin para fuentes de titulos
 @mixin customFont {
-  font-size: 1.8em;
+  font-size: 1.625em;
   font-weight: 500;
+  @media (max-width: 900px) {
+    text-align: center;
+    background: #3e8c99;
+    padding: 1.1em 0;
+    border-radius: 18px;
+    color: white;
+  }
 }
 
 // mixin para subtitulos

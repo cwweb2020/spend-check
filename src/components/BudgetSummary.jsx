@@ -1,34 +1,34 @@
-import React, { useEffect, useRef, useState } from 'react';
-import BarChartExample from './BarChartExample';
-import balance from '../assets/img/balance.svg';
-import balanza from '../assets/icons/balanza.svg';
-import sad from '../assets/icons/sad.svg';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react'
+import BarChartExample from './BarChartExample'
+import balance from '../assets/img/balance.svg'
+import balanza from '../assets/icons/balanza.svg'
+import sad from '../assets/icons/sad.svg'
+import { useNavigate } from 'react-router-dom'
 
 //
 const BudgetSummary = () => {
-  const storedAltura = localStorage.getItem('altura');
-  const miElementoRef = useRef(null);
-  const [altura, setAltura] = useState(storedAltura ? parseInt(storedAltura, 10) : 0);
+  const storedAltura = localStorage.getItem('altura')
+  const miElementoRef = useRef(null)
+  const [altura, setAltura] = useState(storedAltura ? parseInt(storedAltura, 10) : 0)
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   useEffect(() => {
     // Recuperar la altura almacenada desde el localStorage
-    const storedAltura = localStorage.getItem('altura');
+    const storedAltura = localStorage.getItem('altura')
 
     // Verificar si no existe el elemento "altura" o su valor es 0
     if (!storedAltura || parseInt(storedAltura, 10) === 0) {
       // Calcular la altura del elemento
-      const nuevaAltura = miElementoRef.current.offsetHeight;
-      setAltura(nuevaAltura);
+      const nuevaAltura = miElementoRef.current.offsetHeight
+      setAltura(nuevaAltura)
       // Almacenar la nueva altura en el localStorage
-      localStorage.setItem('altura', nuevaAltura.toString());
+      localStorage.setItem('altura', nuevaAltura.toString())
     } else {
       // Si existe un valor diferente de 0, utilizarlo como la altura inicial
-      setAltura(parseInt(storedAltura, 10));
+      setAltura(parseInt(storedAltura, 10))
     }
-  }, []);
+  }, [])
 
   return (
     <>
@@ -80,7 +80,7 @@ const BudgetSummary = () => {
       <br />
       <br />
     </>
-  );
-};
+  )
+}
 
-export default BudgetSummary;
+export default BudgetSummary

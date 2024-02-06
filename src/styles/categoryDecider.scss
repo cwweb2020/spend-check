@@ -1,0 +1,146 @@
+.total-category-decider {
+  @include section;
+
+  .category-decider-title {
+    @include customFont;
+    margin: 0 0 1.5em 0;
+
+    .category-decider-back {
+      background: transparent;
+      border: none;
+      color: red;
+      font-size: 20px;
+      font-weight: 800;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+        color: orangered;
+      }
+    }
+  }
+
+  .category-decider-wrapper {
+    @include wrapper;
+    display: grid;
+    grid-template-columns: 55% 1fr;
+    grid-gap: 25px;
+
+    .category-decider-left {
+    }
+
+    .category-decider-right {
+      h4 {
+        font-size: 1.2em;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 2em;
+      }
+
+      .category-decider-gastos-icon-container {
+        grid-template-columns: repeat(auto-fit, 4.437em);
+        grid-gap: 1.25em;
+        padding: 1.25em 1.56em;
+        grid-auto-rows: min-content;
+        justify-content: center;
+        display: grid;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          span {
+            cursor: pointer;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          h3 {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// category card styles
+
+.category-card-dos-container {
+  margin-bottom: 1em;
+  padding: 1.68em 2.12em;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  width: fit-content;
+  box-shadow: $shadow;
+  position: relative;
+
+  .cat-decider-title-img {
+    width: 2.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h4 {
+      font-size: 13px;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .cat-decider-input {
+    align-self: end;
+    //  margin-left: 1em;
+
+    input {
+      // margin-left: 1.25em;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      font-size: 1.5em;
+      padding: 0 0 4px 0.9375em;
+      font-family: 'Maven Pro', sans-serif;
+      flex: 1 1;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  .arrow-back {
+    cursor: pointer;
+    position: absolute;
+    top: 13%;
+    right: 5%;
+
+    &:hover {
+      transform: scale(1.1);
+      color: orangered;
+    }
+  }
+}
+
+//// active with no items
+.with-no-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h4 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+}

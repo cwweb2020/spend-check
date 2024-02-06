@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react';
+import NotAuthotized from '../views/NotAuthotized';
 
 const PrivateRouter = ({ children }) => {
   const isAuth = true;
 
   //
-  return isAuth ? children : <div>Not Auth</div>;
+  return isAuth ? children : <NotAuthotized />;
 };
 
 export default PrivateRouter;

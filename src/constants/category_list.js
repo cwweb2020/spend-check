@@ -1,16 +1,16 @@
-import bus from '../assets/icons/gastos-icon/bus.svg';
-import car from '../assets/icons/gastos-icon/car.svg';
-import edu from '../assets/icons/gastos-icon/edu.svg';
-import entert from '../assets/icons/gastos-icon/entert.svg';
-import gym from '../assets/icons/gastos-icon/gym.svg';
-import health from '../assets/icons/gastos-icon/health.svg';
-import home from '../assets/icons/gastos-icon/home.svg';
-import market from '../assets/icons/gastos-icon/market.svg';
-import cellphone from '../assets/icons/gastos-icon/cellphone.svg';
-import resto from '../assets/icons/gastos-icon/resto.svg';
-import clothes from '../assets/icons/gastos-icon/clothes.svg';
-import mouse from '../assets/icons/gastos-icon/mouse.svg';
-import billetes from '../assets/icons/gastos-icon/billetes.svg';
+import bus from '../assets/icons/iconos-gastos/bus.svg'
+import car from '../assets/icons/iconos-gastos/car.svg'
+import edu from '../assets/icons/iconos-gastos/edu.svg'
+import entert from '../assets/icons/iconos-gastos/entret.svg'
+import gym from '../assets/icons/iconos-gastos/gym.svg'
+import health from '../assets/icons/iconos-gastos/health.svg'
+import home from '../assets/icons/iconos-gastos/house.svg'
+import market from '../assets/icons/iconos-gastos/market.svg'
+import cellphone from '../assets/icons/iconos-gastos/cell.svg'
+import resto from '../assets/icons/iconos-gastos/resto.svg'
+import clothes from '../assets/icons/iconos-gastos/clothe.svg'
+import mouse from '../assets/icons/iconos-gastos/tech.svg'
+import billetes from '../assets/icons/iconos-gastos/billetes.svg'
 
 export const categoryList = [
   {
@@ -30,7 +30,7 @@ export const categoryList = [
   },
   {
     id: 4,
-    name: 'Celular',
+    name: 'Movil',
     icon: cellphone,
   },
   {
@@ -78,4 +78,4 @@ export const categoryList = [
     name: 'Otros.',
     icon: billetes,
   },
-];
+]

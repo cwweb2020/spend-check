@@ -1,56 +1,56 @@
-import React, { useState } from 'react';
-import Tooltip from '@mui/material/Tooltip';
-import { LinearChart } from './charts/LinearChart';
-import BarChartExample from './BarChartExample';
-import income from '../assets/icons/incomes.svg';
-import outcome from '../assets//icons/outcomes.svg';
-import dollar from '../assets/icons/dollar-sign.svg';
-import Divider from '@mui/material/Divider';
-import saldo from '../assets/icons/rest-saldo.svg';
-import { DataContext } from '../context/provider/DataUserProvider';
-import GastosChart from './charts/GastosChart';
-import { LuAsterisk } from 'react-icons/lu';
-import { AiOutlinePercentage } from 'react-icons/ai';
-import { Card, CardContent, CircularProgress } from '@mui/material';
-import ScrollToTopButton from './ScrollToTopButton';
-import FinancialCard from './FinancialCard';
-import { porcentageFunc } from '../utils/calculations/getPorcentageExpenses';
+import React, { useState } from 'react'
+import Tooltip from '@mui/material/Tooltip'
+import { LinearChart } from './charts/LinearChart'
+import BarChartExample from './BarChartExample'
+import income from '../assets/icons/incomes.svg'
+import outcome from '../assets//icons/outcomes.svg'
+import dollar from '../assets/icons/dollar-sign.svg'
+import Divider from '@mui/material/Divider'
+import saldo from '../assets/icons/rest-saldo.svg'
+import { DataContext } from '../context/provider/DataUserProvider'
+import GastosChart from './charts/GastosChart'
+import { LuAsterisk } from 'react-icons/lu'
+import { AiOutlinePercentage } from 'react-icons/ai'
+import { Card, CardContent, CircularProgress } from '@mui/material'
+import ScrollToTopButton from './ScrollToTopButton'
+import FinancialCard from './FinancialCard'
+import { porcentageFunc } from '../utils/calculations/getPorcentageExpenses'
 
 //
 
 //
 
 const SaldoActual = () => {
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const { firstFours } = React.useContext(DataContext);
-  // console.log('firstFours', firstFours);
-  const [tooltipText, setTooltipText] = useState('');
+  const [imagesLoaded, setImagesLoaded] = useState(false)
+  const { firstFours } = React.useContext(DataContext)
+
+  const [tooltipText, setTooltipText] = useState('')
 
   const gastosData = [
     { label: 'setiembre', amount: 500 },
     { label: 'octubre', amount: 750 },
     { label: 'noviembre', amount: 450 },
     { label: 'diciembre', amount: 800 },
-  ];
+  ]
 
-  const totalIncomes = 1050;
+  const totalIncomes = 1050
 
-  const porcentage = porcentageFunc(gastosData, totalIncomes);
+  const porcentage = porcentageFunc(gastosData, totalIncomes)
 
   React.useEffect(() => {
-    porcentageFunc(gastosData, totalIncomes);
-  }, []);
+    porcentageFunc(gastosData, totalIncomes)
+  }, [])
 
   // Simular carga de imágenes
   React.useEffect(() => {
-    const imageLoader = new Image();
-    imageLoader.src = income; // Usar una de las imágenes para cargar
+    const imageLoader = new Image()
+    imageLoader.src = income // Usar una de las imágenes para cargar
 
     imageLoader.onload = () => {
       // Todas las imágenes se han cargado
-      setImagesLoaded(true);
-    };
-  }, []);
+      setImagesLoaded(true)
+    }
+  }, [])
 
   return (
     <>
@@ -68,7 +68,10 @@ const SaldoActual = () => {
               </div>
 
               <div
-                style={{ display: !imagesLoaded ? 'flex' : '', justifyContent: !imagesLoaded ? 'center' : '' }}
+                style={{
+                  display: !imagesLoaded ? 'flex' : '',
+                  justifyContent: !imagesLoaded ? 'center' : '',
+                }}
                 className="aside-saldo-actual-container">
                 {imagesLoaded ? (
                   <>
@@ -146,7 +149,7 @@ const SaldoActual = () => {
                             <h5>{item.name} </h5>
                           </div>
                         </Tooltip>
-                      );
+                      )
                     })}
                   </div>
                 </div>
@@ -222,7 +225,7 @@ const SaldoActual = () => {
       <br />
       <br />
     </>
-  );
-};
+  )
+}
 
-export default SaldoActual;
+export default SaldoActual

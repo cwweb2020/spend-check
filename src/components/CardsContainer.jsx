@@ -1,22 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import Card from './Card';
-import vision from '../assets/img/vision.svg';
-import { cardsIcons } from '../utils/cardsIcons';
-import { Divider, Skeleton } from '@mui/material';
+import React, { useEffect, useState } from 'react'
+import Card from './Card'
+import { cardsIcons } from '../utils/cardsIcons'
+import { CircularProgress, Divider } from '@mui/material'
+import vision2 from '../assets/img/vision2.png'
 
 const CardsContainer = () => {
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false)
 
   // Simular carga de imágenes
   useEffect(() => {
-    const imageLoader = new Image();
-    imageLoader.src = vision; // Usar una de las imágenes para cargar
+    const imageLoader = new Image()
+    imageLoader.src = vision2 // Usar una de las imágenes para cargar
 
     imageLoader.onload = () => {
       // Todas las imágenes se han cargado
-      setImagesLoaded(true);
-    };
-  }, []);
+      setImagesLoaded(true)
+    }
+  }, [])
+
+  const contenedorEstilo = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    //  minHeight: '-webkit-fill-available',
+    width: !imagesLoaded ? 'unset' : '38%',
+    minHeight: '262px',
+  }
 
   return (
     <>
@@ -27,8 +36,8 @@ const CardsContainer = () => {
           <h3>Visión General </h3>
           <div className="wrapper-card-container">
             <div className="left-box">
-              <div className="imgcontainer">
-                {imagesLoaded ? <img src={vision} alt="" /> : <Skeleton variant="rectangular" width={260} height={260} />}
+              <div style={contenedorEstilo} className="imgcontainer">
+                {imagesLoaded ? <img src={vision2} alt="" /> : <CircularProgress />}
                 {/* <img src={vision} alt="" /> */}
               </div>
             </div>
@@ -42,7 +51,7 @@ const CardsContainer = () => {
       </section>
       <Divider style={{ width: '80%', margin: 'auto' }} />
     </>
-  );
-};
+  )
+}
 
-export default CardsContainer;
+export default CardsContainer

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "prettier": {
     "singleQuote": true,
-    "semi": true,
+    "semi": false,
     "trailingComma": "all",
     "jsxBracketSameLine": true,
     "printWidth": 128
@@ -64,5 +64,8 @@
     "enableSmartCommit": true,
     "confirmSync": false,
     "autofetch": true
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

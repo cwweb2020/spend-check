@@ -1,10 +1,10 @@
-import React from 'react';
-import CardsContainer from '../components/CardsContainer';
-import GastosIngresos from '../components/GastosIngresos';
-import SaldoCard from '../components/SaldoCard';
-import ScrollToTopButton from '../components/ScrollToTopButton';
-import BudgetSummary from '../components/BudgetSummary';
-import SaldoCard2 from '../components/SaldoCard2';
+import React from 'react'
+import CardsContainer from '../components/CardsContainer'
+import GastosIngresos from '../components/GastosIngresos'
+import SaldoCard from '../components/SaldoCard'
+import ScrollToTopButton from '../components/ScrollToTopButton'
+import BudgetSummary from '../components/BudgetSummary'
+import SaldoCard2 from '../components/SaldoCard2'
 
 const Dashboard = () => {
   return (
@@ -20,7 +20,7 @@ const Dashboard = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

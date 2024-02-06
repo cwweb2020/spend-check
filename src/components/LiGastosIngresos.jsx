@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const LiGastosIngresos = ({ category, color }) => {
   return (
@@ -7,7 +7,7 @@ const LiGastosIngresos = ({ category, color }) => {
         <span style={{ backgroundColor: color }}></span> {category}
       </li>
     </>
-  );
-};
+  )
+}
 
-export default LiGastosIngresos;
+export default LiGastosIngresos
