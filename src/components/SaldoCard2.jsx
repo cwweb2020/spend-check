@@ -1,29 +1,28 @@
-import { Divider } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import ingresos from '../assets/icons/summary/income-summary.svg';
-import gastos from '../assets/icons/summary/pay-summary.svg';
-import saldo from '../assets/icons/summary/saldo-summary.svg';
-import { useGetScreenWidth } from '../hooks/useGetScreenWidth';
+import React, { useEffect, useState } from 'react'
+import ingresos from '../assets/icons/summary/income-summary.svg'
+import gastos from '../assets/icons/summary/pay-summary.svg'
+import saldo from '../assets/icons/summary/saldo-summary.svg'
+import { useGetScreenWidth } from '../hooks/useGetScreenWidth'
 
 const SaldoCard2 = () => {
-  const [porcent, setPorcent] = useState(null);
+  const [porcent, setPorcent] = useState(null)
 
-  const screenWidth = useGetScreenWidth();
+  const screenWidth = useGetScreenWidth()
 
   // calculate porcentage
   const calculatePorcentage = (incoms, expenses) => {
-    const porcent = (expenses * 100) / incoms;
-    return porcent;
-  };
-  const porcentaje = calculatePorcentage(2500, 1500);
+    const porcent = (expenses * 100) / incoms
+    return porcent
+  }
+  const porcentaje = calculatePorcentage(2500, 1500)
 
   useEffect(() => {
-    setPorcent(porcentaje);
-  }, [porcentaje]);
+    setPorcent(porcentaje)
+  }, [porcentaje])
 
   const circleStyle = {
     '--porcentaje': porcent,
-  };
+  }
 
   return (
     <>
@@ -88,10 +87,11 @@ const SaldoCard2 = () => {
         <>
           <br />
           <br />
+          <br />
         </>
       )}
     </>
-  );
-};
+  )
+}
 
-export default SaldoCard2;
+export default SaldoCard2

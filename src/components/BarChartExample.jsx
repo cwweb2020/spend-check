@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, CartesianGrid, Cell } from 'recharts';
-import { DataContext } from '../context/provider/DataUserProvider';
+import React, { useEffect } from 'react'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell } from 'recharts'
+import { DataContext } from '../context/provider/DataUserProvider'
 
 const BarChartExample = () => {
-  const [Label, setLabel] = React.useState([]);
+  const [Label, setLabel] = React.useState([])
 
-  const { setFirstFours } = React.useContext(DataContext);
+  const { setFirstFours } = React.useContext(DataContext)
   // Datos
   // const data = [
   //   { name: "Octubre", ingresos: 1200, gastos: 800 },
@@ -97,31 +97,31 @@ const BarChartExample = () => {
       img: 'https://firebasestorage.googleapis.com/v0/b/spend-check-4b8e8.appspot.com/o/resto.svg?alt=media&token=a8af68af-d22b-4833-a4ed-d9c1b2295b8a',
       color: '#9C27B0', // Púrpura mate
     },
-  ];
+  ]
 
-  const data2 = [...db];
+  const data2 = [...db]
   //////
 
-  const orderedData = [...data2].sort((a, b) => b.monto - a.monto);
+  const orderedData = [...data2].sort((a, b) => b.monto - a.monto)
 
   // getting the firest 4 elements of the array
-  const firstFour = [...orderedData].slice(0, 4);
+  const firstFour = [...orderedData].slice(0, 4)
 
   const countWordsLength = (str) => {
     let abreviated = str.map((item) => {
       if (item.name.length > 5) {
-        item.name = item.name.slice(0, 6) + '.';
+        item.name = item.name.slice(0, 6) + '.'
       }
-      return item;
-    });
-    setLabel(abreviated);
-  };
+      return item
+    })
+    setLabel(abreviated)
+  }
 
   useEffect(() => {
     // countWordsLength(data2);
-    countWordsLength(orderedData);
-    setFirstFours(firstFour);
-  }, []);
+    countWordsLength(orderedData)
+    setFirstFours(firstFour)
+  }, [])
 
   return (
     <ResponsiveContainer width="100%" height="100%" aspect={2}>
@@ -151,7 +151,7 @@ const BarChartExample = () => {
         </Bar>
       </BarChart>
     </ResponsiveContainer>
-  );
-};
+  )
+}
 
-export default BarChartExample;
+export default BarChartExample

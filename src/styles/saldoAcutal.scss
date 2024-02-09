@@ -6,7 +6,7 @@
 
     .total-saldo-title {
       @include customFont;
-      margin: 0 0 1.1em 0;
+      margin: 0 0 0.8em 0;
     }
 
     .total-saldo-wrapper {
@@ -183,6 +183,7 @@
           font-size: 1.25em;
           font-weight: 500;
           margin: 1.5em 0;
+          text-align: center;
         }
         // ul {
         //   list-style: none;
@@ -217,6 +218,96 @@
               line-height: 20px;
               padding: 10px 10px 0 10px;
               font-size: 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .total-saldo-actual {
+    font-size: 13px;
+    .total-saldo-big-container {
+      .total-saldo-wrapper {
+        width: unset;
+        .total-saldo-subtitle {
+          text-align: center;
+        }
+        .top-saldo-linear-aside-container {
+          grid-template-columns: 1fr;
+          justify-content: center;
+          .saldo-linear-contaienr {
+            order: 2;
+            width: 100%;
+            height: 220px;
+            box-shadow: unset;
+            border-radius: unset;
+          }
+          .aside-saldo-actual-container {
+            font-size: 12px;
+            order: 1;
+            width: 100%;
+            margin: auto;
+            margin-bottom: 2.5em;
+
+            .ingresos {
+              border-top-left-radius: unset;
+              border-top-right-radius: unset;
+            }
+            .saldo {
+              // border-bottom: none;
+              border-bottom-left-radius: unset;
+              border-bottom-right-radius: unset;
+            }
+            .ingresos,
+            .gastos,
+            .saldo {
+              //  background: #fffaf096;
+              background: #fff;
+            }
+          }
+        }
+        .saldo-bar-container {
+          h3 {
+            text-align: center;
+          }
+
+          .saldo-bar-icons-most-expenses {
+            grid-template-columns: 1fr;
+
+            .saldo-bar-chart-wrapper {
+              border-radius: unset;
+              box-shadow: unset;
+              order: 2;
+            }
+            .saldo-bar-chart-imgs {
+              order: 1;
+              margin-bottom: 2em;
+            }
+          }
+        }
+
+        .bottom-compare-categories {
+          .comparative-title {
+            text-align: center;
+          }
+          .gasto-chart-compare {
+            width: unset !important;
+            border-radius: unset;
+            box-shadow: unset;
+          }
+
+          .card-saldo-actual-wrapper {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: repeat(3, 281px);
+            grid-column-gap: 21px;
+            overflow-x: scroll;
+
+            .financial-card {
+              width: unset;
             }
           }
         }

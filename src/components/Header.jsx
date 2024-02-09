@@ -1,25 +1,35 @@
-import React, { useContext, useEffect, useState } from 'react';
-import house from '../assets/icons/house.svg';
-import { useNavigate } from 'react-router-dom';
-import person from '../assets/icons/person-svgrepo-com.svg';
-import LanguageSelector from './material-icons/LanguageSelector';
-import { useGetScreenWidth } from '../hooks/useGetScreenWidth';
-import { AuthContext } from '../context/AuthContext';
+import React, { useState } from 'react'
+import house from '../assets/icons/house.svg'
+import { useNavigate } from 'react-router-dom'
+import person from '../assets/icons/person-svgrepo-com.svg'
+import LanguageSelector from './material-icons/LanguageSelector'
+import { useGetScreenWidth } from '../hooks/useGetScreenWidth'
+import { logout } from '../firebase/auth'
 
 const Header = () => {
-  const nameLocalStorage = localStorage.getItem('name');
-  const [name, setName] = useState(nameLocalStorage);
-  const navigate = useNavigate();
+  const nameLocalStorage = localStorage.getItem('name')
+  const [name, setName] = useState(nameLocalStorage)
+  const navigate = useNavigate()
   //
 
   const redirectToHome = () => {
-    navigate('/');
-  };
+    navigate('/')
+  }
   //
-  const screenWidth = useGetScreenWidth();
-  const langTitle = screenWidth < 900 ? 'Lang' : 'Language';
+  const screenWidth = useGetScreenWidth()
+  const langTitle = screenWidth < 900 ? 'Lang' : 'Language'
 
   //
+
+  const handleLogOut = async () => {
+    try {
+      await logout()
+      setName('')
+      localStorage.removeItem('token')
+      localStorage.removeItem('name')
+      navigate('/auth/login')
+    } catch (error) {}
+  }
 
   return (
     <>
@@ -35,19 +45,22 @@ const Header = () => {
               src={person}
               alt=""
             />
-            <h3>{name}</h3>/<h4 style={exit}>Salir</h4>
+            <h3>{name}</h3>/
+            <h4 onClick={handleLogOut} style={exit}>
+              Salir
+            </h4>
           </div>
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
 const exit = {
   color: '#ff0000',
   cursor: 'pointer',
   fontSize: '1.06em',
-};
+}
 
 var mobileStyleForHeader = {
   position: 'fixed',
@@ -56,6 +69,6 @@ var mobileStyleForHeader = {
   background: 'lightblue',
   fontSize: '13px',
   zIndex: '100',
-};
+}
 
-export default Header;
+export default Header

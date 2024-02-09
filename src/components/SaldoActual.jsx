@@ -11,10 +11,11 @@ import { DataContext } from '../context/provider/DataUserProvider'
 import GastosChart from './charts/GastosChart'
 import { LuAsterisk } from 'react-icons/lu'
 import { AiOutlinePercentage } from 'react-icons/ai'
-import { Card, CardContent, CircularProgress } from '@mui/material'
+import { CircularProgress } from '@mui/material'
 import ScrollToTopButton from './ScrollToTopButton'
 import FinancialCard from './FinancialCard'
 import { porcentageFunc } from '../utils/calculations/getPorcentageExpenses'
+import { useGetScreenWidth } from '../hooks/useGetScreenWidth'
 
 //
 
@@ -23,8 +24,9 @@ import { porcentageFunc } from '../utils/calculations/getPorcentageExpenses'
 const SaldoActual = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false)
   const { firstFours } = React.useContext(DataContext)
+  const screenWidth = useGetScreenWidth()
 
-  const [tooltipText, setTooltipText] = useState('')
+  // const [tooltipText, setTooltipText] = useState('')
 
   const gastosData = [
     { label: 'setiembre', amount: 500 },
@@ -121,7 +123,7 @@ const SaldoActual = () => {
                 display: 'flex',
                 alignItems: 'center',
               }}>
-              <LuAsterisk /> Progresión de gastos en los últimos 4 meses
+              <LuAsterisk /> {screenWidth > 900 ? 'Progresión de gastos en los últimos 4 meses' : 'Gastos ultimos 4 meses'}
             </p>
             {/* entering extplanation for the chart */}
             <Divider />
@@ -144,7 +146,7 @@ const SaldoActual = () => {
                           enterDelay={500}
                           leaveDelay={200}
                           placement="top">
-                          <div className="saldo-bar-chart-img">
+                          <div style={{ width: screenWidth < 900 && '3em' }} className="saldo-bar-chart-img">
                             <img src={item.img} alt="" />
                             <h5>{item.name} </h5>
                           </div>
@@ -168,8 +170,9 @@ const SaldoActual = () => {
                     display: 'flex',
                     alignItems: 'center',
                   }}>
-                  <LuAsterisk /> Porcentaje de tus gastos sobre tus ingresos en <span style={{ opacity: '0' }}>.</span>{' '}
-                  <AiOutlinePercentage />
+                  <LuAsterisk />{' '}
+                  {screenWidth > 900 ? 'Porcentaje de tus gastos sobre tus ingresos en' : 'Porcentaje de tus gastos en'}{' '}
+                  <span style={{ opacity: '0' }}>.</span> <AiOutlinePercentage />
                 </p>
               </div>
 
@@ -216,6 +219,7 @@ const SaldoActual = () => {
                 </Card> */}
                 <FinancialCard />
                 <FinancialCard />
+                <FinancialCard />
               </div>
             </div>
           </div>
@@ -224,6 +228,14 @@ const SaldoActual = () => {
       <ScrollToTopButton />
       <br />
       <br />
+      {screenWidth < 900 ? (
+        <>
+          <br />
+          <br />
+        </>
+      ) : (
+        ''
+      )}
     </>
   )
 }

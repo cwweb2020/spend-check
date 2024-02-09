@@ -4,7 +4,7 @@ import { FaArrowRight } from 'react-icons/fa'
 const CategoryCard = ({ category, handleRemoveFromSelected, handleCatInput }) => {
   return (
     <>
-      <div className="category-card-dos-container" key={category.id} style={{ display: 'flex', alignItems: 'center' }}>
+      <div className="category-card-dos-container" style={{ display: 'flex', alignItems: 'center' }}>
         <span className="cat-decider-title-img">
           <h4>{category.name} </h4>
           <img src={category.icon} alt="" />

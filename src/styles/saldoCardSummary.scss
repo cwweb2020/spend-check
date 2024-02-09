@@ -246,8 +246,10 @@
 .summary-balance-right-box circle:nth-child(2) {
   stroke-dasharray: var(--porcentaje) 100;
   // stroke: #eb9c4d;
-  // stroke: #ff725e;
-  stroke: #313cd7;
+  stroke: #ff725e;
+  // stroke: #313cd7;
+  // stroke: #cb3234;
+  // stroke: #327bcb;
   animation: rellenar 0.35s linear forwards;
 }
 

@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from 'react'
 import { categoryList } from '../constants/category_list'
-import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6'
+import { FaArrowLeftLong } from 'react-icons/fa6'
 import { useGetScreenWidth } from '../hooks/useGetScreenWidth'
 import CategoryCard from './categoryCard/CategoryCard'
 
@@ -58,27 +58,23 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
     [categoryData],
   )
 
-  const gatherBudgetData = useCallback(() => {
-    const budgetData = categoryData.selectedCategories.map((category) => ({
-      name: category.name,
-      value: category.value,
-    }))
-
-    setCategoryData({ ...categoryData, arrOfSelectedDataInput: budgetData })
-  }, [categoryData])
+  // const gatherBudgetData = useCallback(() => {
+  //   const budgetData = categoryData.selectedCategories.map((category) => ({
+  //     name: category.name,
+  //     value: category.value,
+  //   }))
+  //   console.log(budgetData, 'budgetData')
+  //   setCategoryData({ ...categoryData, arrOfSelectedDataInput: budgetData })
+  // }, [categoryData])
 
   const arrOfSelectedDataInput = useMemo(() => {
+    console.log(categoryData.selectedCategories, 'categoryData.selectedCategories')
     return categoryData.selectedCategories.map((category) => ({
       name: category.name,
       value: category.value,
     }))
   }, [categoryData.selectedCategories])
-
-  // const nextButtonStyle = {
-  //   top: screenWidth < 900 ? '100%' : '97%',
-  //   background: !categoryData.isDataEntered && 'lightgray',
-  //   cursor: !categoryData.isDataEntered && 'not-allowed',
-  // }
+  console.log(arrOfSelectedDataInput, 'arrOfSelectedDataInput')
 
   return (
     <>
@@ -121,6 +117,12 @@ const CategoryDecider = ({ handlePreview, handleNext }) => {
             </div>
           </div>
         </div>
+        <ul>
+          {arrOfSelectedDataInput.map((item, index) => (
+            <li key={index}>{`${item.name}: ${item.value === undefined ? '0' : item.value}`}</li>
+          ))}
+        </ul>
+        <h4>Suma total: ${categoryData.totalAmount.toFixed(2)}</h4>
       </section>
       <br />
       <br />
