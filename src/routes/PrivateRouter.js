@@ -3,9 +3,9 @@ import NotAuthotized from '../views/NotAuthotized'
 import { AuthContext } from '../context/AuthContext'
 
 const PrivateRouter = ({ children }) => {
-  const { accessToken } = React.useContext(AuthContext)
+  const { appToken } = React.useContext(AuthContext)
   // console.log(accessToken, 'accessToken')
-  const isAuth = accessToken ? true : false
+  const isAuth = appToken ? true : false
   // const isAuth = !!accessToken
   // console.log(isAuth, 'isAuth')
 

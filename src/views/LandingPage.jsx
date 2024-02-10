@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import g from '../assets/img/g.png'
 import ilustrarion from '../assets/img/finanza.png'
-import { signInWithGoogle } from '../firebase/auth'
-import { useNavigate } from 'react-router-dom'
+
 import { CircularProgress } from '@mui/material'
 import { AuthContext } from '../context/AuthContext'
 
@@ -10,32 +9,16 @@ const LandingPage = () => {
   const [loading, setLoading] = useState(false)
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
-  const { accessToken } = useContext(AuthContext)
-
-  const navigate = useNavigate()
+  const { login } = useContext(AuthContext)
 
   const handleLogin = async () => {
     try {
-      const user = await signInWithGoogle()
-      // setUser(user)
-
       setLoading(true)
-      if (user) {
-        console.log(user, 'user')
-        // navigate('/')
-      }
+      await login()
     } catch (error) {
       console.log(error)
     }
   }
-
-  useEffect(() => {
-    if (accessToken) {
-      navigate('/')
-    } else {
-      navigate('/auth/login')
-    }
-  }, [accessToken])
 
   useEffect(() => {
     const imageLoader = new Image()

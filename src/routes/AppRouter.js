@@ -1,12 +1,12 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import AuthRouter from './AuthRouter';
-import SpendCheckRouter from './SpendCheckRouter';
-import PrivateRouter from './PrivateRouter';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import AuthRouter from './AuthRouter'
+import SpendCheckRouter from './SpendCheckRouter'
+import PrivateRouter from './PrivateRouter'
 
 const AppRouter = () => {
   return (
-    <BrowserRouter>
+    <>
       <Routes>
         <Route exact path="auth/*" element={<AuthRouter />} />
         <Route
@@ -18,8 +18,8 @@ const AppRouter = () => {
           }
         />
       </Routes>
-    </BrowserRouter>
-  );
-};
+    </>
+  )
+}
 
-export default AppRouter;
+export default AppRouter

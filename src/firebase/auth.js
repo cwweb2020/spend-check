@@ -19,32 +19,27 @@ export const db = getFirestore(app)
 const provider = new GoogleAuthProvider()
 
 const auth = getAuth()
-let name = ''
 export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, provider)
     // const credential = GoogleAuthProvider.credentialFromResult(result)
     // const token = credential.accessToken
-    const user = result.user
-    const {
-      displayName,
-      email,
-      uid,
-      accessToken,
-      metadata: { lastSignInTime },
-    } = user
-    name = displayName
+    const { user } = result
+    // const {
+    //   displayName,
+    //   email,
+    //   uid,
+    //   accessToken,
+    //   metadata: { lastSignInTime },
+    // } = user
 
-    let firstName = name.split(' ')
-
-    localStorage.setItem('token', accessToken)
-    localStorage.setItem('name', firstName[0])
+    // let firstName = displayName.split(' ')
 
     // TODO: Revisar si el usuario ya existe en la base de datos de Firestore
 
     // Almacena en Firestore el ID del usuario
-    const newUserID = await createItem(db, { displayName, email, lastSignInTime, uid }, 'users')
-    return newUserID
+    // const newUserID = await createItem(db, { displayName, email, lastSignInTime, uid }, 'users')
+    return user
   } catch (error) {
     console.log(error)
     const errorCode = error.code

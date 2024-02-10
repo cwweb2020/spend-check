@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import house from '../assets/icons/house.svg'
 import { useNavigate } from 'react-router-dom'
 import person from '../assets/icons/person-svgrepo-com.svg'
@@ -7,8 +7,9 @@ import { useGetScreenWidth } from '../hooks/useGetScreenWidth'
 import { logout } from '../firebase/auth'
 
 const Header = () => {
-  const nameLocalStorage = localStorage.getItem('name')
-  const [name, setName] = useState(nameLocalStorage)
+  const nameLocalStorage = localStorage.getItem('user')
+  const userObject = JSON.parse(nameLocalStorage)
+  const [name, setName] = useState(null)
   const navigate = useNavigate()
   //
 
@@ -30,6 +31,13 @@ const Header = () => {
       navigate('/auth/login')
     } catch (error) {}
   }
+
+  useEffect(() => {
+    if (userObject) {
+      const firstName = userObject.displayName.split(' ')
+      setName(`${firstName[0]} `)
+    }
+  }, [])
 
   return (
     <>
